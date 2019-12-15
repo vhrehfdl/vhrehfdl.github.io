@@ -19,7 +19,7 @@
 <meta property="og:description" content="Tensorflow gpu 설치 기록!">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;setting&#x2F;setting.jpg">
-<meta property="og:updated_time" content="2019-12-15T08:24:05.014Z">
+<meta property="og:updated_time" content="2019-12-15T08:30:05.274Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;setting&#x2F;setting.jpg">
 
@@ -175,7 +175,7 @@
             <p>Tensorflow gpu 설치 기록!</p>
 <a id="more"></a>
 
-<h2 id="2019-12-15-업데이트"><a href="#2019-12-15-업데이트" class="headerlink" title="2019.12.15 업데이트"></a>2019.12.15 업데이트</h2><hr>
+<h1 id="2019-12-15-업데이트"><a href="#2019-12-15-업데이트" class="headerlink" title="2019.12.15 업데이트"></a>2019.12.15 업데이트</h1><hr>
 <p>최근에 연구실 컴퓨터 바꾸면서 GPU 세팅 다시했는데 금방 환경 세팅이 된 것 같다.  </p>
 <ol>
 <li>CUDA Toolkit 9.X 버전 설치</li>
@@ -185,9 +185,11 @@
 <li>Anaconda로 가상환경 설정 후 tensorflow gpu 1.5 버전 설치<br>(근데 이 부분이 좀 헷갈리는게 Anaconda Navigator에서 tensorflow gpu 설치하면 자동으로 CUDA 버전에 맞춰서 tesnsorflow gpu가 1.5로 세팅이 되는 것 같다. 정확히 확인은 못 했는데 분명 2.0버전으로 설치했는데 확인해보니 1.5가 설치되어 있었다. 뭐지???)</li>
 </ol>
 <p>CUDA 버전, CuDNN 버전, Tensorflow 버전만 잘 맞추면 큰 문제 없이 설치 할 수 있다.<br>window 환경변수는 CuDNN bin 폴더만 잘 설정하면 된다.<br>별 거 없다. (자주 해서 그런가?)</p>
-<h2 id="후기"><a href="#후기" class="headerlink" title="후기"></a>후기</h2><hr>
-<p>설치는 했는데 갑자기 성공해서 왜 성공한지를 모르겠다.<br>추측컨데, 첫번째 이유로 CUDA Toolkit과 cuDNN 부분의 호환 문제인 것 같다.<br>두번재 이유로는 환경 설정 문제인 것으로 추정되어진다.<br>( 추가. tensorlfow gpu 1.5 버전으로 설치해서 성공한거다. 최신 버전 설치했을 때는 DLL 에러 발생했었는데… 1.5 버전으로 하니까 된다. )​<br>​</p>
-<h2 id="설치"><a href="#설치" class="headerlink" title="설치"></a>설치</h2><hr>
+<br>
+
+<h1 id="후기"><a href="#후기" class="headerlink" title="후기"></a>후기</h1><hr>
+<p>설치는 했는데 갑자기 성공해서 왜 성공한지를 모르겠다.<br>추측컨데, 첫번째 이유로 CUDA Toolkit과 cuDNN 부분의 호환 문제인 것 같다.<br>두번재 이유로는 환경 설정 문제인 것으로 추정되어진다.<br>( 추가. tensorlfow gpu 1.5 버전으로 설치해서 성공한거다. 최신 버전 설치했을 때는 DLL 에러 발생했었는데… 1.5 버전으로 하니까 된다. )​<br>​<br><br></p>
+<h1 id="설치"><a href="#설치" class="headerlink" title="설치"></a>설치</h1><hr>
 <ol>
 <li><p>CUDA Toolkit 설치  </p>
 <ul>
@@ -268,11 +270,13 @@
 <li><p>밑의 코드를 실행시키고 에러가 발생하지 않는다면 설치에 성공한 것이다.</p>
 <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; import tensorflow as tf</span></pre></td></tr><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; hello = tf.constant(‘Hello, TensorFlow!’)</span></pre></td></tr><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; sess = tf.Session()</span></pre></td></tr><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; sess.run(hello)</span></pre></td></tr><tr><td class="code"><pre><span class="line">b’Hello, TensorFlow!’</span></pre></td></tr><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; a = tf.constant(10)</span></pre></td></tr><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; b = tf.constant(32)</span></pre></td></tr><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; sess.run(a + b)</span></pre></td></tr><tr><td class="code"><pre><span class="line">42</span></pre></td></tr></table></figure>
 <p>​</p>
+<br>
+
 </li>
 </ul>
 </li>
 </ol>
-<h2 id="참고-URL"><a href="#참고-URL" class="headerlink" title="참고 URL"></a>참고 URL</h2><hr>
+<h1 id="참고-URL"><a href="#참고-URL" class="headerlink" title="참고 URL"></a>참고 URL</h1><hr>
 <ol>
 <li><p>가장 큰 도움이 되었다. ( 구세주… )</p>
 <ul>
@@ -400,7 +404,7 @@
                     </p>
                     <a href="/categories">
                         <p class="title has-text-weight-normal">
-                            2
+                            3
                         </p>
                     </a>
                 </div>
@@ -492,7 +496,15 @@
                 <span class="level-item">Setting</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">3</span>
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/setting/">
+            <span class="level-start">
+                <span class="level-item">setting</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
             </span>
         </a></li>
             </ul>
