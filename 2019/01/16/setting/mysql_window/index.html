@@ -7,19 +7,19 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>SSH 접속 - Hexo</title>
+<title>mysql window에서 설치 - Hexo</title>
 
 
-    <meta name="description" content="가장 기본적인 3306 포트 여는 방법">
-<meta name="keywords" content="ubuntu,port">
+    <meta name="description" content="후기 쉽게 설치할 수 있는 것이기는 하지만 혹시 나중에 또 설치할 때 귀찮을까봐 미리 정리해둔다.">
+<meta name="keywords" content="mysql,window">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SSH 접속">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;01&#x2F;15&#x2F;setting&#x2F;ssh_connect&#x2F;index.html">
+<meta property="og:title" content="mysql window에서 설치">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;01&#x2F;16&#x2F;setting&#x2F;mysql_window&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="가장 기본적인 3306 포트 여는 방법">
+<meta property="og:description" content="후기 쉽게 설치할 수 있는 것이기는 하지만 혹시 나중에 또 설치할 때 귀찮을까봐 미리 정리해둔다.">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;setting&#x2F;setting.jpg">
-<meta property="og:updated_time" content="2019-12-15T08:31:00.270Z">
+<meta property="og:updated_time" content="2019-12-21T08:09:22.831Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;setting&#x2F;setting.jpg">
 
@@ -87,7 +87,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="SSH 접속" height="28">
+                <img src="/images/logo.svg" alt="mysql window에서 설치" height="28">
             
             </a>
         </div>
@@ -141,7 +141,7 @@
     
     <div class="card-image">
         <span  class="image is-7by1">
-            <img class="thumbnail" src="/images/setting/setting.jpg" alt="SSH 접속">
+            <img class="thumbnail" src="/images/setting/setting.jpg" alt="mysql window에서 설치">
         </span>
     </div>
     
@@ -149,7 +149,7 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-01-15T04:25:00.000Z">2019-01-15</time>
+                <time class="level-item has-text-grey" datetime="2019-01-16T02:28:00.000Z">2019-01-16</time>
                 
                 <div class="level-item">
                 <a class="has-link-grey -link" href="/categories/setting/">setting</a>
@@ -159,7 +159,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    a minute read (About 189 words)
+                    2 minutes read (About 251 words)
                 </span>
                 
                 
@@ -168,25 +168,54 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                SSH 접속
+                mysql window에서 설치
             
         </h1>
         <div class="content">
-            <p>가장 기본적인 3306 포트 여는 방법</p>
+            <h2 id="후기"><a href="#후기" class="headerlink" title="후기"></a>후기</h2><ul>
+<li>쉽게 설치할 수 있는 것이기는 하지만 혹시 나중에 또 설치할 때 귀찮을까봐 미리 정리해둔다.</li>
+</ul>
 <a id="more"></a>
 
-<h3 id="1-openssh를-설치해준다"><a href="#1-openssh를-설치해준다" class="headerlink" title="1.openssh를 설치해준다."></a>1.openssh를 설치해준다.</h3><figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">apt-get install openssh-server</span></pre></td></tr></table></figure>
+<hr>
+<h2 id="설치"><a href="#설치" class="headerlink" title="설치"></a>설치</h2><ol>
+<li>mysql installer 설치</li>
+</ol>
+<ul>
+<li><p>zip파일로 설치하는 과거 문서들이 많은데 installer로 설치하는게 훨씬 간편하다.</p>
+</li>
+<li><p>[Download] : <a href="https://dev.mysql.com/downloads/windows/installer/" target="_blank" rel="noopener">https://dev.mysql.com/downloads/windows/installer/</a></p>
+</li>
+<li><p>Installer 실행 후에는 다른거 건드리지 말고 그냥 next만 누르면 된다.</p>
+</li>
+<li><p>중간에 root 비밀번호 입력하라고 나오는데 그것만 입력하고 계속 next 누르면 설치 완료된다.</p>
+</li>
+</ul>
+<ol start="2">
+<li>mysql 윈도우 cmd에서 사용하기</li>
+</ol>
+<ul>
+<li>환경변수를 설정하지 않으면 ( 그림1 ) 처럼 mysql -u root -p 했을 때 없는 명령어라고 뜬다.</li>
+</ul>
+<center><img src="/images/setting/20190116_1128.png" alt="cmd에서 mysql 사용"></center><br>
 
-<h3 id="2-설정파일을-바꾸어준다"><a href="#2-설정파일을-바꾸어준다" class="headerlink" title="2. 설정파일을 바꾸어준다."></a>2. 설정파일을 바꾸어준다.</h3><p>/etc/ssh/sshd_config 파일의 PermitRootLogin 부분을 yes로 만들어준다.</p>
-<center><img src="/images/setting/ssh_connect_setting.png" width="100%" alt="sshd_config"></center><br>
+<ul>
+<li>환경변수 설정은 시스템-&gt; 정보 -&gt; 시스템 정보 -&gt; 고급 시스템 설정 </li>
+</ul>
+<center><img src="/images/setting/20190116_1129.png" alt="환경변수 설정 과정1"></center><br>
 
-<h3 id="3-비밀번호를-설정해준다"><a href="#3-비밀번호를-설정해준다" class="headerlink" title="3. 비밀번호를 설정해준다."></a>3. 비밀번호를 설정해준다.</h3><p>root 비밀번호가 처음에는 아마 설정 안되어 있기 때문에 설정해준 다음 접속한다.</p>
-<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">sudo passwd root</span></pre></td></tr></table></figure>
 
-<h3 id="4-ssh를-재시작한다"><a href="#4-ssh를-재시작한다" class="headerlink" title="4. ssh를 재시작한다."></a>4. ssh를 재시작한다.</h3><figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">sudo service ssh start</span></pre></td></tr></table></figure>
+<ul>
+<li>환경변수 -&gt; 시스템 변수 ( Path ) -&gt; 편집</li>
+</ul>
+<center><img src="/images/setting/20190116_1130.png" alt="환경변수 설정 과정2"></center><br>
+​
 
-<h3 id="번외"><a href="#번외" class="headerlink" title="! 번외"></a>! 번외</h3><p>근데 최근에 ubuntu 18 버전으로 설치하고 openssh-server install 했는데 sshd_config 파일이 전부 주석처리 되어 있는 경우가 있었다.</p>
-<p>결국은 해결 못 하고 16.04버전으로 했는데… 이럴 경우에 어떻게 해야 할지 좀 찾아봐야 겠다.</p>
+<ul>
+<li>mysql 폴더 내부의 bin 폴더 위치를 환경변수의 등록해주면 마무리 된다.</li>
+</ul>
+<center><img src="/images/setting/20190116_1131.png" alt="환경변수 설정 과정3"></center><br>
+
 
         </div>
         
@@ -194,7 +223,7 @@
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/port/" rel="tag">port</a>, <a class="has-link-grey -link" href="/tags/ubuntu/" rel="tag">ubuntu</a>
+                    <a class="has-link-grey -link" href="/tags/mysql/" rel="tag">mysql</a>, <a class="has-link-grey -link" href="/tags/window/" rel="tag">window</a>
                 </div>
             </div>
         </div>
@@ -221,16 +250,16 @@
     <div class="level post-navigation is-flex-wrap is-mobile">
         
         <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/01/15/setting/tensorflow_gpu_setting/">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/01/16/setting/pycharm_setting/">
                 <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">Tensorflow gpu 설치</span>
+                <span class="level-item">Pycharm 가상환경 설정</span>
             </a>
         </div>
         
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2019/01/15/setting/ubuntu_open_port/">
-                <span class="level-item">tensorflow version error</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/01/15/setting/tensorflow_gpu_setting/">
+                <span class="level-item">Tensorflow gpu 설치</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -1072,7 +1101,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="SSH 접속" height="28">
+                    <img src="/images/logo.svg" alt="mysql window에서 설치" height="28">
                 
                 </a>
                 <p class="is-size-7">

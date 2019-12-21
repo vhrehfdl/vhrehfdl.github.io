@@ -19,7 +19,7 @@
 <meta property="og:description" content="Tensorflow gpu 설치 기록!">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;setting&#x2F;setting.jpg">
-<meta property="og:updated_time" content="2019-12-15T08:33:56.421Z">
+<meta property="og:updated_time" content="2019-12-21T08:09:22.832Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;setting&#x2F;setting.jpg">
 
@@ -175,8 +175,7 @@
             <p>Tensorflow gpu 설치 기록!</p>
 <a id="more"></a>
 
-<h1 id="2019-12-15-업데이트"><a href="#2019-12-15-업데이트" class="headerlink" title="2019.12.15 업데이트"></a>2019.12.15 업데이트</h1><hr>
-<p>최근에 연구실 컴퓨터 바꾸면서 GPU 세팅 다시했는데 금방 환경 세팅이 된 것 같다.  </p>
+<h2 id="2019-12-15-업데이트"><a href="#2019-12-15-업데이트" class="headerlink" title="2019.12.15 업데이트"></a>2019.12.15 업데이트</h2><p>최근에 연구실 컴퓨터 바꾸면서 GPU 세팅 다시했는데 금방 환경 세팅이 된 것 같다.  </p>
 <ol>
 <li>CUDA Toolkit 9.X 버전 설치</li>
 <li>CuDNN 9.X 버전대 맞춰서 설치</li>
@@ -185,12 +184,10 @@
 <li>Anaconda로 가상환경 설정 후 tensorflow gpu 1.5 버전 설치<br>(근데 이 부분이 좀 헷갈리는게 Anaconda Navigator에서 tensorflow gpu 설치하면 자동으로 CUDA 버전에 맞춰서 tesnsorflow gpu가 1.5로 세팅이 되는 것 같다. 정확히 확인은 못 했는데 분명 2.0버전으로 설치했는데 확인해보니 1.5가 설치되어 있었다. 뭐지???)</li>
 </ol>
 <p>CUDA 버전, CuDNN 버전, Tensorflow 버전만 잘 맞추면 큰 문제 없이 설치 할 수 있다.<br>window 환경변수는 CuDNN bin 폴더만 잘 설정하면 된다.<br>별 거 없다. (자주 해서 그런가?)</p>
-<br>
-
-<h1 id="후기"><a href="#후기" class="headerlink" title="후기"></a>후기</h1><hr>
-<p>설치는 했는데 갑자기 성공해서 왜 성공한지를 모르겠다.<br>추측컨데, 첫번째 이유로 CUDA Toolkit과 cuDNN 부분의 호환 문제인 것 같다.<br>두번재 이유로는 환경 설정 문제인 것으로 추정되어진다.<br>( 추가. tensorlfow gpu 1.5 버전으로 설치해서 성공한거다. 최신 버전 설치했을 때는 DLL 에러 발생했었는데… 1.5 버전으로 하니까 된다. )​<br>​<br><br></p>
-<h1 id="설치"><a href="#설치" class="headerlink" title="설치"></a>설치</h1><hr>
-<ol>
+<hr>
+<h2 id="후기"><a href="#후기" class="headerlink" title="후기"></a>후기</h2><p>설치는 했는데 갑자기 성공해서 왜 성공한지를 모르겠다.<br>추측컨데, 첫번째 이유로 CUDA Toolkit과 cuDNN 부분의 호환 문제인 것 같다.<br>두번재 이유로는 환경 설정 문제인 것으로 추정되어진다.<br>( 추가. tensorlfow gpu 1.5 버전으로 설치해서 성공한거다. 최신 버전 설치했을 때는 DLL 에러 발생했었는데… 1.5 버전으로 하니까 된다. )​<br>​</p>
+<hr>
+<h2 id="설치"><a href="#설치" class="headerlink" title="설치"></a>설치</h2><ol>
 <li><p>CUDA Toolkit 설치  </p>
 <ul>
 <li><p>CUDA Toolkit 9.0을 다운로드 했다. ( cuDNN 과의 호환 때문에 버전을 신경써서 설치해야 한다. 가급적이면 똑같이 하는게 좋다. )</p>
@@ -270,14 +267,12 @@
 <li><p>밑의 코드를 실행시키고 에러가 발생하지 않는다면 설치에 성공한 것이다.</p>
 <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; import tensorflow as tf</span></pre></td></tr><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; hello = tf.constant(‘Hello, TensorFlow!’)</span></pre></td></tr><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; sess = tf.Session()</span></pre></td></tr><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; sess.run(hello)</span></pre></td></tr><tr><td class="code"><pre><span class="line">b’Hello, TensorFlow!’</span></pre></td></tr><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; a = tf.constant(10)</span></pre></td></tr><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; b = tf.constant(32)</span></pre></td></tr><tr><td class="code"><pre><span class="line">&gt;&gt;&gt; sess.run(a + b)</span></pre></td></tr><tr><td class="code"><pre><span class="line">42</span></pre></td></tr></table></figure>
 <p>​</p>
-<br>
-
 </li>
 </ul>
 </li>
 </ol>
-<h1 id="참고-URL"><a href="#참고-URL" class="headerlink" title="참고 URL"></a>참고 URL</h1><hr>
-<ol>
+<hr>
+<h2 id="참고-URL"><a href="#참고-URL" class="headerlink" title="참고 URL"></a>참고 URL</h2><ol>
 <li><p>가장 큰 도움이 되었다. ( 구세주… )</p>
 <ul>
 <li><a href="https://devyurim.github.io/python/tensorflow/2018/04/30/tensorflow-1.html" target="_blank" rel="noopener">https://devyurim.github.io/python/tensorflow/2018/04/30/tensorflow-1.html</a></li>
@@ -329,9 +324,9 @@
     <div class="level post-navigation is-flex-wrap is-mobile">
         
         <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/01/31/error_set/tensorflow_version_error-1/">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/01/16/setting/mysql_window/">
                 <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">tensorflow version error</span>
+                <span class="level-item">mysql window에서 설치</span>
             </a>
         </div>
         
@@ -392,7 +387,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            19
+                            20
                         </p>
                     </a>
                 </div>
@@ -416,7 +411,7 @@
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            18
+                            20
                         </p>
                     </a>
                 </div>
@@ -488,7 +483,7 @@
                 <span class="level-item">Error</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">15</span>
+                <span class="level-item tag">14</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/setting/">
@@ -496,7 +491,7 @@
                 <span class="level-item">setting</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">3</span>
+                <span class="level-item tag">5</span>
             </span>
         </a></li>
             </ul>
@@ -512,25 +507,6 @@
         <h3 class="menu-label">
             Recent
         </h3>
-        
-        <article class="media">
-            
-            <a href="/2019/04/08/error_set/tensorflow_error/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/error_set/error.jpg" alt="tensorflow &#39;drop_remainder&#39; error">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-08T05:46:00.000Z">2019-04-08</time></div>
-                    <a href="/2019/04/08/error_set/tensorflow_error/" class="title has-link-black-ter is-size-6 has-text-weight-normal">tensorflow &#39;drop_remainder&#39; error</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Error/">Error</a>
-                    </p>
-                </div>
-            </div>
-        </article>
         
         <article class="media">
             
@@ -608,6 +584,25 @@
             </div>
         </article>
         
+        <article class="media">
+            
+            <a href="/2019/03/27/error_set/tensorflow_hub_error/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/error_set/error.jpg" alt="Tensorflow ImportError cannot import name &#39;regex_replace&#39;">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-03-27T04:41:00.000Z">2019-03-27</time></div>
+                    <a href="/2019/03/27/error_set/tensorflow_hub_error/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Tensorflow ImportError cannot import name &#39;regex_replace&#39;</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Error/">Error</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
     </div>
 </div>
         
@@ -625,7 +620,7 @@
                     <span class="level-item">April 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">5</span>
+                    <span class="level-item tag">4</span>
                 </span>
             </a>
         </li>
@@ -658,7 +653,7 @@
                     <span class="level-item">January 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">5</span>
+                    <span class="level-item tag">7</span>
                 </span>
             </a>
         </li>
@@ -737,6 +732,13 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/mysql/">
+                        <span class="tag">mysql</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/pandas/">
                         <span class="tag">pandas</span>
                         <span class="tag is-grey">1</span>
@@ -767,7 +769,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/pycharm/">
                         <span class="tag">pycharm</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
@@ -788,7 +790,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/tensorflow/">
                         <span class="tag">tensorflow</span>
-                        <span class="tag is-grey">4</span>
+                        <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
@@ -810,6 +812,13 @@
                     <a class="tags has-addons" href="/tags/ubuntu/">
                         <span class="tag">ubuntu</span>
                         <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/window/">
+                        <span class="tag">window</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
@@ -837,25 +846,6 @@
         
         <article class="media">
             
-            <a href="/2019/04/08/error_set/tensorflow_error/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/error_set/error.jpg" alt="tensorflow &#39;drop_remainder&#39; error">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-08T05:46:00.000Z">2019-04-08</time></div>
-                    <a href="/2019/04/08/error_set/tensorflow_error/" class="title has-link-black-ter is-size-6 has-text-weight-normal">tensorflow &#39;drop_remainder&#39; error</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Error/">Error</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
             <a href="/2019/04/08/error_set/tensorflow_version_error/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/error_set/error.jpg" alt="tensorflow version error">
@@ -930,6 +920,25 @@
             </div>
         </article>
         
+        <article class="media">
+            
+            <a href="/2019/03/27/error_set/tensorflow_hub_error/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/error_set/error.jpg" alt="Tensorflow ImportError cannot import name &#39;regex_replace&#39;">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-03-27T04:41:00.000Z">2019-03-27</time></div>
+                    <a href="/2019/03/27/error_set/tensorflow_hub_error/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Tensorflow ImportError cannot import name &#39;regex_replace&#39;</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Error/">Error</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
     </div>
 </div>
     
@@ -947,7 +956,7 @@
                     <span class="level-item">April 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">5</span>
+                    <span class="level-item tag">4</span>
                 </span>
             </a>
         </li>
@@ -980,7 +989,7 @@
                     <span class="level-item">January 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">5</span>
+                    <span class="level-item tag">7</span>
                 </span>
             </a>
         </li>
@@ -1059,6 +1068,13 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/mysql/">
+                        <span class="tag">mysql</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/pandas/">
                         <span class="tag">pandas</span>
                         <span class="tag is-grey">1</span>
@@ -1089,7 +1105,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/pycharm/">
                         <span class="tag">pycharm</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
@@ -1110,7 +1126,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/tensorflow/">
                         <span class="tag">tensorflow</span>
-                        <span class="tag is-grey">4</span>
+                        <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
@@ -1132,6 +1148,13 @@
                     <a class="tags has-addons" href="/tags/ubuntu/">
                         <span class="tag">ubuntu</span>
                         <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/window/">
+                        <span class="tag">window</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 

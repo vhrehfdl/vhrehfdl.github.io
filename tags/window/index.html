@@ -7,21 +7,17 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>SSH 접속 - Hexo</title>
+<title>Tag: window - Hexo</title>
 
 
-    <meta name="description" content="가장 기본적인 3306 포트 여는 방법">
-<meta name="keywords" content="ubuntu,port">
-<meta property="og:type" content="article">
-<meta property="og:title" content="SSH 접속">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;01&#x2F;15&#x2F;setting&#x2F;ssh_connect&#x2F;index.html">
+    <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;tags&#x2F;window&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="가장 기본적인 3306 포트 여는 방법">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;setting&#x2F;setting.jpg">
-<meta property="og:updated_time" content="2019-12-15T08:31:00.270Z">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;og_image.png">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;setting&#x2F;setting.jpg">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;og_image.png">
 
 
 
@@ -87,7 +83,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="SSH 접속" height="28">
+                <img src="/images/logo.svg" alt="Hexo" height="28">
             
             </a>
         </div>
@@ -136,20 +132,31 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
+    <div class="card-content">
+        <nav class="breadcrumb" aria-label="breadcrumbs">
+        <ul>
+            <li><a href="/tags">Tags</a></li>
+            <li class="is-active"><a href="#" aria-current="page">window</a></li>
+        </ul>
+        </nav>
+    </div>
+</div>
+
+    
 <div class="card">
     
     <div class="card-image">
-        <span  class="image is-7by1">
-            <img class="thumbnail" src="/images/setting/setting.jpg" alt="SSH 접속">
-        </span>
+        <a href="/2019/01/16/setting/pycharm_setting/" class="image is-7by1">
+            <img class="thumbnail" src="/images/setting/setting.jpg" alt="Pycharm 가상환경 설정">
+        </a>
     </div>
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-01-15T04:25:00.000Z">2019-01-15</time>
+                <time class="level-item has-text-grey" datetime="2019-01-16T05:12:00.000Z">2019-01-16</time>
                 
                 <div class="level-item">
                 <a class="has-link-grey -link" href="/categories/setting/">setting</a>
@@ -159,7 +166,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    a minute read (About 189 words)
+                    a minute read (About 210 words)
                 </span>
                 
                 
@@ -168,75 +175,92 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                SSH 접속
+                <a class="has-link-black-ter" href="/2019/01/16/setting/pycharm_setting/">Pycharm 가상환경 설정</a>
             
         </h1>
         <div class="content">
-            <p>가장 기본적인 3306 포트 여는 방법</p>
-<a id="more"></a>
-
-<h3 id="1-openssh를-설치해준다"><a href="#1-openssh를-설치해준다" class="headerlink" title="1.openssh를 설치해준다."></a>1.openssh를 설치해준다.</h3><figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">apt-get install openssh-server</span></pre></td></tr></table></figure>
-
-<h3 id="2-설정파일을-바꾸어준다"><a href="#2-설정파일을-바꾸어준다" class="headerlink" title="2. 설정파일을 바꾸어준다."></a>2. 설정파일을 바꾸어준다.</h3><p>/etc/ssh/sshd_config 파일의 PermitRootLogin 부분을 yes로 만들어준다.</p>
-<center><img src="/images/setting/ssh_connect_setting.png" width="100%" alt="sshd_config"></center><br>
-
-<h3 id="3-비밀번호를-설정해준다"><a href="#3-비밀번호를-설정해준다" class="headerlink" title="3. 비밀번호를 설정해준다."></a>3. 비밀번호를 설정해준다.</h3><p>root 비밀번호가 처음에는 아마 설정 안되어 있기 때문에 설정해준 다음 접속한다.</p>
-<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">sudo passwd root</span></pre></td></tr></table></figure>
-
-<h3 id="4-ssh를-재시작한다"><a href="#4-ssh를-재시작한다" class="headerlink" title="4. ssh를 재시작한다."></a>4. ssh를 재시작한다.</h3><figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">sudo service ssh start</span></pre></td></tr></table></figure>
-
-<h3 id="번외"><a href="#번외" class="headerlink" title="! 번외"></a>! 번외</h3><p>근데 최근에 ubuntu 18 버전으로 설치하고 openssh-server install 했는데 sshd_config 파일이 전부 주석처리 되어 있는 경우가 있었다.</p>
-<p>결국은 해결 못 하고 16.04버전으로 했는데… 이럴 경우에 어떻게 해야 할지 좀 찾아봐야 겠다.</p>
-
+            <h2 id="후기"><a href="#후기" class="headerlink" title="후기"></a>후기</h2><p>간단하다. 그냥 혹시라도 나중에 찾아볼까 만들어둔다.<br>다만 Pycharm이 처음이고해서 낯선 감이 없지 않아 있지만 Jetbrain 계열이라 친숙하다.</p>
         </div>
         
-        <div class="level is-size-7 is-uppercase">
+        
+        <div class="level is-mobile">
             <div class="level-start">
                 <div class="level-item">
-                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/port/" rel="tag">port</a>, <a class="has-link-grey -link" href="/tags/ubuntu/" rel="tag">ubuntu</a>
+                <a class="button is-size-7 is-light" href="/2019/01/16/setting/pycharm_setting/#more">Read More</a>
                 </div>
             </div>
         </div>
         
         
-        
     </div>
 </div>
 
 
 
+
+
+
+
+
+    
 <div class="card">
-    <div class="card-content">
-        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
-        <div class="buttons is-centered">
+    
+    <div class="card-image">
+        <a href="/2019/01/16/setting/mysql_window/" class="image is-7by1">
+            <img class="thumbnail" src="/images/setting/setting.jpg" alt="mysql window에서 설치">
+        </a>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-01-16T02:28:00.000Z">2019-01-16</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/setting/">setting</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    2 minutes read (About 251 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
+                <a class="has-link-black-ter" href="/2019/01/16/setting/mysql_window/">mysql window에서 설치</a>
+            
+        </h1>
+        <div class="content">
+            <h2 id="후기"><a href="#후기" class="headerlink" title="후기"></a>후기</h2><ul>
+<li>쉽게 설치할 수 있는 것이기는 하지만 혹시 나중에 또 설치할 때 귀찮을까봐 미리 정리해둔다.</li>
+</ul>
         </div>
+        
+        
+        <div class="level is-mobile">
+            <div class="level-start">
+                <div class="level-item">
+                <a class="button is-size-7 is-light" href="/2019/01/16/setting/mysql_window/#more">Read More</a>
+                </div>
+            </div>
+        </div>
+        
+        
     </div>
 </div>
 
 
 
-<div class="card card-transparent">
-    <div class="level post-navigation is-flex-wrap is-mobile">
-        
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/01/15/setting/tensorflow_gpu_setting/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">Tensorflow gpu 설치</span>
-            </a>
-        </div>
-        
-        
-        <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2019/01/15/setting/ubuntu_open_port/">
-                <span class="level-item">tensorflow version error</span>
-                <i class="level-item fas fa-chevron-right"></i>
-            </a>
-        </div>
-        
-    </div>
-</div>
+
+
+
 
 
 </div>
@@ -1072,7 +1096,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="SSH 접속" height="28">
+                    <img src="/images/logo.svg" alt="Hexo" height="28">
                 
                 </a>
                 <p class="is-size-7">
