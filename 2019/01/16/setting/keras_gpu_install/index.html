@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+<html  lang="en">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 4.0.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>Keras GPU 설치 - Hexo</title>
+
+
+    <meta name="description" content="후기  Keras는 Tensorflow랑 다르게 크게 변경할 것이 없다.Keras는 정말 사용하기 쉬운 것 같다.">
+<meta name="keywords" content="keras,gpu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Keras GPU 설치">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;01&#x2F;16&#x2F;setting&#x2F;keras_gpu_install&#x2F;index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="후기  Keras는 Tensorflow랑 다르게 크게 변경할 것이 없다.Keras는 정말 사용하기 쉬운 것 같다.">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;setting&#x2F;setting.jpg">
+<meta property="og:updated_time" content="2019-12-22T06:55:13.429Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;setting&#x2F;setting.jpg">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/railscasts.css">
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154384419-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-154384419-1');
+</script>
+
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.svg" alt="Keras GPU 설치" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">Home</a>
+                
+                <a class="navbar-item"
+                href="/archives">Archives</a>
+                
+                <a class="navbar-item"
+                href="/categories">Categories</a>
+                
+                <a class="navbar-item"
+                href="/tags">Tags</a>
+                
+                <a class="navbar-item"
+                href="/about">About</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;" target="_blank" rel="noopener">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-image">
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="/images/setting/setting.jpg" alt="Keras GPU 설치">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-01-16T05:27:00.000Z">2019-01-16</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/setting/">setting</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    4 minutes read (About 627 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                Keras GPU 설치
+            
+        </h1>
+        <div class="content">
+            <h2 id="후기"><a href="#후기" class="headerlink" title="후기"></a>후기</h2><hr>
+<ul>
+<li>Keras는 Tensorflow랑 다르게 크게 변경할 것이 없다.<br>Keras는 정말 사용하기 쉬운 것 같다.</li>
+</ul>
+<a id="more"></a>
+
+<hr>
+<p>​</p>
+<h2 id="설치"><a href="#설치" class="headerlink" title="설치"></a>설치</h2><hr>
+<ol>
+<li>anaconda 에 가상 환경 만들어주기</li>
+</ol>
+<ul>
+<li><p>anaconda prompt에서 다음의 명령어를 실행해준다.</p>
+  <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">conda create --name keras</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">activate keras</span></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<ol start="2">
+<li><p>keras-gpu 버전을 설치한다.</p>
+ <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">conda install keras-gpu</span></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>​</p>
+<h2 id="CPU와-GPU-속도-비교"><a href="#CPU와-GPU-속도-비교" class="headerlink" title="CPU와 GPU 속도 비교"></a>CPU와 GPU 속도 비교</h2><hr>
+<ul>
+<li><p>CPU : Intel(R) Core(TM) i7-8700K CPU @ 3.7GHz</p>
+</li>
+<li><p>GPU : NVIDIA GeForce GTX 1080Ti</p>
+</li>
+<li><p>사용 코드 : CNN을 이용한 MNIST 데이터 분류 코드</p>
+</li>
+</ul>
+<figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-string">'''Trains a simple convnet on the MNIST dataset.</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-string">Gets to 99.25% test accuracy after 12 epochs</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-string">(there is still a lot of margin for parameter tuning).</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-string">16 seconds per epoch on a GRID K520 GPU.</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-string">'''</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> __future__ <span class="hljs-keyword">import</span> print_function</span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> keras</span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> keras.datasets <span class="hljs-keyword">import</span> mnist</span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> keras.models <span class="hljs-keyword">import</span> Sequential</span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> keras.layers <span class="hljs-keyword">import</span> Dense, Dropout, Flatten</span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> keras.layers <span class="hljs-keyword">import</span> Conv2D, MaxPooling2D</span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> keras <span class="hljs-keyword">import</span> backend <span class="hljs-keyword">as</span> K</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">batch_size = <span class="hljs-number">128</span>        <span class="hljs-comment"># 배치 사이즈 128로 설정.</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">num_classes = <span class="hljs-number">10</span>        <span class="hljs-comment"># 정답 라벨링 개수 ( 0 ~ 10 )</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">epochs = <span class="hljs-number">3</span>             <span class="hljs-comment"># Epoch 반복 회숫 3회로 설정</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-comment"># input image dimensions</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">img_rows, img_cols = <span class="hljs-number">28</span>, <span class="hljs-number">28</span>         <span class="hljs-comment"># 이미지 가로 세로 배열.</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-comment"># MNIST 데이터 불러오기</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">(x_train, y_train), (x_test, y_test) = mnist.load_data()</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">if</span> K.image_data_format() == <span class="hljs-string">'channels_first'</span>:</span></pre></td></tr><tr><td class="code"><pre><span class="line">    x_train = x_train.reshape(x_train.shape[<span class="hljs-number">0</span>], <span class="hljs-number">1</span>, img_rows, img_cols)</span></pre></td></tr><tr><td class="code"><pre><span class="line">    x_test = x_test.reshape(x_test.shape[<span class="hljs-number">0</span>], <span class="hljs-number">1</span>, img_rows, img_cols)</span></pre></td></tr><tr><td class="code"><pre><span class="line">    input_shape = (<span class="hljs-number">1</span>, img_rows, img_cols)</span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">else</span>:</span></pre></td></tr><tr><td class="code"><pre><span class="line">    x_train = x_train.reshape(x_train.shape[<span class="hljs-number">0</span>], img_rows, img_cols, <span class="hljs-number">1</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line">    x_test = x_test.reshape(x_test.shape[<span class="hljs-number">0</span>], img_rows, img_cols, <span class="hljs-number">1</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line">    input_shape = (img_rows, img_cols, <span class="hljs-number">1</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">x_train = x_train.astype(<span class="hljs-string">'float32'</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line">x_test = x_test.astype(<span class="hljs-string">'float32'</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line">x_train /= <span class="hljs-number">255</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">x_test /= <span class="hljs-number">255</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">print(<span class="hljs-string">'x_train shape:'</span>, x_train.shape)</span></pre></td></tr><tr><td class="code"><pre><span class="line">print(x_train.shape[<span class="hljs-number">0</span>], <span class="hljs-string">'train samples'</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line">print(x_test.shape[<span class="hljs-number">0</span>], <span class="hljs-string">'test samples'</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-comment"># convert class vectors to binary class matrices</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">y_train = keras.utils.to_categorical(y_train, num_classes)</span></pre></td></tr><tr><td class="code"><pre><span class="line">y_test = keras.utils.to_categorical(y_test, num_classes)</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">model = Sequential()</span></pre></td></tr><tr><td class="code"><pre><span class="line">model.add(Conv2D(<span class="hljs-number">32</span>, kernel_size=(<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), activation=<span class="hljs-string">'relu'</span>, input_shape=input_shape))           <span class="hljs-comment"># Input Layer : 32개의 필터를 가진다.</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">model.add(Conv2D(<span class="hljs-number">64</span>, (<span class="hljs-number">3</span>, <span class="hljs-number">3</span>), activation=<span class="hljs-string">'relu'</span>))                                                <span class="hljs-comment"># 첫번째 hidden layer이며 64개의 필터를 가진다.</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">model.add(MaxPooling2D(pool_size=(<span class="hljs-number">2</span>, <span class="hljs-number">2</span>)))                                                       <span class="hljs-comment"># Pooling Layer를 의미한다.</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">model.add(Dropout(<span class="hljs-number">0.25</span>))                                                                        <span class="hljs-comment"># Dropout을 0.25로 하여 overfitting을 방지한다.</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">model.add(Flatten())                                                                            <span class="hljs-comment"># 데이터를 1차원으로 바꿔주는 Layer. 아래의 fully_connected_layer에 연결해주기 위해 1차원으로 바꾸어준다.</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">model.add(Dense(<span class="hljs-number">128</span>, activation=<span class="hljs-string">'relu'</span>))                                                        <span class="hljs-comment"># Dense는 Fully Connected Layer를 의미한다.</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">model.add(Dropout(<span class="hljs-number">0.5</span>))                                                                         <span class="hljs-comment"># Dropout은 0.5로 하여 overfitting을 방지한다.</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">model.add(Dense(num_classes, activation=<span class="hljs-string">'softmax'</span>))                                             <span class="hljs-comment"># Output Layer를 의미하며 activation은 softmax로 분류흘 한다.</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">model.summary()                                                                                 <span class="hljs-comment"># 모델의 요약을 보여준다.</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">model.compile(loss=keras.losses.categorical_crossentropy,</span></pre></td></tr><tr><td class="code"><pre><span class="line">            optimizer=keras.optimizers.Adadelta(),</span></pre></td></tr><tr><td class="code"><pre><span class="line">            metrics=[<span class="hljs-string">'accuracy'</span>])</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">model.fit(x_train, y_train,</span></pre></td></tr><tr><td class="code"><pre><span class="line">        batch_size=batch_size,</span></pre></td></tr><tr><td class="code"><pre><span class="line">        epochs=epochs,</span></pre></td></tr><tr><td class="code"><pre><span class="line">        verbose=<span class="hljs-number">1</span>,</span></pre></td></tr><tr><td class="code"><pre><span class="line">        validation_data=(x_test, y_test))</span></pre></td></tr><tr><td class="code"><pre><span class="line">score = model.evaluate(x_test, y_test, verbose=<span class="hljs-number">0</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line">print(<span class="hljs-string">'Test loss:'</span>, score[<span class="hljs-number">0</span>])</span></pre></td></tr><tr><td class="code"><pre><span class="line">print(<span class="hljs-string">'Test accuracy:'</span>, score[<span class="hljs-number">1</span>])</span></pre></td></tr></table></figure>
+
+
+<ul>
+<li>CPU 결과 : 167초</li>
+</ul>
+<center><img src="/images/setting/20190116_1427.png" alt="CPU 사용"></center><br>
+
+
+<ul>
+<li>GPU 결과 : 9초</li>
+</ul>
+<center><img src="/images/setting/20190116_1428.png" alt="GPU 사용​"></center><br>
+
+<p>​</p>
+<h2 id="참고-URL"><a href="#참고-URL" class="headerlink" title="참고 URL"></a>참고 URL</h2><ul>
+<li>[URL] : <a href="https://agiantmind.tistory.com/192" target="_blank" rel="noopener">https://agiantmind.tistory.com/192</a></li>
+</ul>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/gpu/" rel="tag">gpu</a>, <a class="has-link-grey -link" href="/tags/keras/" rel="tag">keras</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/01/16/setting/nginx_php_mysql_install/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">Nginx + PHP7.0 + MySQL 설치</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/01/16/setting/pycharm_setting/">
+                <span class="level-item">Pycharm 가상환경 설정</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="" src="/images/avatar.png" alt="Hooni">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        Hooni
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        More and more.
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Suwon, South Korea</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Posts
+                    </p>
+                    <a href="/archives">
+                        <p class="title has-text-weight-normal">
+                            23
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Categories
+                    </p>
+                    <a href="/categories">
+                        <p class="title has-text-weight-normal">
+                            2
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Tags
+                    </p>
+                    <a href="/tags">
+                        <p class="title has-text-weight-normal">
+                            24
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/ppoffice" target="_blank">
+                Follow</a>
+        </div>
+        
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Github" href="https://github.com/vhrehfdl">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Facebook" href="https://facebook.com">
+                
+                <i class="fab fa-facebook"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Twitter" href="https://twitter.com">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Dribbble" href="https://dribbble.com">
+                
+                <i class="fab fa-dribbble"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="RSS" href="/">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Categories
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/Error/">
+            <span class="level-start">
+                <span class="level-item">Error</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">14</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/setting/">
+            <span class="level-start">
+                <span class="level-item">setting</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">8</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/04/08/error_set/tensorflow_version_error/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/error_set/error.jpg" alt="tensorflow version error">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-08T05:46:00.000Z">2019-04-08</time></div>
+                    <a href="/2019/04/08/error_set/tensorflow_version_error/" class="title has-link-black-ter is-size-6 has-text-weight-normal">tensorflow version error</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Error/">Error</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/04/07/error_set/tensorflow_gpu_error/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/error_set/error.jpg" alt="Loaded runtime CuDNN library 7101">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-07T07:20:00.000Z">2019-04-07</time></div>
+                    <a href="/2019/04/07/error_set/tensorflow_gpu_error/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Loaded runtime CuDNN library 7101</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Error/">Error</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/04/07/error_set/pandas_error/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/error_set/error.jpg" alt="pandas No module named &#39;pandas.core.internals.managers&#39;">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-07T03:43:00.000Z">2019-04-07</time></div>
+                    <a href="/2019/04/07/error_set/pandas_error/" class="title has-link-black-ter is-size-6 has-text-weight-normal">pandas No module named &#39;pandas.core.internals.managers&#39;</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Error/">Error</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/04/04/error_set/tensorflow_hub_error-1/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/error_set/error.jpg" alt="Tensorflow RuntimeError Missing implementation that supports loader">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-04T02:44:00.000Z">2019-04-04</time></div>
+                    <a href="/2019/04/04/error_set/tensorflow_hub_error-1/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Tensorflow RuntimeError Missing implementation that supports loader</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Error/">Error</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/03/27/error_set/tensorflow_hub_error/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/error_set/error.jpg" alt="Tensorflow ImportError cannot import name &#39;regex_replace&#39;">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-03-27T04:41:00.000Z">2019-03-27</time></div>
+                    <a href="/2019/03/27/error_set/tensorflow_hub_error/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Tensorflow ImportError cannot import name &#39;regex_replace&#39;</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Error/">Error</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archives
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">April 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/03/">
+                <span class="level-start">
+                    <span class="level-item">March 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">6</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/01/">
+                <span class="level-start">
+                    <span class="level-item">January 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">10</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/01/">
+                <span class="level-start">
+                    <span class="level-item">January 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Tags
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/drop-remainder/">
+                        <span class="tag">drop_remainder</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/elmo/">
+                        <span class="tag">elmo</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/encoding/">
+                        <span class="tag">encoding</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/exec/">
+                        <span class="tag">exec</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/google-cloud/">
+                        <span class="tag">google cloud</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/google-speech-api/">
+                        <span class="tag">google speech api</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/gpu/">
+                        <span class="tag">gpu</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/java/">
+                        <span class="tag">java</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/keras/">
+                        <span class="tag">keras</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/konlpy/">
+                        <span class="tag">konlpy</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/mysql/">
+                        <span class="tag">mysql</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/nginx/">
+                        <span class="tag">nginx</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/pandas/">
+                        <span class="tag">pandas</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/php/">
+                        <span class="tag">php</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/pickle/">
+                        <span class="tag">pickle</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/port/">
+                        <span class="tag">port</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/pycharm/">
+                        <span class="tag">pycharm</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/python/">
+                        <span class="tag">python</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/scrapy/">
+                        <span class="tag">scrapy</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/tensorflow/">
+                        <span class="tag">tensorflow</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/tensorflow-gpu/">
+                        <span class="tag">tensorflow gpu</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/tensorflow-hub/">
+                        <span class="tag">tensorflow hub</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ubuntu/">
+                        <span class="tag">ubuntu</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/window/">
+                        <span class="tag">window</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/04/08/error_set/tensorflow_version_error/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/error_set/error.jpg" alt="tensorflow version error">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-08T05:46:00.000Z">2019-04-08</time></div>
+                    <a href="/2019/04/08/error_set/tensorflow_version_error/" class="title has-link-black-ter is-size-6 has-text-weight-normal">tensorflow version error</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Error/">Error</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/04/07/error_set/tensorflow_gpu_error/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/error_set/error.jpg" alt="Loaded runtime CuDNN library 7101">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-07T07:20:00.000Z">2019-04-07</time></div>
+                    <a href="/2019/04/07/error_set/tensorflow_gpu_error/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Loaded runtime CuDNN library 7101</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Error/">Error</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/04/07/error_set/pandas_error/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/error_set/error.jpg" alt="pandas No module named &#39;pandas.core.internals.managers&#39;">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-07T03:43:00.000Z">2019-04-07</time></div>
+                    <a href="/2019/04/07/error_set/pandas_error/" class="title has-link-black-ter is-size-6 has-text-weight-normal">pandas No module named &#39;pandas.core.internals.managers&#39;</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Error/">Error</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/04/04/error_set/tensorflow_hub_error-1/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/error_set/error.jpg" alt="Tensorflow RuntimeError Missing implementation that supports loader">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-04T02:44:00.000Z">2019-04-04</time></div>
+                    <a href="/2019/04/04/error_set/tensorflow_hub_error-1/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Tensorflow RuntimeError Missing implementation that supports loader</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Error/">Error</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/03/27/error_set/tensorflow_hub_error/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/error_set/error.jpg" alt="Tensorflow ImportError cannot import name &#39;regex_replace&#39;">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-03-27T04:41:00.000Z">2019-03-27</time></div>
+                    <a href="/2019/03/27/error_set/tensorflow_hub_error/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Tensorflow ImportError cannot import name &#39;regex_replace&#39;</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Error/">Error</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archives
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">April 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/03/">
+                <span class="level-start">
+                    <span class="level-item">March 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">2</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">6</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/01/">
+                <span class="level-start">
+                    <span class="level-item">January 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">10</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/01/">
+                <span class="level-start">
+                    <span class="level-item">January 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Tags
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/drop-remainder/">
+                        <span class="tag">drop_remainder</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/elmo/">
+                        <span class="tag">elmo</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/encoding/">
+                        <span class="tag">encoding</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/exec/">
+                        <span class="tag">exec</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/google-cloud/">
+                        <span class="tag">google cloud</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/google-speech-api/">
+                        <span class="tag">google speech api</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/gpu/">
+                        <span class="tag">gpu</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/java/">
+                        <span class="tag">java</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/keras/">
+                        <span class="tag">keras</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/konlpy/">
+                        <span class="tag">konlpy</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/mysql/">
+                        <span class="tag">mysql</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/nginx/">
+                        <span class="tag">nginx</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/pandas/">
+                        <span class="tag">pandas</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/php/">
+                        <span class="tag">php</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/pickle/">
+                        <span class="tag">pickle</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/port/">
+                        <span class="tag">port</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/pycharm/">
+                        <span class="tag">pycharm</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/python/">
+                        <span class="tag">python</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/scrapy/">
+                        <span class="tag">scrapy</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/tensorflow/">
+                        <span class="tag">tensorflow</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/tensorflow-gpu/">
+                        <span class="tag">tensorflow gpu</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/tensorflow-hub/">
+                        <span class="tag">tensorflow hub</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ubuntu/">
+                        <span class="tag">ubuntu</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/window/">
+                        <span class="tag">window</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="Keras GPU 설치" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 John Doe&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("en");</script>
+
+<script>
+var IcarusThemeSettings = {
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+    
+    
+<script src="/js/animation.js"></script>
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+    
+    
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+    
+    
+<a id="back-to-top" title="Back to Top" href="javascript:;" target="_blank" rel="noopener">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>
