@@ -7,17 +7,21 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>Tag: git - Hexo</title>
+<title>Google Cloud Storage 설치하기 - Hexo</title>
 
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;tags&#x2F;git&#x2F;index.html">
+    <meta name="description" content="Google Cloud Storage 설치">
+<meta name="keywords" content="gcs">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Google Cloud Storage 설치하기">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;02&#x2F;14&#x2F;setting&#x2F;google_cloud_storage&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Google Cloud Storage 설치">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;og_image.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;setting&#x2F;setting.jpg">
+<meta property="og:updated_time" content="2019-12-23T05:51:54.319Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;og_image.png">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;setting&#x2F;setting.jpg">
 
 
 
@@ -83,7 +87,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Hexo" height="28">
+                <img src="/images/logo.svg" alt="Google Cloud Storage 설치하기" height="28">
             
             </a>
         </div>
@@ -132,31 +136,20 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
-    <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/tags">Tags</a></li>
-            <li class="is-active"><a href="#" aria-current="page">git</a></li>
-        </ul>
-        </nav>
-    </div>
-</div>
-
-    
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
 <div class="card">
     
     <div class="card-image">
-        <a href="/2019/02/07/setting/linux_git/" class="image is-7by1">
-            <img class="thumbnail" src="/images/setting/setting.jpg" alt="Ubuntu git 설치">
-        </a>
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="/images/setting/setting.jpg" alt="Google Cloud Storage 설치하기">
+        </span>
     </div>
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-02-07T02:54:00.000Z">2019-02-07</time>
+                <time class="level-item has-text-grey" datetime="2019-02-14T01:38:00.000Z">2019-02-14</time>
                 
                 <div class="level-item">
                 <a class="has-link-grey -link" href="/categories/setting/">setting</a>
@@ -166,7 +159,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    a minute read (About 118 words)
+                    a few seconds read (About 92 words)
                 </span>
                 
                 
@@ -175,23 +168,38 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2019/02/07/setting/linux_git/">Ubuntu git 설치</a>
+                Google Cloud Storage 설치하기
             
         </h1>
         <div class="content">
             <ul>
-<li>Git Install</li>
+<li>Google Cloud Storage 설치</li>
 </ul>
+<a id="more"></a>​
+
+<h2 id="설치-과정"><a href="#설치-과정" class="headerlink" title="설치 과정"></a>설치 과정</h2><hr>
+<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">curl https://sdk.cloud.google.com | bash</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-built_in">exec</span> -l <span class="hljs-variable">$SHELL</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">gcloud init</span></pre></td></tr></table></figure>
+<p>​</p>
+<h2 id="새로운-버킷-생성-명령어"><a href="#새로운-버킷-생성-명령어" class="headerlink" title="새로운 버킷 생성 명령어"></a>새로운 버킷 생성 명령어</h2><hr>
+<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">gsutil mb -l us-east1 gs://my-awesome-bucket/</span></pre></td></tr></table></figure>
+<p>​</p>
+<h2 id="파일-업로드"><a href="#파일-업로드" class="headerlink" title="파일 업로드"></a>파일 업로드</h2><hr>
+<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">gsutil cp Desktop/kitten.png gs://my-awesome-bucket</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">gsutil cp /home/lee/video/chul9hyung/5Hj3sW2OroU.wav gs://my-youtube-bucket</span></pre></td></tr></table></figure>
+<p>​​</p>
+<h2 id="버킷에-파일-조회"><a href="#버킷에-파일-조회" class="headerlink" title="버킷에 파일 조회"></a>버킷에 파일 조회</h2><hr>
+<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">gsutil ls gs://my-awesome-bucket</span></pre></td></tr></table></figure>
+
         </div>
         
-        
-        <div class="level is-mobile">
+        <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/02/07/setting/linux_git/#more">Read More</a>
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/gcs/" rel="tag">gcs</a>
                 </div>
             </div>
         </div>
+        
         
         
     </div>
@@ -199,9 +207,37 @@
 
 
 
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
+        </div>
+    </div>
+</div>
 
 
 
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/02/24/error_set/ubuntu_error/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">Ubuntu E Problem executing scripts</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/02/14/error_set/google_cloud_storage_error/">
+                <span class="level-item">GCS API 403 caller has no permission</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
 
 
 </div>
@@ -1135,7 +1171,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Hexo" height="28">
+                    <img src="/images/logo.svg" alt="Google Cloud Storage 설치하기" height="28">
                 
                 </a>
                 <p class="is-size-7">

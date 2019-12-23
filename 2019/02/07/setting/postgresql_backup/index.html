@@ -7,17 +7,21 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>Tag: git - Hexo</title>
+<title>PostgreSQL 백업 복원 - Hexo</title>
 
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;tags&#x2F;git&#x2F;index.html">
+    <meta name="description" content="PostgreSQL은 DB 특성상 console 작업이 너무 불편해 PgAdmin을 연동해야 한다.">
+<meta name="keywords" content="postgresql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PostgreSQL 백업 복원">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;02&#x2F;07&#x2F;setting&#x2F;postgresql_backup&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="PostgreSQL은 DB 특성상 console 작업이 너무 불편해 PgAdmin을 연동해야 한다.">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;og_image.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;setting&#x2F;setting.jpg">
+<meta property="og:updated_time" content="2019-12-23T05:40:44.433Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;og_image.png">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;setting&#x2F;setting.jpg">
 
 
 
@@ -83,7 +87,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Hexo" height="28">
+                <img src="/images/logo.svg" alt="PostgreSQL 백업 복원" height="28">
             
             </a>
         </div>
@@ -132,31 +136,20 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
-    <div class="card-content">
-        <nav class="breadcrumb" aria-label="breadcrumbs">
-        <ul>
-            <li><a href="/tags">Tags</a></li>
-            <li class="is-active"><a href="#" aria-current="page">git</a></li>
-        </ul>
-        </nav>
-    </div>
-</div>
-
-    
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
 <div class="card">
     
     <div class="card-image">
-        <a href="/2019/02/07/setting/linux_git/" class="image is-7by1">
-            <img class="thumbnail" src="/images/setting/setting.jpg" alt="Ubuntu git 설치">
-        </a>
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="/images/setting/setting.jpg" alt="PostgreSQL 백업 복원">
+        </span>
     </div>
     
     <div class="card-content article ">
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-02-07T02:54:00.000Z">2019-02-07</time>
+                <time class="level-item has-text-grey" datetime="2019-02-07T04:58:00.000Z">2019-02-07</time>
                 
                 <div class="level-item">
                 <a class="has-link-grey -link" href="/categories/setting/">setting</a>
@@ -166,7 +159,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    a minute read (About 118 words)
+                    a minute read (About 120 words)
                 </span>
                 
                 
@@ -175,23 +168,67 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2019/02/07/setting/linux_git/">Ubuntu git 설치</a>
+                PostgreSQL 백업 복원
             
         </h1>
         <div class="content">
             <ul>
-<li>Git Install</li>
+<li>PostgreSQL은 DB 특성상 console 작업이 너무 불편해 PgAdmin을 연동해야 한다.</li>
 </ul>
+<a id="more"></a>​
+
+
+<h2 id="PgAdmin-연동"><a href="#PgAdmin-연동" class="headerlink" title="PgAdmin 연동"></a>PgAdmin 연동</h2><hr>
+<ul>
+<li>PostgreSQL 외부접속을 허용한다.</li>
+</ul>
+<ol>
+<li><p>listen_addresses 변경</p>
+<ul>
+<li><p>/etc/postgrsql/9.5/main/postgresql.conf 에 들어간다. 저 부분을 변경해준다.</p>
+<center><img src="/images/setting/20190207_1358.png"></center><br>
+</li>
+</ul>
+</li>
+<li><p>host 값 추가</p>
+<ul>
+<li><p>/etc/postgresql/9.5/main/pg_hba.conf 에 들어가 가장 마지막 부분에 한 줄 입력해준다.</p>
+<center><img src="/images/setting/20190207_1359.png"></center><br>
+</li>
+</ul>
+</li>
+<li><p>DB 재시작</p>
+</li>
+</ol>
+<h2 id="백업"><a href="#백업" class="headerlink" title="백업"></a>백업</h2><hr>
+<ul>
+<li>Backup을 눌러준다.</li>
+</ul>
+<center><img src="/images/setting/20190207_1400.png"></center><br>
+
+
+<h2 id="복구"><a href="#복구" class="headerlink" title="복구"></a>복구</h2><hr>
+<ul>
+<li>Restore을 클릭해준다.</li>
+</ul>
+<center><img src="/images/setting/20190207_1401.png"></center><br>
+
+<h2 id="참고-URL"><a href="#참고-URL" class="headerlink" title="참고 URL"></a>참고 URL</h2><ul>
+<li>[URL] : <a href="http://printhelloworld.tistory.com/143" target="_blank" rel="noopener">http://printhelloworld.tistory.com/143</a></li>
+</ul>
+<p>​</p>
+
         </div>
         
-        
-        <div class="level is-mobile">
+        <div class="level is-size-7 is-uppercase">
             <div class="level-start">
                 <div class="level-item">
-                <a class="button is-size-7 is-light" href="/2019/02/07/setting/linux_git/#more">Read More</a>
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/postgresql/" rel="tag">postgresql</a>
                 </div>
             </div>
         </div>
+        
         
         
     </div>
@@ -199,9 +236,37 @@
 
 
 
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
+        </div>
+    </div>
+</div>
 
 
 
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/02/14/error_set/google_cloud_storage_error/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">GCS API 403 caller has no permission</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/02/07/setting/mysql_backup/">
+                <span class="level-item">MySQL 백업 복원</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
 
 
 </div>
@@ -1135,7 +1200,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Hexo" height="28">
+                    <img src="/images/logo.svg" alt="PostgreSQL 백업 복원" height="28">
                 
                 </a>
                 <p class="is-size-7">
