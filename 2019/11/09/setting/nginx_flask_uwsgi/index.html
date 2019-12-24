@@ -7,18 +7,22 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<link rel="canonical" href="http://yoursite.com/archives/2019/12/"/>
-<title>Archives: 2019/12 - Hexo</title>
+<link rel="canonical" href="http://yoursite.com/2019/11/09/setting/nginx_flask_uwsgi/"/>
+<title>Nginx + Flask + Uwsgi 초기 세팅 - Hexo</title>
 
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;archives&#x2F;2019&#x2F;12&#x2F;index.html">
+    <meta name="description" content="Nginx + Flask + Uwsgi 초기 세팅 기록.">
+<meta name="keywords" content="nginx,flask,uwsgi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nginx + Flask + Uwsgi 초기 세팅">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;09&#x2F;setting&#x2F;nginx_flask_uwsgi&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Nginx + Flask + Uwsgi 초기 세팅 기록.">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;og_image.png">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;setting&#x2F;setting.jpg">
+<meta property="og:updated_time" content="2019-12-24T09:06:39.684Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;og_image.png">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;setting&#x2F;setting.jpg">
 
 
 
@@ -85,7 +89,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Hexo" height="28">
+                <img src="/images/logo.svg" alt="Nginx + Flask + Uwsgi 초기 세팅" height="28">
             
             </a>
         </div>
@@ -135,30 +139,153 @@
         <div class="container">
             <div class="columns">
                 <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
-
-<div class="card widget">
-    <div class="card-content">
-        <h3 class="tag is-link">
-        December 2019
-        </h3>
-        <div class="timeline">
+<div class="card">
+    
+    <div class="card-image">
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="/images/setting/setting.jpg" alt="Nginx + Flask + Uwsgi 초기 세팅">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
         
-            <article class="media">
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-11-09T06:20:00.000Z">2019-11-09</time>
                 
-                <div class="media-content">
-                    <div class="content">
-                        <time class="has-text-grey is-size-7 is-block is-uppercase" datetime="2019-12-24T07:26:14.000Z">2019-12-24</time>
-                        <a href="/2019/12/24/setting/tensorboard_setting/" class="title has-link-black-ter is-size-6 has-text-weight-normal">post</a>
-                        <div class="level article-meta is-mobile">
-                            <div class="level-left">
-                                
-                            </div>
-                        </div>
-                    </div>
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/setting/">setting</a>
                 </div>
-            </article>
-        
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    2 minutes read (About 372 words)
+                </span>
+                
+                
+            </div>
         </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                Nginx + Flask + Uwsgi 초기 세팅
+            
+        </h1>
+        <div class="content">
+            <ul>
+<li>Nginx + Flask + Uwsgi 초기 세팅 기록.</li>
+</ul>
+<a id="more"></a>​
+
+<h2 id="설치-및-실행"><a href="#설치-및-실행" class="headerlink" title="설치 및 실행"></a>설치 및 실행</h2><hr>
+<ol>
+<li><p>Nginx, Flask, Uwsgi를 설치한다.</p>
+ <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">pip3 install nginx</span></pre></td></tr><tr><td class="code"><pre><span class="line">pip3 install uwsgi</span></pre></td></tr><tr><td class="code"><pre><span class="line">pip3 install flask</span></pre></td></tr><tr><td class="code"><pre><span class="line">pip3 install uwsgi-plugin-python</span></pre></td></tr></table></figure>
+</li>
+<li><p>Flask 실행</p>
+<ul>
+<li><p>test.py 라는 파일을 만들고 실행하여 결과를 확인한다.</p>
+  <figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> flask <span class="hljs-keyword">import</span> Flask</span></pre></td></tr><tr><td class="code"><pre><span class="line">application = Flask(__name__)</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-meta">@application.route("/")</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">hello</span><span class="hljs-params">()</span>:</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="hljs-keyword">return</span> <span class="hljs-string">"&lt;h1&gt;Hello!&lt;/h1&gt;"</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">"__main__"</span>:</span></pre></td></tr><tr><td class="code"><pre><span class="line">    application.run(host=<span class="hljs-string">'0.0.0.0'</span>)</span></pre></td></tr></table></figure>
+</li>
+<li><p>curl 명령어를 실행해서 확인해본다.</p>
+  <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">curl http://localhost:5000</span></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>uwsgi 파일 만들기</p>
+ <figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> test <span class="hljs-keyword">import</span> application</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">"__main__"</span>:</span></pre></td></tr><tr><td class="code"><pre><span class="line">    application.run()</span></pre></td></tr></table></figure>
+
+<p> curl 명령어를 실행시켜 확인</p>
+ <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">uwsgi --socket 0.0.0.0:5000 --protocol=http -w wsgi</span></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+<ol start="4">
+<li><p>ini 파일을 만든다.</p>
+<ul>
+<li><p>매번 uwsgi 파일을 실행시킬 때 명령어를 써줄 수 없으니 파일을 만들어둔다.</p>
+</li>
+<li><p>socket 파일은 아래 실행 명령어를 실행시키면 자동으로 생성 되어진다.</p>
+  <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">[uwsgi]</span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-built_in">chdir</span> = /var/www/html/StoryAI/storyai/web</span></pre></td></tr><tr><td class="code"><pre><span class="line">module = wsgi</span></pre></td></tr><tr><td class="code"><pre><span class="line">socket = /tmp/myproject.sock</span></pre></td></tr><tr><td class="code"><pre><span class="line">chmod-socket = 666</span></pre></td></tr></table></figure>
+</li>
+<li><p>실행 명령어</p>
+  <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">uwsgi --ini myproject.ini</span></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+</li>
+</ol>
+<ol start="5">
+<li><p>nginx의 환경설정을 변경한다.</p>
+<ul>
+<li><p>/etc/nginx/sites-avilable/defalut</p>
+</li>
+<li><p>다른 예제들에서는 location @app을 설정해서 하는데 이거 인식이 잘 안되서 location / { 부분에 설정을 해주니까 되었다.</p>
+</li>
+<li><p>sock 파일을 통해서 서로 연결되어진다.</p>
+</li>
+<li><p>여기서 실수 했던게 try_files $url $url\ =404; 부분을 주석처리 안하니까 app.route를 다른걸 설정하니까 접속이 되지 않았다. 뻘짓했다.</p>
+<center><img src="/images/setting/20191109_1520.png"></center><br>
+
+
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="참고-사이트"><a href="#참고-사이트" class="headerlink" title="참고 사이트"></a>참고 사이트</h2><hr>
+<ul>
+<li><p>[URL] : <a href="https://cjh5414.github.io/flask-uwsgi-nginx/" target="_blank" rel="noopener">https://cjh5414.github.io/flask-uwsgi-nginx/</a></p>
+</li>
+<li><p>[URL] : <a href="https://whatisthenext.tistory.com/124" target="_blank" rel="noopener">https://whatisthenext.tistory.com/124</a></p>
+</li>
+<li><p>[URL] : <a href="https://twpower.github.io/43-run-uwsgi-by-using-ini-file" target="_blank" rel="noopener">https://twpower.github.io/43-run-uwsgi-by-using-ini-file</a></p>
+</li>
+</ul>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/flask/" rel="tag">flask</a>, <a class="has-link-grey -link" href="/tags/nginx/" rel="tag">nginx</a>, <a class="has-link-grey -link" href="/tags/uwsgi/" rel="tag">uwsgi</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/11/08/setting/aws_port_open/">
+                <span class="level-item">EC2 Instance 웹서버 설치 후 구동하기</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
     </div>
 </div>
 
@@ -208,7 +335,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            31
+                            36
                         </p>
                     </a>
                 </div>
@@ -232,7 +359,7 @@
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            29
+                            36
                         </p>
                     </a>
                 </div>
@@ -304,7 +431,7 @@
                 <span class="level-item">Error</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">14</span>
+                <span class="level-item tag">15</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/setting/">
@@ -312,7 +439,7 @@
                 <span class="level-item">setting</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">15</span>
+                <span class="level-item tag">20</span>
             </span>
         </a></li>
             </ul>
@@ -331,18 +458,75 @@
         
         <article class="media">
             
-            <a href="/2019/12/24/setting/tensorboard_setting/" class="media-left">
+            <a href="/2019/11/09/setting/nginx_flask_uwsgi/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="post">
+                    <img class="thumbnail" src="/images/setting/setting.jpg" alt="Nginx + Flask + Uwsgi 초기 세팅">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-24T07:26:14.000Z">2019-12-24</time></div>
-                    <a href="/2019/12/24/setting/tensorboard_setting/" class="title has-link-black-ter is-size-6 has-text-weight-normal">post</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-09T06:20:00.000Z">2019-11-09</time></div>
+                    <a href="/2019/11/09/setting/nginx_flask_uwsgi/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Nginx + Flask + Uwsgi 초기 세팅</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/setting/">setting</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/11/08/setting/aws_port_open/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/setting/setting.jpg" alt="EC2 Instance 웹서버 설치 후 구동하기">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-08T14:17:00.000Z">2019-11-08</time></div>
+                    <a href="/2019/11/08/setting/aws_port_open/" class="title has-link-black-ter is-size-6 has-text-weight-normal">EC2 Instance 웹서버 설치 후 구동하기</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/setting/">setting</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/11/08/setting/aws_putty/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/setting/setting.jpg" alt="EC2 Instance 생성 후 putty 접속">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-08T14:11:00.000Z">2019-11-08</time></div>
+                    <a href="/2019/11/08/setting/aws_putty/" class="title has-link-black-ter is-size-6 has-text-weight-normal">EC2 Instance 생성 후 putty 접속</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/setting/">setting</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/09/11/error_set/pytorch_error/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/error_set/error.jpg" alt="ImportError dll load failed 지정된 모듈을 찾을 수 없습니다">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-11T08:33:00.000Z">2019-09-11</time></div>
+                    <a href="/2019/09/11/error_set/pytorch_error/" class="title has-link-black-ter is-size-6 has-text-weight-normal">ImportError dll load failed 지정된 모듈을 찾을 수 없습니다</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Error/">Error</a>
                     </p>
                 </div>
             </div>
@@ -367,63 +551,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/04/07/error_set/tensorflow_gpu_error/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/error_set/error.jpg" alt="Loaded runtime CuDNN library 7101">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-07T07:20:00.000Z">2019-04-07</time></div>
-                    <a href="/2019/04/07/error_set/tensorflow_gpu_error/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Loaded runtime CuDNN library 7101</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Error/">Error</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/04/07/error_set/pandas_error/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/error_set/error.jpg" alt="pandas No module named &#39;pandas.core.internals.managers&#39;">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-07T03:43:00.000Z">2019-04-07</time></div>
-                    <a href="/2019/04/07/error_set/pandas_error/" class="title has-link-black-ter is-size-6 has-text-weight-normal">pandas No module named &#39;pandas.core.internals.managers&#39;</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Error/">Error</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/04/04/error_set/tensorflow_hub_error-1/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/error_set/error.jpg" alt="Tensorflow RuntimeError Missing implementation that supports loader">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-04T02:44:00.000Z">2019-04-04</time></div>
-                    <a href="/2019/04/04/error_set/tensorflow_hub_error-1/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Tensorflow RuntimeError Missing implementation that supports loader</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Error/">Error</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
         
@@ -436,9 +563,20 @@
         <ul class="menu-list">
         
         <li>
-            <a class="level is-marginless" href="/archives/2019/12/">
+            <a class="level is-marginless" href="/archives/2019/11/">
                 <span class="level-start">
-                    <span class="level-item">December 2019</span>
+                    <span class="level-item">November 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/09/">
+                <span class="level-start">
+                    <span class="level-item">September 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -463,7 +601,7 @@
                     <span class="level-item">March 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">3</span>
+                    <span class="level-item tag">4</span>
                 </span>
             </a>
         </li>
@@ -474,7 +612,7 @@
                     <span class="level-item">February 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">11</span>
+                    <span class="level-item tag">12</span>
                 </span>
             </a>
         </li>
@@ -515,6 +653,20 @@
             <div class="field is-grouped is-grouped-multiline">
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/aws/">
+                        <span class="tag">aws</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/colab/">
+                        <span class="tag">colab</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/docker/">
                         <span class="tag">docker</span>
                         <span class="tag is-grey">1</span>
@@ -545,6 +697,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/exec/">
                         <span class="tag">exec</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/flask/">
+                        <span class="tag">flask</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -615,7 +774,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/nginx/">
                         <span class="tag">nginx</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
@@ -655,6 +814,13 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/putty/">
+                        <span class="tag">putty</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/pycharm/">
                         <span class="tag">pycharm</span>
                         <span class="tag is-grey">3</span>
@@ -664,6 +830,20 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/python/">
                         <span class="tag">python</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/pytorch/">
+                        <span class="tag">pytorch</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/pytube/">
+                        <span class="tag">pytube</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -707,6 +887,13 @@
                     <a class="tags has-addons" href="/tags/ubuntu/">
                         <span class="tag">ubuntu</span>
                         <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/uwsgi/">
+                        <span class="tag">uwsgi</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
@@ -741,18 +928,75 @@
         
         <article class="media">
             
-            <a href="/2019/12/24/setting/tensorboard_setting/" class="media-left">
+            <a href="/2019/11/09/setting/nginx_flask_uwsgi/" class="media-left">
                 <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="post">
+                    <img class="thumbnail" src="/images/setting/setting.jpg" alt="Nginx + Flask + Uwsgi 초기 세팅">
                 </p>
             </a>
             
             <div class="media-content">
                 <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-12-24T07:26:14.000Z">2019-12-24</time></div>
-                    <a href="/2019/12/24/setting/tensorboard_setting/" class="title has-link-black-ter is-size-6 has-text-weight-normal">post</a>
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-09T06:20:00.000Z">2019-11-09</time></div>
+                    <a href="/2019/11/09/setting/nginx_flask_uwsgi/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Nginx + Flask + Uwsgi 초기 세팅</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/setting/">setting</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/11/08/setting/aws_port_open/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/setting/setting.jpg" alt="EC2 Instance 웹서버 설치 후 구동하기">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-08T14:17:00.000Z">2019-11-08</time></div>
+                    <a href="/2019/11/08/setting/aws_port_open/" class="title has-link-black-ter is-size-6 has-text-weight-normal">EC2 Instance 웹서버 설치 후 구동하기</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/setting/">setting</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/11/08/setting/aws_putty/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/setting/setting.jpg" alt="EC2 Instance 생성 후 putty 접속">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-08T14:11:00.000Z">2019-11-08</time></div>
+                    <a href="/2019/11/08/setting/aws_putty/" class="title has-link-black-ter is-size-6 has-text-weight-normal">EC2 Instance 생성 후 putty 접속</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/setting/">setting</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/09/11/error_set/pytorch_error/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/error_set/error.jpg" alt="ImportError dll load failed 지정된 모듈을 찾을 수 없습니다">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-11T08:33:00.000Z">2019-09-11</time></div>
+                    <a href="/2019/09/11/error_set/pytorch_error/" class="title has-link-black-ter is-size-6 has-text-weight-normal">ImportError dll load failed 지정된 모듈을 찾을 수 없습니다</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Error/">Error</a>
                     </p>
                 </div>
             </div>
@@ -777,63 +1021,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/04/07/error_set/tensorflow_gpu_error/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/error_set/error.jpg" alt="Loaded runtime CuDNN library 7101">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-07T07:20:00.000Z">2019-04-07</time></div>
-                    <a href="/2019/04/07/error_set/tensorflow_gpu_error/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Loaded runtime CuDNN library 7101</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Error/">Error</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/04/07/error_set/pandas_error/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/error_set/error.jpg" alt="pandas No module named &#39;pandas.core.internals.managers&#39;">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-07T03:43:00.000Z">2019-04-07</time></div>
-                    <a href="/2019/04/07/error_set/pandas_error/" class="title has-link-black-ter is-size-6 has-text-weight-normal">pandas No module named &#39;pandas.core.internals.managers&#39;</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Error/">Error</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/04/04/error_set/tensorflow_hub_error-1/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/error_set/error.jpg" alt="Tensorflow RuntimeError Missing implementation that supports loader">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-04T02:44:00.000Z">2019-04-04</time></div>
-                    <a href="/2019/04/04/error_set/tensorflow_hub_error-1/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Tensorflow RuntimeError Missing implementation that supports loader</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Error/">Error</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
     
@@ -846,9 +1033,20 @@
         <ul class="menu-list">
         
         <li>
-            <a class="level is-marginless" href="/archives/2019/12/">
+            <a class="level is-marginless" href="/archives/2019/11/">
                 <span class="level-start">
-                    <span class="level-item">December 2019</span>
+                    <span class="level-item">November 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/09/">
+                <span class="level-start">
+                    <span class="level-item">September 2019</span>
                 </span>
                 <span class="level-end">
                     <span class="level-item tag">1</span>
@@ -873,7 +1071,7 @@
                     <span class="level-item">March 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">3</span>
+                    <span class="level-item tag">4</span>
                 </span>
             </a>
         </li>
@@ -884,7 +1082,7 @@
                     <span class="level-item">February 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">11</span>
+                    <span class="level-item tag">12</span>
                 </span>
             </a>
         </li>
@@ -925,6 +1123,20 @@
             <div class="field is-grouped is-grouped-multiline">
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/aws/">
+                        <span class="tag">aws</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/colab/">
+                        <span class="tag">colab</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/docker/">
                         <span class="tag">docker</span>
                         <span class="tag is-grey">1</span>
@@ -955,6 +1167,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/exec/">
                         <span class="tag">exec</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/flask/">
+                        <span class="tag">flask</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1025,7 +1244,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/nginx/">
                         <span class="tag">nginx</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
@@ -1065,6 +1284,13 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/putty/">
+                        <span class="tag">putty</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/pycharm/">
                         <span class="tag">pycharm</span>
                         <span class="tag is-grey">3</span>
@@ -1074,6 +1300,20 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/python/">
                         <span class="tag">python</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/pytorch/">
+                        <span class="tag">pytorch</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/pytube/">
+                        <span class="tag">pytube</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1121,6 +1361,13 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/uwsgi/">
+                        <span class="tag">uwsgi</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/window/">
                         <span class="tag">window</span>
                         <span class="tag is-grey">2</span>
@@ -1144,7 +1391,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Hexo" height="28">
+                    <img src="/images/logo.svg" alt="Nginx + Flask + Uwsgi 초기 세팅" height="28">
                 
                 </a>
                 <p class="is-size-7">

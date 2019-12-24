@@ -11,16 +11,16 @@
 <title>pandas No module named &#39;pandas.core.internals.managers&#39; - Hexo</title>
 
 
-    <meta name="description" content="에러 메세지 : ModuleNotFoundError: No module named ‘pandas.core.internals.managers’; ‘pandas.core.internals’ is no  발생 원인 : A컴퓨터에서 잘 작동했던 파이썬 코드를 B컴퓨터에서 실행시키니 저 error가 계속 발생했다.처음에는 pandas 환경과 Python 버전 환경">
+    <meta name="description" content="Error Message : ModuleNotFoundError: No module named ‘pandas.core.internals.managers’; ‘pandas.core.internals’ is no  ​">
 <meta name="keywords" content="pandas,pickle">
 <meta property="og:type" content="article">
 <meta property="og:title" content="pandas No module named &#39;pandas.core.internals.managers&#39;">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;04&#x2F;07&#x2F;error_set&#x2F;pandas_error&#x2F;index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="에러 메세지 : ModuleNotFoundError: No module named ‘pandas.core.internals.managers’; ‘pandas.core.internals’ is no  발생 원인 : A컴퓨터에서 잘 작동했던 파이썬 코드를 B컴퓨터에서 실행시키니 저 error가 계속 발생했다.처음에는 pandas 환경과 Python 버전 환경">
+<meta property="og:description" content="Error Message : ModuleNotFoundError: No module named ‘pandas.core.internals.managers’; ‘pandas.core.internals’ is no  ​">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;error_set&#x2F;error.jpg">
-<meta property="og:updated_time" content="2019-12-15T07:34:49.695Z">
+<meta property="og:updated_time" content="2019-12-24T08:19:45.564Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;error_set&#x2F;error.jpg">
 
@@ -161,7 +161,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    2 minutes read (About 231 words)
+                    2 minutes read (About 228 words)
                 </span>
                 
                 
@@ -175,13 +175,13 @@
         </h1>
         <div class="content">
             <ul>
-<li><p>에러 메세지 : ModuleNotFoundError: No module named ‘pandas.core.internals.managers’; ‘pandas.core.internals’ is no</p>
-</li>
-<li><p>발생 원인 : A컴퓨터에서 잘 작동했던 파이썬 코드를 B컴퓨터에서 실행시키니 저 error가 계속 발생했다.<br>처음에는 pandas 환경과 Python 버전 환경이 달라서 발생한 줄 알았다.<br>그래서 환경을 똑같이 맞추어줬는데도 계속 에러가 발생했다.<br>일단 에러 발생 부분을 보니 pickle.load() 하는 부분에서 에러가 발생했다.<br>​<a id="more"></a></p>
-</li>
-<li><p>해결 방법 : 결국 해결한 방법은 A 컴퓨터에서 pickle 파일 만들 때 pandas.DataFrame으로 넣지 않고  pandas.to_dict()로 바꿔서 파일을 만들었다.<br>B 컴퓨터에서 pickle 파일 불러오고 dict 파일을 pandas.DataFrame으로 넣어서 해결했다.<br>pickle 파일에 데이터 넣을 때 함부로 넣으면 안 되나 보다.</p>
-</li>
+<li>Error Message : ModuleNotFoundError: No module named ‘pandas.core.internals.managers’; ‘pandas.core.internals’ is no</li>
 </ul>
+<p>​<a id="more"></a></p>
+<h2 id="발생-원인"><a href="#발생-원인" class="headerlink" title="발생 원인"></a>발생 원인</h2><hr>
+<p>A컴퓨터에서 잘 작동했던 파이썬 코드를 B컴퓨터에서 실행시키니 저 error가 계속 발생했다.<br>처음에는 pandas 환경과 Python 버전 환경이 달라서 발생한 줄 알았다.<br>그래서 환경을 똑같이 맞추어줬는데도 계속 에러가 발생했다.<br>일단 에러 발생 부분을 보니 pickle.load() 하는 부분에서 에러가 발생했다.</p>
+<h2 id="해결-방법"><a href="#해결-방법" class="headerlink" title="해결 방법"></a>해결 방법</h2><hr>
+<p>결국 해결한 방법은 A 컴퓨터에서 pickle 파일 만들 때 pandas.DataFrame으로 넣지 않고  pandas.to_dict()로 바꿔서 파일을 만들었다.<br>B 컴퓨터에서 pickle 파일 불러오고 dict 파일을 pandas.DataFrame으로 넣어서 해결했다.<br>pickle 파일에 데이터 넣을 때 함부로 넣으면 안 되나 보다.</p>
 
         </div>
         
@@ -279,7 +279,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            32
+                            36
                         </p>
                     </a>
                 </div>
@@ -303,7 +303,7 @@
                     </p>
                     <a href="/tags">
                         <p class="title has-text-weight-normal">
-                            31
+                            36
                         </p>
                     </a>
                 </div>
@@ -375,7 +375,7 @@
                 <span class="level-item">Error</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">14</span>
+                <span class="level-item tag">15</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/setting/">
@@ -383,7 +383,7 @@
                 <span class="level-item">setting</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">17</span>
+                <span class="level-item tag">20</span>
             </span>
         </a></li>
             </ul>
@@ -399,6 +399,82 @@
         <h3 class="menu-label">
             Recent
         </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/11/09/setting/nginx_flask_uwsgi/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/setting/setting.jpg" alt="Nginx + Flask + Uwsgi 초기 세팅">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-09T06:20:00.000Z">2019-11-09</time></div>
+                    <a href="/2019/11/09/setting/nginx_flask_uwsgi/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Nginx + Flask + Uwsgi 초기 세팅</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/setting/">setting</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/11/08/setting/aws_port_open/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/setting/setting.jpg" alt="EC2 Instance 웹서버 설치 후 구동하기">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-08T14:17:00.000Z">2019-11-08</time></div>
+                    <a href="/2019/11/08/setting/aws_port_open/" class="title has-link-black-ter is-size-6 has-text-weight-normal">EC2 Instance 웹서버 설치 후 구동하기</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/setting/">setting</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/11/08/setting/aws_putty/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/setting/setting.jpg" alt="EC2 Instance 생성 후 putty 접속">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-08T14:11:00.000Z">2019-11-08</time></div>
+                    <a href="/2019/11/08/setting/aws_putty/" class="title has-link-black-ter is-size-6 has-text-weight-normal">EC2 Instance 생성 후 putty 접속</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/setting/">setting</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/09/11/error_set/pytorch_error/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/error_set/error.jpg" alt="ImportError dll load failed 지정된 모듈을 찾을 수 없습니다">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-11T08:33:00.000Z">2019-09-11</time></div>
+                    <a href="/2019/09/11/error_set/pytorch_error/" class="title has-link-black-ter is-size-6 has-text-weight-normal">ImportError dll load failed 지정된 모듈을 찾을 수 없습니다</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Error/">Error</a>
+                    </p>
+                </div>
+            </div>
+        </article>
         
         <article class="media">
             
@@ -419,82 +495,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/04/07/error_set/tensorflow_gpu_error/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/error_set/error.jpg" alt="Loaded runtime CuDNN library 7101">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-07T07:20:00.000Z">2019-04-07</time></div>
-                    <a href="/2019/04/07/error_set/tensorflow_gpu_error/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Loaded runtime CuDNN library 7101</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Error/">Error</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/04/07/error_set/pandas_error/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/error_set/error.jpg" alt="pandas No module named &#39;pandas.core.internals.managers&#39;">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-07T03:43:00.000Z">2019-04-07</time></div>
-                    <a href="/2019/04/07/error_set/pandas_error/" class="title has-link-black-ter is-size-6 has-text-weight-normal">pandas No module named &#39;pandas.core.internals.managers&#39;</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Error/">Error</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/04/04/error_set/tensorflow_hub_error-1/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/error_set/error.jpg" alt="Tensorflow RuntimeError Missing implementation that supports loader">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-04T02:44:00.000Z">2019-04-04</time></div>
-                    <a href="/2019/04/04/error_set/tensorflow_hub_error-1/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Tensorflow RuntimeError Missing implementation that supports loader</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Error/">Error</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/03/27/error_set/tensorflow_hub_error/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/error_set/error.jpg" alt="Tensorflow ImportError cannot import name &#39;regex_replace&#39;">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-03-27T04:41:00.000Z">2019-03-27</time></div>
-                    <a href="/2019/03/27/error_set/tensorflow_hub_error/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Tensorflow ImportError cannot import name &#39;regex_replace&#39;</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Error/">Error</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
         
@@ -505,6 +505,28 @@
             Archives
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/11/">
+                <span class="level-start">
+                    <span class="level-item">November 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/09/">
+                <span class="level-start">
+                    <span class="level-item">September 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2019/04/">
@@ -575,6 +597,13 @@
             <div class="field is-grouped is-grouped-multiline">
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/aws/">
+                        <span class="tag">aws</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/colab/">
                         <span class="tag">colab</span>
                         <span class="tag is-grey">1</span>
@@ -612,6 +641,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/exec/">
                         <span class="tag">exec</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/flask/">
+                        <span class="tag">flask</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -682,7 +718,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/nginx/">
                         <span class="tag">nginx</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
@@ -722,6 +758,13 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/putty/">
+                        <span class="tag">putty</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/pycharm/">
                         <span class="tag">pycharm</span>
                         <span class="tag is-grey">3</span>
@@ -731,6 +774,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/python/">
                         <span class="tag">python</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/pytorch/">
+                        <span class="tag">pytorch</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -781,6 +831,13 @@
                     <a class="tags has-addons" href="/tags/ubuntu/">
                         <span class="tag">ubuntu</span>
                         <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/uwsgi/">
+                        <span class="tag">uwsgi</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
@@ -815,6 +872,82 @@
         
         <article class="media">
             
+            <a href="/2019/11/09/setting/nginx_flask_uwsgi/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/setting/setting.jpg" alt="Nginx + Flask + Uwsgi 초기 세팅">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-09T06:20:00.000Z">2019-11-09</time></div>
+                    <a href="/2019/11/09/setting/nginx_flask_uwsgi/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Nginx + Flask + Uwsgi 초기 세팅</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/setting/">setting</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/11/08/setting/aws_port_open/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/setting/setting.jpg" alt="EC2 Instance 웹서버 설치 후 구동하기">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-08T14:17:00.000Z">2019-11-08</time></div>
+                    <a href="/2019/11/08/setting/aws_port_open/" class="title has-link-black-ter is-size-6 has-text-weight-normal">EC2 Instance 웹서버 설치 후 구동하기</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/setting/">setting</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/11/08/setting/aws_putty/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/setting/setting.jpg" alt="EC2 Instance 생성 후 putty 접속">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-08T14:11:00.000Z">2019-11-08</time></div>
+                    <a href="/2019/11/08/setting/aws_putty/" class="title has-link-black-ter is-size-6 has-text-weight-normal">EC2 Instance 생성 후 putty 접속</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/setting/">setting</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/09/11/error_set/pytorch_error/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/error_set/error.jpg" alt="ImportError dll load failed 지정된 모듈을 찾을 수 없습니다">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-11T08:33:00.000Z">2019-09-11</time></div>
+                    <a href="/2019/09/11/error_set/pytorch_error/" class="title has-link-black-ter is-size-6 has-text-weight-normal">ImportError dll load failed 지정된 모듈을 찾을 수 없습니다</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Error/">Error</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2019/04/08/error_set/tensorflow_version_error/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/error_set/error.jpg" alt="tensorflow version error">
@@ -832,82 +965,6 @@
             </div>
         </article>
         
-        <article class="media">
-            
-            <a href="/2019/04/07/error_set/tensorflow_gpu_error/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/error_set/error.jpg" alt="Loaded runtime CuDNN library 7101">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-07T07:20:00.000Z">2019-04-07</time></div>
-                    <a href="/2019/04/07/error_set/tensorflow_gpu_error/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Loaded runtime CuDNN library 7101</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Error/">Error</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/04/07/error_set/pandas_error/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/error_set/error.jpg" alt="pandas No module named &#39;pandas.core.internals.managers&#39;">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-07T03:43:00.000Z">2019-04-07</time></div>
-                    <a href="/2019/04/07/error_set/pandas_error/" class="title has-link-black-ter is-size-6 has-text-weight-normal">pandas No module named &#39;pandas.core.internals.managers&#39;</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Error/">Error</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/04/04/error_set/tensorflow_hub_error-1/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/error_set/error.jpg" alt="Tensorflow RuntimeError Missing implementation that supports loader">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-04T02:44:00.000Z">2019-04-04</time></div>
-                    <a href="/2019/04/04/error_set/tensorflow_hub_error-1/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Tensorflow RuntimeError Missing implementation that supports loader</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Error/">Error</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
-        <article class="media">
-            
-            <a href="/2019/03/27/error_set/tensorflow_hub_error/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/error_set/error.jpg" alt="Tensorflow ImportError cannot import name &#39;regex_replace&#39;">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-03-27T04:41:00.000Z">2019-03-27</time></div>
-                    <a href="/2019/03/27/error_set/tensorflow_hub_error/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Tensorflow ImportError cannot import name &#39;regex_replace&#39;</a>
-                    <p class="is-size-7 is-uppercase">
-                        <a class="has-link-grey -link" href="/categories/Error/">Error</a>
-                    </p>
-                </div>
-            </div>
-        </article>
-        
     </div>
 </div>
     
@@ -918,6 +975,28 @@
             Archives
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/11/">
+                <span class="level-start">
+                    <span class="level-item">November 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/09/">
+                <span class="level-start">
+                    <span class="level-item">September 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2019/04/">
@@ -988,6 +1067,13 @@
             <div class="field is-grouped is-grouped-multiline">
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/aws/">
+                        <span class="tag">aws</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/colab/">
                         <span class="tag">colab</span>
                         <span class="tag is-grey">1</span>
@@ -1025,6 +1111,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/exec/">
                         <span class="tag">exec</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/flask/">
+                        <span class="tag">flask</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1095,7 +1188,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/nginx/">
                         <span class="tag">nginx</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
@@ -1135,6 +1228,13 @@
                 </div>
                 
                 <div class="control">
+                    <a class="tags has-addons" href="/tags/putty/">
+                        <span class="tag">putty</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
                     <a class="tags has-addons" href="/tags/pycharm/">
                         <span class="tag">pycharm</span>
                         <span class="tag is-grey">3</span>
@@ -1144,6 +1244,13 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/python/">
                         <span class="tag">python</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/pytorch/">
+                        <span class="tag">pytorch</span>
                         <span class="tag is-grey">1</span>
                     </a>
                 </div>
@@ -1194,6 +1301,13 @@
                     <a class="tags has-addons" href="/tags/ubuntu/">
                         <span class="tag">ubuntu</span>
                         <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/uwsgi/">
+                        <span class="tag">uwsgi</span>
+                        <span class="tag is-grey">1</span>
                     </a>
                 </div>
                 
