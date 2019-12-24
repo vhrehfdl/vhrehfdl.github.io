@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="sitemap.xsl"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    <url>
+        <loc>http://yoursite.com</loc>
+        <changefreq>daily</changefreq>
+        <priority>1</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2019/02/14/setting/google_cloud_storage/</loc>
+        <lastmod>2019-12-23T05:51:54.319Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2019/02/07/setting/postgresql_backup/</loc>
+        <lastmod>2019-12-23T05:40:44.433Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2019/02/07/setting/mysql_backup/</loc>
+        <lastmod>2019-12-23T01:37:19.569Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2019/02/07/setting/linux_git/</loc>
+        <lastmod>2019-12-22T08:35:08.387Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2019/01/30/setting/pycharm_scrapy_install/</loc>
+        <lastmod>2019-12-22T08:29:38.149Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2019/01/16/setting/nginx_php_mysql_install/</loc>
+        <lastmod>2019-12-22T07:37:00.646Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2019/01/18/setting/konlpy_install/</loc>
+        <lastmod>2019-12-22T07:36:30.666Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2019/01/16/setting/keras_gpu_install/</loc>
+        <lastmod>2019-12-22T06:55:13.429Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2019/01/16/setting/pycharm_setting/</loc>
+        <lastmod>2019-12-22T06:37:33.327Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2019/01/15/setting/tensorflow_gpu_setting/</loc>
+        <lastmod>2019-12-21T08:09:22.832Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2019/01/16/setting/mysql_window/</loc>
+        <lastmod>2019-12-21T08:09:22.831Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2019/01/15/setting/ssh_connect/</loc>
+        <lastmod>2019-12-15T08:31:00.270Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2019/01/15/setting/ubuntu_open_port/</loc>
+        <lastmod>2019-12-15T08:30:54.811Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2019/04/07/error_set/pandas_error/</loc>
+        <lastmod>2019-12-15T07:34:49.695Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2019/03/27/error_set/tensorflow_hub_error/</loc>
+        <lastmod>2019-12-15T07:32:45.529Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2019/04/04/error_set/tensorflow_hub_error-1/</loc>
+        <lastmod>2019-12-15T07:32:39.747Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2019/04/07/error_set/tensorflow_gpu_error/</loc>
+        <lastmod>2019-12-15T07:31:58.337Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2019/03/06/error_set/python_encoding_error/</loc>
+        <lastmod>2019-12-15T07:08:58.956Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2019/02/26/error_set/scrapy_error/</loc>
+        <lastmod>2019-12-15T06:53:37.440Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2019/02/14/error_set/google_cloud_storage_error/</loc>
+        <lastmod>2019-12-15T06:38:55.740Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2019/02/07/error_set/php_exec_error/</loc>
+        <lastmod>2019-12-14T15:25:07.747Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2018/01/15/hello-world/</loc>
+        <lastmod>2019-12-14T15:18:44.095Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2019/01/31/error_set/tensorflow_version_error-1/</loc>
+        <lastmod>2019-12-14T15:18:44.094Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2019/04/08/error_set/tensorflow_version_error/</loc>
+        <lastmod>2019-12-14T15:18:44.094Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2019/01/31/error_set/tensorflow_version_error-2/</loc>
+        <lastmod>2019-12-14T15:18:44.094Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2019/02/24/error_set/ubuntu_error/</loc>
+        <lastmod>2019-12-14T15:18:44.094Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2019/02/25/error_set/google_speech_api_error/</loc>
+        <lastmod>2019-12-14T15:18:44.093Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/2019/02/01/error_set/pycharm_java_home_error/</loc>
+        <lastmod>2019-12-14T15:18:44.093Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+</urlset>
+<!-- XML Sitemap generated by Hexo SEO Friendly Sitemap Generator -->

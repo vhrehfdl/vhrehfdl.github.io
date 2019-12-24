@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Hexo</title>
+    <link>http://yoursite.com/</link>
+    
+    <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
+    
+    <description></description>
+    <pubDate>Sat, 14 Dec 2019 15:18:44 GMT</pubDate>
+    <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>tensorflow version error</title>
+      <link>http://yoursite.com/2019/04/08/error_set/tensorflow_version_error/</link>
+      <guid>http://yoursite.com/2019/04/08/error_set/tensorflow_version_error/</guid>
+      <pubDate>Mon, 08 Apr 2019 05:46:00 GMT</pubDate>
+      <description>
+      
+        &lt;ul&gt;
+&lt;li&gt;&lt;p&gt;에러 메세지 : batch() got an unexpected keyword argument ‘drop_remainder’&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;에러 원인 : Tensorflow 버전이 업그레이드 되면서 run_classifier.py의 drop_remainder 파라미터가 없어졌다.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;해결 방법 : runclassfier.py 파일에서 drop_remainder 코드를 제거해줘야 한다.  &lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<ul><li><p>에러 메세지 : batch() got an unexpected keyword argument ‘drop_remainder’</p></li><li><p>에러 원인 : Tensorflow 버전이 업그레이드 되면서 run_classifier.py의 drop_remainder 파라미터가 없어졌다.</p></li><li><p>해결 방법 : runclassfier.py 파일에서 drop_remainder 코드를 제거해줘야 한다.  </p></li></ul><a id="more"></a><center><img src="/images/error_set/ErrorSet1_1.png" width="100%" alt="변경 전"></center><br><center><img src="/images/error_set/ErrorSet1_2.png" width="100%" alt="변경 후"></center>]]></content:encoded>
+      
+      <comments>http://yoursite.com/2019/04/08/error_set/tensorflow_version_error/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Loaded runtime CuDNN library 7101</title>
+      <link>http://yoursite.com/2019/04/07/error_set/tensorflow_gpu_error/</link>
+      <guid>http://yoursite.com/2019/04/07/error_set/tensorflow_gpu_error/</guid>
+      <pubDate>Sun, 07 Apr 2019 07:20:00 GMT</pubDate>
+      <description>
+      
+        
+        
+          &lt;ul&gt;
+&lt;li&gt;&lt;p&gt;에러 메세지 : Loaded runtime CuDNN library: 7101 (compatibility version 7100) but source was compiled with 7003 (c&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;에
+        
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<ul><li><p>에러 메세지 : Loaded runtime CuDNN library: 7101 (compatibility version 7100) but source was compiled with 7003 (c</p></li><li><p>에러 원인 : tensorflow-gpu가 돌아가는 환경설정이  CUDA Toolkit 버전과 cuDNN 버전이 호환되지가 않아서 발생한 문제이다. </p></li><li><p>해결 방법 : Toolkit은 9.0 cuDNN은 7.0.5로 호환해주니 해결되었다.</p></li></ul>]]></content:encoded>
+      
+      <comments>http://yoursite.com/2019/04/07/error_set/tensorflow_gpu_error/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>pandas No module named &#39;pandas.core.internals.managers&#39;</title>
+      <link>http://yoursite.com/2019/04/07/error_set/pandas_error/</link>
+      <guid>http://yoursite.com/2019/04/07/error_set/pandas_error/</guid>
+      <pubDate>Sun, 07 Apr 2019 03:43:00 GMT</pubDate>
+      <description>
+      
+        &lt;ul&gt;
+&lt;li&gt;&lt;p&gt;에러 메세지 : ModuleNotFoundError: No module named ‘pandas.core.internals.managers’; ‘pandas.core.internals’ is no&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;발생 원인 : A컴퓨터에서 잘 작동했던 파이썬 코드를 B컴퓨터에서 실행시키니 저 error가 계속 발생했다.&lt;br&gt;처음에는 pandas 환경과 Python 버전 환경이 달라서 발생한 줄 알았다.&lt;br&gt;그래서 환경을 똑같이 맞추어줬는데도 계속 에러가 발생했다.&lt;br&gt;일단 에러 발생 부분을 보니 pickle.load() 하는 부분에서 에러가 발생했다.&lt;br&gt;​&lt;/p&gt;&lt;/li&gt;&lt;/ul&gt;
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<ul><li><p>에러 메세지 : ModuleNotFoundError: No module named ‘pandas.core.internals.managers’; ‘pandas.core.internals’ is no</p></li><li><p>발생 원인 : A컴퓨터에서 잘 작동했던 파이썬 코드를 B컴퓨터에서 실행시키니 저 error가 계속 발생했다.<br>처음에는 pandas 환경과 Python 버전 환경이 달라서 발생한 줄 알았다.<br>그래서 환경을 똑같이 맞추어줬는데도 계속 에러가 발생했다.<br>일단 에러 발생 부분을 보니 pickle.load() 하는 부분에서 에러가 발생했다.<br>​<a id="more"></a></p></li><li><p>해결 방법 : 결국 해결한 방법은 A 컴퓨터에서 pickle 파일 만들 때 pandas.DataFrame으로 넣지 않고  pandas.to_dict()로 바꿔서 파일을 만들었다.<br>B 컴퓨터에서 pickle 파일 불러오고 dict 파일을 pandas.DataFrame으로 넣어서 해결했다.<br>pickle 파일에 데이터 넣을 때 함부로 넣으면 안 되나 보다.</p></li></ul>]]></content:encoded>
+      
+      <comments>http://yoursite.com/2019/04/07/error_set/pandas_error/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Tensorflow RuntimeError Missing implementation that supports loader</title>
+      <link>http://yoursite.com/2019/04/04/error_set/tensorflow_hub_error-1/</link>
+      <guid>http://yoursite.com/2019/04/04/error_set/tensorflow_hub_error-1/</guid>
+      <pubDate>Thu, 04 Apr 2019 02:44:00 GMT</pubDate>
+      <description>
+      
+        
+        
+          &lt;ul&gt;
+&lt;li&gt;&lt;p&gt;에러 메세지 : RuntimeError: Missing implementation that supports: loader(*(‘/tmp/tfhub_modules/mobilenet_module’,)&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;해
+        
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<ul><li><p>에러 메세지 : RuntimeError: Missing implementation that supports: loader(*(‘/tmp/tfhub_modules/mobilenet_module’,)</p></li><li><p>해결 방법 : loader 뒤에 뜨는 에러메세지 경로에 들어가서 tf_hub 파일을 지워주고 다시 실행시키니 작동하였다.<br>이게 갑자기 어느 순간에 에러가 발생하는데… 왜 발생하는지는 모르겠다.<br>그래도 해결방법이 단순하다.</p></li><li><p>참고 URL<br><a href="https://stackoverflow.com/questions/54029556/how-to-fix-runtimeerror-missing-implementation-that-supports-loader-when-cal" target="_blank" rel="noopener">https://stackoverflow.com/questions/54029556/how-to-fix-runtimeerror-missing-implementation-that-supports-loader-when-cal</a></p></li></ul>]]></content:encoded>
+      
+      <comments>http://yoursite.com/2019/04/04/error_set/tensorflow_hub_error-1/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Tensorflow ImportError cannot import name &#39;regex_replace&#39;</title>
+      <link>http://yoursite.com/2019/03/27/error_set/tensorflow_hub_error/</link>
+      <guid>http://yoursite.com/2019/03/27/error_set/tensorflow_hub_error/</guid>
+      <pubDate>Wed, 27 Mar 2019 04:41:00 GMT</pubDate>
+      <description>
+      
+        
+        
+          &lt;ul&gt;
+&lt;li&gt;해결 방법 : ELMo 사용하려고 Tensorflow Hub를 설치하고 실행시켜보니 위에 error 발생!&lt;br&gt;처음에 0.3 버전으로 설치했는데…&lt;br&gt;혹시나 해서 버전 0.2로 낮춰서 해보니 실행이 되었다… &lt;/li&gt;
+&lt;/ul&gt;
+
+        
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<ul><li>해결 방법 : ELMo 사용하려고 Tensorflow Hub를 설치하고 실행시켜보니 위에 error 발생!<br>처음에 0.3 버전으로 설치했는데…<br>혹시나 해서 버전 0.2로 낮춰서 해보니 실행이 되었다… </li></ul>]]></content:encoded>
+      
+      <comments>http://yoursite.com/2019/03/27/error_set/tensorflow_hub_error/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>python encoding error</title>
+      <link>http://yoursite.com/2019/03/06/error_set/python_encoding_error/</link>
+      <guid>http://yoursite.com/2019/03/06/error_set/python_encoding_error/</guid>
+      <pubDate>Wed, 06 Mar 2019 01:51:00 GMT</pubDate>
+      <description>
+      
+        &lt;ul&gt;
+&lt;li&gt;&lt;p&gt;에러 메세지 : UnicodeDecodeError: ‘utf-8’ codec can’t decode byte 0xff in position 0: invalid&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;해결 방법 : encoding 부분을 utf-8에서 utf-16으로 바꿔주니까 된다. ( python3 기준 )&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<ul><li><p>에러 메세지 : UnicodeDecodeError: ‘utf-8’ codec can’t decode byte 0xff in position 0: invalid</p></li><li><p>해결 방법 : encoding 부분을 utf-8에서 utf-16으로 바꿔주니까 된다. ( python3 기준 )</p></li></ul><a id="more"></a><ul><li><p>예시 코드</p>  <figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-comment"># -*- coding: utf-8 -*-:</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> csv</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">f = open(<span class="hljs-string">'1_50000.csv'</span>, <span class="hljs-string">'r'</span>, encoding=<span class="hljs-string">'utf-16'</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line">rdr = csv.reader(f)</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> rdr:</span></pre></td></tr><tr><td class="code"><pre><span class="line">    print(line)</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">f.close()</span></pre></td></tr></table></figure></li></ul>]]></content:encoded>
+      
+      <comments>http://yoursite.com/2019/03/06/error_set/python_encoding_error/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Scrapy AttributeError module &#39;lib&#39; has no attribute &#39;Cryptography_HAS_SSL_ST</title>
+      <link>http://yoursite.com/2019/02/26/error_set/scrapy_error/</link>
+      <guid>http://yoursite.com/2019/02/26/error_set/scrapy_error/</guid>
+      <pubDate>Tue, 26 Feb 2019 10:30:00 GMT</pubDate>
+      <description>
+      
+        &lt;ul&gt;
+&lt;li&gt;&lt;p&gt;에러 메세지 : AttributeError module ‘lib’ has no attribute ‘Cryptography_HAS_SSL_ST&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;원인 : Scrapy 설치하고 실행하려는데 에러가 발생했었다.&lt;br&gt;찾아보니까 pyOpenSSL 문제인 것 같다.&lt;br&gt;그냥 install 하나 해주니까 해결되었다. &lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<ul><li><p>에러 메세지 : AttributeError module ‘lib’ has no attribute ‘Cryptography_HAS_SSL_ST</p></li><li><p>원인 : Scrapy 설치하고 실행하려는데 에러가 발생했었다.<br>찾아보니까 pyOpenSSL 문제인 것 같다.<br>그냥 install 하나 해주니까 해결되었다. </p></li></ul><a id="more"></a><ul><li><p>해결방법</p>  <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">pip3 install pyOpenSSL==0.15.1</span></pre></td></tr></table></figure></li></ul>]]></content:encoded>
+      
+      <comments>http://yoursite.com/2019/02/26/error_set/scrapy_error/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Google Speech API 아무것도 출력이 되지 않는 에러</title>
+      <link>http://yoursite.com/2019/02/25/error_set/google_speech_api_error/</link>
+      <guid>http://yoursite.com/2019/02/25/error_set/google_speech_api_error/</guid>
+      <pubDate>Mon, 25 Feb 2019 02:32:00 GMT</pubDate>
+      <description>
+      
+        &lt;ul&gt;
+&lt;li&gt;원인&lt;br&gt;아래 코드의 sample_rate_hertz가 일치하지 않아서 그렇다.&lt;br&gt;ffmpeg를 사용해 동영상 확장자를 변환할 때 맞춰주어야 한다.&lt;/li&gt;
+&lt;/ul&gt;
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<ul><li>원인<br>아래 코드의 sample_rate_hertz가 일치하지 않아서 그렇다.<br>ffmpeg를 사용해 동영상 확장자를 변환할 때 맞춰주어야 한다.</li></ul><a id="more"></a><hr><ul><li><p>해결방법<br>  ffmpeg로 변환을 시킨다.<br>  sample_rate_hertz가 16000으로 설정했기 때문에 변활시킬 때 16000으로 바꿔주어야 한다.</p>  <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">ffmpeg -i audio_file.mp4 -acodec pcm_s16le -ac 1 -ar 16000 audio_file.wav</span></pre></td></tr></table></figure></li></ul><ul><li><p>예제 코드  </p>  <figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">transcribe_file</span><span class="hljs-params">(speech_file)</span>:</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="hljs-string">"""Transcribe the given audio file."""</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="hljs-keyword">from</span> google.cloud <span class="hljs-keyword">import</span> speech</span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="hljs-keyword">from</span> google.cloud.speech <span class="hljs-keyword">import</span> enums</span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="hljs-keyword">from</span> google.cloud.speech <span class="hljs-keyword">import</span> types</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">    client = speech.SpeechClient()</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="hljs-keyword">with</span> io.open(speech_file, <span class="hljs-string">'rb'</span>) <span class="hljs-keyword">as</span> audio_file:</span></pre></td></tr><tr><td class="code"><pre><span class="line">        content = audio_file.read()</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">    audio = types.RecognitionAudio(content=content)</span></pre></td></tr><tr><td class="code"><pre><span class="line">    config = types.RecognitionConfig(</span></pre></td></tr><tr><td class="code"><pre><span class="line">        encoding=enums.RecognitionConfig.AudioEncoding.LINEAR16,</span></pre></td></tr><tr><td class="code"><pre><span class="line">        sample_rate_hertz=<span class="hljs-number">16000</span>,</span></pre></td></tr><tr><td class="code"><pre><span class="line">        language_code=<span class="hljs-string">'ko-KR'</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">    response = client.recognize(config, audio)</span></pre></td></tr><tr><td class="code"><pre><span class="line">    print(<span class="hljs-string">"test2"</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="hljs-comment"># Each result is for a consecutive portion of the audio. Iterate through</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="hljs-comment"># them to get the transcripts for the entire audio file.</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="hljs-keyword">for</span> result <span class="hljs-keyword">in</span> response.results:</span></pre></td></tr><tr><td class="code"><pre><span class="line">        print(<span class="hljs-string">"test3"</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line">        <span class="hljs-comment"># The first alternative is the most likely one for this portion.</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">        print(<span class="hljs-string">u'Transcript: &#123;&#125;'</span>.format(result.alternatives[<span class="hljs-number">0</span>].transcript))</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">speech_file = <span class="hljs-string">"audio_file.wav"</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">transcribe_file(speech_file)</span></pre></td></tr></table></figure></li></ul>]]></content:encoded>
+      
+      <comments>http://yoursite.com/2019/02/25/error_set/google_speech_api_error/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Ubuntu E Problem executing scripts</title>
+      <link>http://yoursite.com/2019/02/24/error_set/ubuntu_error/</link>
+      <guid>http://yoursite.com/2019/02/24/error_set/ubuntu_error/</guid>
+      <pubDate>Sun, 24 Feb 2019 03:22:00 GMT</pubDate>
+      <description>
+      
+        &lt;ul&gt;
+&lt;li&gt;Error : Ubuntu E: Problem executing scripts APT&lt;br&gt;우분투에서 apt-get 사용하다 발생한 error&lt;/li&gt;
+&lt;/ul&gt;
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<ul><li>Error : Ubuntu E: Problem executing scripts APT<br>우분투에서 apt-get 사용하다 발생한 error</li></ul><a id="more"></a><ul><li><p>Solution </p>  <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">sudo apt-get remove libappstream3</span></pre></td></tr></table></figure><p>  쉽게 해결된다.</p></li></ul>]]></content:encoded>
+      
+      <comments>http://yoursite.com/2019/02/24/error_set/ubuntu_error/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Google Cloud Storage 설치하기</title>
+      <link>http://yoursite.com/2019/02/14/setting/google_cloud_storage/</link>
+      <guid>http://yoursite.com/2019/02/14/setting/google_cloud_storage/</guid>
+      <pubDate>Thu, 14 Feb 2019 01:38:00 GMT</pubDate>
+      <description>
+      
+        &lt;ul&gt;
+&lt;li&gt;Google Cloud Storage 설치&lt;/li&gt;
+&lt;/ul&gt;
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<ul><li>Google Cloud Storage 설치</li></ul><a id="more"></a>​<h2 id="설치-과정"><a href="#설치-과정" class="headerlink" title="설치 과정"></a>설치 과정</h2><hr><figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">curl https://sdk.cloud.google.com | bash</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-built_in">exec</span> -l <span class="hljs-variable">$SHELL</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">gcloud init</span></pre></td></tr></table></figure><p>​</p><h2 id="새로운-버킷-생성-명령어"><a href="#새로운-버킷-생성-명령어" class="headerlink" title="새로운 버킷 생성 명령어"></a>새로운 버킷 생성 명령어</h2><hr><figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">gsutil mb -l us-east1 gs://my-awesome-bucket/</span></pre></td></tr></table></figure><p>​</p><h2 id="파일-업로드"><a href="#파일-업로드" class="headerlink" title="파일 업로드"></a>파일 업로드</h2><hr><figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">gsutil cp Desktop/kitten.png gs://my-awesome-bucket</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">gsutil cp /home/lee/video/chul9hyung/5Hj3sW2OroU.wav gs://my-youtube-bucket</span></pre></td></tr></table></figure><p>​​</p><h2 id="버킷에-파일-조회"><a href="#버킷에-파일-조회" class="headerlink" title="버킷에 파일 조회"></a>버킷에 파일 조회</h2><hr><figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">gsutil ls gs://my-awesome-bucket</span></pre></td></tr></table></figure>]]></content:encoded>
+      
+      <comments>http://yoursite.com/2019/02/14/setting/google_cloud_storage/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>GCS API 403 caller has no permission</title>
+      <link>http://yoursite.com/2019/02/14/error_set/google_cloud_storage_error/</link>
+      <guid>http://yoursite.com/2019/02/14/error_set/google_cloud_storage_error/</guid>
+      <pubDate>Thu, 14 Feb 2019 01:23:00 GMT</pubDate>
+      <description>
+      
+        &lt;ul&gt;
+&lt;li&gt;에러 : 403 caller has no error.&lt;br&gt;GCS 사용하다가 마주친 에러&lt;/li&gt;
+&lt;/ul&gt;
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<ul><li>에러 : 403 caller has no error.<br>GCS 사용하다가 마주친 에러</li></ul><a id="more"></a><hr><ul><li><p>Solution 1 : 결제 에러 관련 </p><p>bucket을 새로 만들어본다.   </p><ul><li><p>조회 명령어</p><figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">gsutil ls gs://my-awesome-bucket</span></pre></td></tr></table></figure></li><li><p>bucket 새로 생성</p><figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">gsutil mb -l us-east1 gs://my-awesome-bucket/</span></pre></td></tr></table></figure></li></ul></li></ul><hr><ul><li><p>Solution 2 : 권한 에러 관련 </p><p>공개로 돌려버리면 된다.</p><center><img src="/images/error_set/gcs_error.png" alt></center><br><p>all users를 추가하면 된다.</p></li></ul>]]></content:encoded>
+      
+      <comments>http://yoursite.com/2019/02/14/error_set/google_cloud_storage_error/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>PostgreSQL 백업 복원</title>
+      <link>http://yoursite.com/2019/02/07/setting/postgresql_backup/</link>
+      <guid>http://yoursite.com/2019/02/07/setting/postgresql_backup/</guid>
+      <pubDate>Thu, 07 Feb 2019 04:58:00 GMT</pubDate>
+      <description>
+      
+        &lt;ul&gt;
+&lt;li&gt;PostgreSQL은 DB 특성상 console 작업이 너무 불편해 PgAdmin을 연동해야 한다.&lt;/li&gt;
+&lt;/ul&gt;
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<ul><li>PostgreSQL은 DB 특성상 console 작업이 너무 불편해 PgAdmin을 연동해야 한다.</li></ul><a id="more"></a>​<h2 id="PgAdmin-연동"><a href="#PgAdmin-연동" class="headerlink" title="PgAdmin 연동"></a>PgAdmin 연동</h2><hr><ul><li>PostgreSQL 외부접속을 허용한다.</li></ul><ol><li><p>listen_addresses 변경</p><ul><li><p>/etc/postgrsql/9.5/main/postgresql.conf 에 들어간다. 저 부분을 변경해준다.</p><center><img src="/images/setting/20190207_1358.png"></center><br></li></ul></li><li><p>host 값 추가</p><ul><li><p>/etc/postgresql/9.5/main/pg_hba.conf 에 들어가 가장 마지막 부분에 한 줄 입력해준다.</p><center><img src="/images/setting/20190207_1359.png"></center><br></li></ul></li><li><p>DB 재시작</p></li></ol><h2 id="백업"><a href="#백업" class="headerlink" title="백업"></a>백업</h2><hr><ul><li>Backup을 눌러준다.</li></ul><center><img src="/images/setting/20190207_1400.png"></center><br><h2 id="복구"><a href="#복구" class="headerlink" title="복구"></a>복구</h2><hr><ul><li>Restore을 클릭해준다.</li></ul><center><img src="/images/setting/20190207_1401.png"></center><br><h2 id="참고-URL"><a href="#참고-URL" class="headerlink" title="참고 URL"></a>참고 URL</h2><ul><li>[URL] : <a href="http://printhelloworld.tistory.com/143" target="_blank" rel="noopener">http://printhelloworld.tistory.com/143</a></li></ul><p>​</p>]]></content:encoded>
+      
+      <comments>http://yoursite.com/2019/02/07/setting/postgresql_backup/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>MySQL 백업 복원</title>
+      <link>http://yoursite.com/2019/02/07/setting/mysql_backup/</link>
+      <guid>http://yoursite.com/2019/02/07/setting/mysql_backup/</guid>
+      <pubDate>Thu, 07 Feb 2019 02:58:00 GMT</pubDate>
+      <description>
+      
+        &lt;ul&gt;
+&lt;li&gt;MySQL Install.&lt;/li&gt;
+&lt;/ul&gt;
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<ul><li>MySQL Install.</li></ul><a id="more"></a>​<h2 id="백업"><a href="#백업" class="headerlink" title="백업"></a>백업</h2><hr><ol><li><p>DB별로 백업</p> <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">mysqldump -u root -p DB명 &gt; 파일명.sql</span></pre></td></tr></table></figure><p>​</p></li><li><p>전체 백업</p> <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">mysqldump -u root -p –all-databases &gt; 파일명.sql</span></pre></td></tr></table></figure><p>​</p></li><li><p>캐릭터셋 옵션을 이용하여 백업</p> <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">mysqldump -u root -p –default-character-set=euckr DB명 &gt; 파일명.sql​</span></pre></td></tr></table></figure><p>​</p></li><li><p>특정 테이블만 덤프</p> <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">mysqldump -u root -p DB명 테이블명 &gt; 파일명.sql</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">mysqldump -u root -p -B DB명 –tables 테이블명1 테이블명2 테이블명3 &gt; 파일명.sql</span></pre></td></tr></table></figure><p>​</p></li><li><p>테이블 구조만 백업</p> <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">mysqldump -u root -p –no-data DB명 &gt; 파일명.sql</span></pre></td></tr></table></figure><p>​</p></li><li><p>XML 파일로 백업</p> <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">mysqldump -u root -p –xml DB명 &gt; 파일명.sql</span></pre></td></tr></table></figure></li></ol><p>​</p><h2 id="복구"><a href="#복구" class="headerlink" title="복구"></a>복구</h2><hr><ol><li>DB별로 복구 <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">mysql -u root -p DB명 &lt; 파일명.sql</span></pre></td></tr></table></figure></li></ol><ol start="2"><li><p>전체 복구</p> <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">mysql -u root -p &lt; 파일명.sql</span></pre></td></tr></table></figure><p>​</p></li><li><p>캐릭터셋 옵션을 이용하여 백업 복구</p> <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">mysqldump -u root -p –default-character-set=euckr DB명 &lt; 파일명.sql</span></pre></td></tr></table></figure><p>​</p></li></ol>]]></content:encoded>
+      
+      <comments>http://yoursite.com/2019/02/07/setting/mysql_backup/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Ubuntu git 설치</title>
+      <link>http://yoursite.com/2019/02/07/setting/linux_git/</link>
+      <guid>http://yoursite.com/2019/02/07/setting/linux_git/</guid>
+      <pubDate>Thu, 07 Feb 2019 02:54:00 GMT</pubDate>
+      <description>
+      
+        &lt;ul&gt;
+&lt;li&gt;Git Install&lt;/li&gt;
+&lt;/ul&gt;
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<ul><li>Git Install</li></ul><a id="more"></a>​<h2 id="설치"><a href="#설치" class="headerlink" title="설치"></a>설치</h2><hr><ol><li><p>Git 설치하기</p> <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">apt-get install git-core</span></pre></td></tr></table></figure></li><li><p>Git 환경설정하기</p> <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">git config --global user.name <span class="hljs-string">"UserName"</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">git config --global user.email UserEmail</span></pre></td></tr></table></figure></li><li><p>Git 추가하기</p> <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">git add .</span></pre></td></tr></table></figure></li></ol><ol start="4"><li><p>Git commit 하기</p> <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">        git commit -m <span class="hljs-string">"upload server"</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">    ```​​</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">5. 기존에 git에 있는 코드를 가져온다.</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">    ``` bash</span></pre></td></tr><tr><td class="code"><pre><span class="line">        <span class="hljs-comment">#git에 있는 코드를 땡겨온다. 자동으로 merge가 된다.</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">        git pull origin master</span></pre></td></tr></table></figure></li><li><p>Git 서버에 올린다.</p> <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-comment">#현재 server 코드를 upload 해준다.</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">git push origin master</span></pre></td></tr></table></figure></li></ol><p>​</p>]]></content:encoded>
+      
+      <comments>http://yoursite.com/2019/02/07/setting/linux_git/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>php exec error</title>
+      <link>http://yoursite.com/2019/02/07/error_set/php_exec_error/</link>
+      <guid>http://yoursite.com/2019/02/07/error_set/php_exec_error/</guid>
+      <pubDate>Thu, 07 Feb 2019 02:51:00 GMT</pubDate>
+      <description>
+      
+        &lt;ul&gt;
+&lt;li&gt;&lt;p&gt;에러&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;PHP에서 Python 스크립트 파일을 실행시켰다.  &lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Python 스크립트 파일에는 pytube를 이용해 영상을 다운받는 코드가 있었다.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;하지만 download 가 되지 않는 문제가 있었다.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;에러 원인&lt;/p&gt;
+&lt;p&gt;PHP에서 exec를 실행하면 www-data 일반 유저의 권한으로 해당 스크립트 파일을 실행시킨다.&lt;br&gt;일반 유저의 권한으로는 파일 읽기 쓰기가 되지 않기 때문에 에러가 났었다.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<ul><li><p>에러</p><ol><li><p>PHP에서 Python 스크립트 파일을 실행시켰다.  </p></li><li><p>Python 스크립트 파일에는 pytube를 이용해 영상을 다운받는 코드가 있었다.</p></li><li><p>하지만 download 가 되지 않는 문제가 있었다.</p></li></ol></li></ul><ul><li><p>에러 원인</p><p>PHP에서 exec를 실행하면 www-data 일반 유저의 권한으로 해당 스크립트 파일을 실행시킨다.<br>일반 유저의 권한으로는 파일 읽기 쓰기가 되지 않기 때문에 에러가 났었다.</p></li></ul><a id="more"></a><hr><ul><li><p>해결방법</p><p>해당 파일들의 권한을 chmod 777이거나 쓰기 가능할 정도로 변경해주면 해결 가능하다.<br>우선적으로 sudo 권한 아닐 때 실행시켜보면 에러 잡을 수 있다.</p></li><li><p>생각해봐야 할 것  </p><p>근데 일반 서비스에서는 이렇게 함부로 권한 남발하면 안되는데….<br>고민을 해봐야 할 문제이다.</p></li></ul><ul><li><p>참고 URL</p><ul><li><p><a href="http://blog.naver.com/PostView.nhn?blogId=kkyy3402&amp;logNo=221284921252&amp;categoryNo=0&amp;parentCategoryNo=0&amp;viewDate=¤tPage=1&amp;postListTopCurrentPage=1&amp;from=postView​" target="_blank" rel="noopener">http://blog.naver.com/PostView.nhn?blogId=kkyy3402&amp;logNo=221284921252&amp;categoryNo=0&amp;parentCategoryNo=0&amp;viewDate=¤tPage=1&amp;postListTopCurrentPage=1&amp;from=postView​</a></p></li><li><p><a href="http://blog.naver.com/PostView.nhn?blogId=anducher&amp;logNo=130033390734&amp;widgetTypeCall=true" target="_blank" rel="noopener">http://blog.naver.com/PostView.nhn?blogId=anducher&amp;logNo=130033390734&amp;widgetTypeCall=true</a></p></li></ul></li></ul>]]></content:encoded>
+      
+      <comments>http://yoursite.com/2019/02/07/error_set/php_exec_error/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>pycharm java_home error</title>
+      <link>http://yoursite.com/2019/02/01/error_set/pycharm_java_home_error/</link>
+      <guid>http://yoursite.com/2019/02/01/error_set/pycharm_java_home_error/</guid>
+      <pubDate>Fri, 01 Feb 2019 07:24:00 GMT</pubDate>
+      <description>
+      
+        &lt;ul&gt;
+&lt;li&gt;&lt;p&gt;에러 : Pycharm에 JAVA_HOME이 설정되어 있지 않다.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;에러 원인 : Jpype가 설치되어 있지 않았고 JAVA_HOME이 설정 되어있지 않아서 에러가 발생했다.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<ul><li><p>에러 : Pycharm에 JAVA_HOME이 설정되어 있지 않다.</p></li><li><p>에러 원인 : Jpype가 설치되어 있지 않았고 JAVA_HOME이 설정 되어있지 않아서 에러가 발생했다.</p></li></ul><a id="more"></a><hr><p><strong>해결 방법</strong></p><ol><li><p>JPype1-py3을 pycharm setting에 들어가서 설치해준다.<br>위에 것을 설치해도 에러가 발생한다면 JAVA_HOME이 설정되어 있지 않아서이다.</p></li><li><p>시스템 변수에 JAVA_HOME을 추가해주었더니 실행이 되었다.<br><img src="/images/error_set/window_envir_path.png" alt="환경변수"><br></p></li></ol><p><strong>참고 URL</strong><br><a href="https://mainia.tistory.com/5667" target="_blank" rel="noopener">https://mainia.tistory.com/5667</a></p><!-- [링크에 사용할 이름](URL)  -->]]></content:encoded>
+      
+      <comments>http://yoursite.com/2019/02/01/error_set/pycharm_java_home_error/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>tensorflow version error</title>
+      <link>http://yoursite.com/2019/01/31/error_set/tensorflow_version_error-2/</link>
+      <guid>http://yoursite.com/2019/01/31/error_set/tensorflow_version_error-2/</guid>
+      <pubDate>Thu, 31 Jan 2019 07:39:00 GMT</pubDate>
+      <description>
+      
+        &lt;ul&gt;
+&lt;li&gt;&lt;p&gt;에러 메세지 : TypeError: Expected int32, got list containing Tensors of type _Message instead.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;에러 원인 : Tensorflow가 1.x 대로 업그레이드 되면서 tf.concat의 input이 달라져서 생기는 문제이다. 이미지와 같이 수정해준다.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;해결 방법 : parameter 위치만 바꿔주면 된다.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<ul><li><p>에러 메세지 : TypeError: Expected int32, got list containing Tensors of type _Message instead.</p></li><li><p>에러 원인 : Tensorflow가 1.x 대로 업그레이드 되면서 tf.concat의 input이 달라져서 생기는 문제이다. 이미지와 같이 수정해준다.</p></li><li><p>해결 방법 : parameter 위치만 바꿔주면 된다.</p></li></ul><a id="more"></a><center><img src="/images/error_set/tensorflow_error_set.png" width="100%" alt="해결"></center><br>]]></content:encoded>
+      
+      <comments>http://yoursite.com/2019/01/31/error_set/tensorflow_version_error-2/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>tensorflow version error</title>
+      <link>http://yoursite.com/2019/01/31/error_set/tensorflow_version_error-1/</link>
+      <guid>http://yoursite.com/2019/01/31/error_set/tensorflow_version_error-1/</guid>
+      <pubDate>Thu, 31 Jan 2019 07:37:00 GMT</pubDate>
+      <description>
+      
+        &lt;ul&gt;
+&lt;li&gt;&lt;p&gt;에러 메세지 : Only call softmax_cross_entropy_with_logits with named argument&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;에러 원인 : 텐서플로우가 1.x 대로 업그레이드 되면서 생긴 문제이다.&lt;br&gt;함수 사용할 때 이미지와 같이 parameter를 구체적으로 표시해주어야 한다.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;해결 방법 : labels 와 logits를 붙여주어야 한다.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<ul><li><p>에러 메세지 : Only call softmax_cross_entropy_with_logits with named argument</p></li><li><p>에러 원인 : 텐서플로우가 1.x 대로 업그레이드 되면서 생긴 문제이다.<br>함수 사용할 때 이미지와 같이 parameter를 구체적으로 표시해주어야 한다.</p></li><li><p>해결 방법 : labels 와 logits를 붙여주어야 한다.</p></li></ul><a id="more"></a><center><img src="/images/error_set/tensorflow_version_error.png" width="100%" alt="수정 후 이미지"></center><br>]]></content:encoded>
+      
+      <comments>http://yoursite.com/2019/01/31/error_set/tensorflow_version_error-1/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Pycharm에서 scrapy 설치 및 실행하기</title>
+      <link>http://yoursite.com/2019/01/30/setting/pycharm_scrapy_install/</link>
+      <guid>http://yoursite.com/2019/01/30/setting/pycharm_scrapy_install/</guid>
+      <pubDate>Wed, 30 Jan 2019 09:06:00 GMT</pubDate>
+      <description>
+      
+        &lt;ul&gt;
+&lt;li&gt;후기 : Local에 VisualBasic C++ 관련 라이브러리 들이 설치되어 있어야 정상적으로 pycharm에서 scrapy를 설치할 수 있다.&lt;/li&gt;
+&lt;/ul&gt;
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<ul><li>후기 : Local에 VisualBasic C++ 관련 라이브러리 들이 설치되어 있어야 정상적으로 pycharm에서 scrapy를 설치할 수 있다.</li></ul><a id="more"></a>​<h2 id="설치"><a href="#설치" class="headerlink" title="설치"></a>설치</h2><hr><ol><li>Scrapy 설치</li></ol><ul><li><p>Setting을 들어가 라이브러리 추가하는 곳에서 scrapy를 추가한다.</p></li><li><p>만약, 추가했을 때 에러가 발생한다면 비쥬얼 베이직 프로그램 설치하고 C++ 관련 라이브러리를 추가해야 한다.</p>  <figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> scrapy</span></pre></td></tr></table></figure></li></ul><ol start="2"><li><p>Scrapy 커맨드 실행</p> <figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> scrapy.cmdline <span class="hljs-keyword">import</span> execute</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">execute()</span></pre></td></tr></table></figure></li><li><p>Scrapy 프로젝트 생성</p> <figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> scrapy</span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> scrapy <span class="hljs-keyword">import</span> cmdline</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">cmdline.execute(<span class="hljs-string">"scrapy startproject naverCrawler"</span>.split())</span></pre></td></tr></table></figure></li></ol><p>​</p><h2 id="참고-URL"><a href="#참고-URL" class="headerlink" title="참고 URL"></a>참고 URL</h2><hr><ul><li>[URL] : <a href="https://krksap.tistory.com/1053" target="_blank" rel="noopener">https://krksap.tistory.com/1053</a></li></ul><p>​</p>]]></content:encoded>
+      
+      <comments>http://yoursite.com/2019/01/30/setting/pycharm_scrapy_install/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Konlpy 설치</title>
+      <link>http://yoursite.com/2019/01/18/setting/konlpy_install/</link>
+      <guid>http://yoursite.com/2019/01/18/setting/konlpy_install/</guid>
+      <pubDate>Fri, 18 Jan 2019 02:29:00 GMT</pubDate>
+      <description>
+      
+        &lt;ul&gt;
+&lt;li&gt;Konlpy install 방법.&lt;/li&gt;
+&lt;/ul&gt;
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<ul><li>Konlpy install 방법.</li></ul><a id="more"></a><h2 id="설치"><a href="#설치" class="headerlink" title="설치"></a>설치</h2><hr><ol><li><p>Python 환경을 설정해준다.</p><ul><li><p>pip 환경을 설치해준다. </p></li><li><p>python 2.x 버전과 3.x 버전의 설치 명령어가 다르다.</p><figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">apt-get install python-pip     <span class="hljs-comment"># 2.x version</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">apt-get install python3-pip    <span class="hljs-comment"># 3.x version</span></span></pre></td></tr></table></figure></li></ul></li></ol><ol start="2"><li><p>Konlpy 설치</p><ul><li><p>python 2버전과 3버전의 설치 명령어가 다르다.</p><figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">apt-get install python-dev      <span class="hljs-comment"># 2.x version</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">pip install konlpy</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">apt-get install python3-dev     <span class="hljs-comment"># 3.x version</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">pip3 install konlpy</span></pre></td></tr></table></figure><p>​</p></li></ul></li><li><p>Java 설치</p><ul><li><p>Konlpy를 실행시키기 위해서 Java가 필요하다.</p><figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">apt-get install openjdk-8-jdk</span></pre></td></tr></table></figure></li></ul></li></ol><p>​</p><h2 id="Jpype-Error"><a href="#Jpype-Error" class="headerlink" title="Jpype Error"></a>Jpype Error</h2><hr><ol><li><p>java-open-jdk가 설치되었는지 확인.</p><ul><li>설치 안되면 다시 설치!</li></ul></li></ol><ol start="2"><li><p>환경변수를 설정해준다.</p><ul><li>[참고 URL] : <a href="https://zetawiki.com/wiki/%EB%A6%AC%EB%88%85%EC%8A%A4_$JAVA_HOME_%ED%99%98%EA%B2%BD%EB%B3%80%EC%88%98_%EC%84%A4%EC%A0%95" target="_blank" rel="noopener">https://zetawiki.com/wiki/%EB%A6%AC%EB%88%85%EC%8A%A4_$JAVA_HOME_%ED%99%98%EA%B2%BD%EB%B3%80%EC%88%98_%EC%84%A4%EC%A0%95</a></li></ul></li></ol><p>​<br>    <center><img src="/images/setting/20190118_1129.png" alt="java home 설정"></center><br></p><ol start="3"><li><p>jpype를 설치한다.</p> <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">$ sudo apt-get install g++ openjdk-8-jdk python-dev python3-dev</span></pre></td></tr><tr><td class="code"><pre><span class="line">$ pip install JPype1         <span class="hljs-comment"># in Python 2.x</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">$ pip3 install JPype1-py3    <span class="hljs-comment"># in Python 3.x</span></span></pre></td></tr></table></figure><p>​</p></li></ol><h2 id="메캅-설치-에러"><a href="#메캅-설치-에러" class="headerlink" title="메캅 설치 에러"></a>메캅 설치 에러</h2><hr><ul><li><p>mecab 설치 제대로 안되었을 때 bash에서 설치해주어야 한다.</p></li><li><p>정말 안되면은 autoconf를 해준다음 다시 설치해야 한다.</p></li></ul><pre><code><figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">$ sudo apt-get install curl</span></pre></td></tr><tr><td class="code"><pre><span class="line">$ bash &lt;(curl -s https://raw.githubusercontent.com/konlpy/konlpy/master/scripts/mecab.sh)</span></pre></td></tr><tr><td class="code"><pre><span class="line">apt-get install -y autoconf     <span class="hljs-comment">#중요해!!</span></span></pre></td></tr></table></figure></code></pre><h2 id="자바-heap-메모리-부족할-때"><a href="#자바-heap-메모리-부족할-때" class="headerlink" title="자바 heap 메모리 부족할 때"></a>자바 heap 메모리 부족할 때</h2><hr><ul><li>자바 옵션을 건드리면 된다.</li></ul><figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-built_in">export</span> _JAVA_OPTIONS=-Xmx4096m</span></pre></td></tr></table></figure>]]></content:encoded>
+      
+      <comments>http://yoursite.com/2019/01/18/setting/konlpy_install/#disqus_thread</comments>
+    </item>
+    
+  </channel>
+</rss>
