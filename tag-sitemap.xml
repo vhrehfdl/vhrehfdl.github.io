@@ -3,6 +3,55 @@
 
 
     <url>
+        <loc>http://yoursite.com/tags/colab/</loc>
+        <lastmod>2019-12-24T07:47:25.562Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/tensorboard/</loc>
+        <lastmod>2019-12-24T07:42:09.084Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/docker/</loc>
+        <lastmod>2019-12-24T07:42:01.878Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/pytube/</loc>
+        <lastmod>2019-12-24T07:41:56.420Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/git/</loc>
+        <lastmod>2019-12-24T05:24:51.041Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/ubuntu/</loc>
+        <lastmod>2019-12-24T05:24:51.041Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://yoursite.com/tags/postgresql/</loc>
+        <lastmod>2019-12-24T04:41:00.446Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://yoursite.com/tags/gcs/</loc>
         <lastmod>2019-12-23T05:51:54.319Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -10,29 +59,8 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/postgresql/</loc>
-        <lastmod>2019-12-23T05:40:44.433Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://yoursite.com/tags/mysql/</loc>
         <lastmod>2019-12-23T01:37:19.569Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/tags/git/</loc>
-        <lastmod>2019-12-22T08:35:08.387Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/tags/ubuntu/</loc>
-        <lastmod>2019-12-22T08:35:08.387Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

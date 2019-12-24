@@ -126,6 +126,46 @@
     </item>
     
     <item>
+      <title>Google Colab 사용법 정리</title>
+      <link>http://yoursite.com/2019/03/22/setting/colab_tutorial/</link>
+      <guid>http://yoursite.com/2019/03/22/setting/colab_tutorial/</guid>
+      <pubDate>Fri, 22 Mar 2019 02:19:00 GMT</pubDate>
+      <description>
+      
+        &lt;ul&gt;
+&lt;li&gt;colab 기초 사용법&lt;/li&gt;
+&lt;/ul&gt;
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<ul><li>colab 기초 사용법</li></ul><a id="more"></a>​<h2 id="Tutorial"><a href="#Tutorial" class="headerlink" title="Tutorial"></a>Tutorial</h2><hr><ol><li><p>Colab에 접속한다.</p><ul><li>[URL] : <a href="https://colab.research.google.com/notebooks/welcome.ipynb" target="_blank" rel="noopener">https://colab.research.google.com/notebooks/welcome.ipynb</a><br>​</li></ul></li><li><p>새로운 python3.ipynb 파일을 만든 후 google drive mount를 한다.</p><ul><li><p>해당 코드를 실행하면 enter authorization code를 입력하라고 창이 뜬다.</p>  <figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> google.colab <span class="hljs-keyword">import</span> drive</span></pre></td></tr><tr><td class="code"><pre><span class="line">drive.mount(<span class="hljs-string">'/content/gdrive'</span>)</span></pre></td></tr></table></figure></li></ul></li></ol><ol start="3"><li><p>authorization code 받는 주소</p><ul><li><p>[URL] : <a href="https://colab.research.google.com/notebooks/io.ipynb#scrollTo=RWSJpsyKqHjH" target="_blank" rel="noopener">https://colab.research.google.com/notebooks/io.ipynb#scrollTo=RWSJpsyKqHjH</a><br>​</p></li><li><p>해당 URL에 들어가면 최종적으로 authorization code를 받을 수 있다.</p><center><img src="/images/setting/20190322_1119.png" alt="tensorboard 실행 이미지"></center><br></li></ul></li></ol><ol start="4"><li><p>foo.txt 파일을 드라이브에 업로드</p> <figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">with</span> open(<span class="hljs-string">'/content/gdrive/My Drive/foo.txt'</span>, <span class="hljs-string">'w'</span>) <span class="hljs-keyword">as</span> f:</span></pre></td></tr><tr><td class="code"><pre><span class="line">    f.write(<span class="hljs-string">'Hello Google Drive!'</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line">!cat /content/gdrive/My\ Drive/foo.txt</span></pre></td></tr></table></figure><p>​</p></li></ol>]]></content:encoded>
+      
+      <comments>http://yoursite.com/2019/03/22/setting/colab_tutorial/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Tensorboard 사용법</title>
+      <link>http://yoursite.com/2019/03/08/setting/tensorboard_setting/</link>
+      <guid>http://yoursite.com/2019/03/08/setting/tensorboard_setting/</guid>
+      <pubDate>Fri, 08 Mar 2019 08:24:00 GMT</pubDate>
+      <description>
+      
+        &lt;h2 id=&quot;생각&quot;&gt;&lt;a href=&quot;#생각&quot; class=&quot;headerlink&quot; title=&quot;생각&quot;&gt;&lt;/a&gt;생각&lt;/h2&gt;&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;처음에 아무 생각 없이 하다가 내 tensorflow를 아나콘다 가상환경에 설치한 사실을 깜빡하고 tensorboard를 실행 못시켰었다. &lt;/li&gt;
+&lt;li&gt;tensorflow가 설치되어 있는 가상환경을 activate하고 tensorboard를 실행시키자. ㅋㅋ&lt;/li&gt;
+&lt;/ul&gt;
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<h2 id="생각"><a href="#생각" class="headerlink" title="생각"></a>생각</h2><hr><ul><li>처음에 아무 생각 없이 하다가 내 tensorflow를 아나콘다 가상환경에 설치한 사실을 깜빡하고 tensorboard를 실행 못시켰었다. </li><li>tensorflow가 설치되어 있는 가상환경을 activate하고 tensorboard를 실행시키자. ㅋㅋ</li></ul><a id="more"></a>​<h2 id="설치-및-실행"><a href="#설치-및-실행" class="headerlink" title="설치 및 실행"></a>설치 및 실행</h2><hr><ol><li><p>tensorboard 설치 </p><ul><li>기본적으로 tensorflow 설치하면 자동으로 tensorboard가 설치되어진다.</li></ul></li><li><p>mygraph라는 폴더를 만들어서 log를 저장한다.</p> <figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> tensorflow <span class="hljs-keyword">as</span> tf</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">a = tf.constant(<span class="hljs-number">5</span>, name=<span class="hljs-string">'input_a'</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line">b = tf.constant(<span class="hljs-number">7</span>, name=<span class="hljs-string">'input_b'</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">c = tf.multiply(a, b, name=<span class="hljs-string">'mul_c'</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line">d = tf.add(a, b, name=<span class="hljs-string">'add_d'</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line">e = tf.add(c, d, name=<span class="hljs-string">'add_e'</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">sess = tf.Session()</span></pre></td></tr><tr><td class="code"><pre><span class="line">print(sess.run(e))</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">wirter = tf.summary.FileWriter(<span class="hljs-string">'./mygraph'</span>,sess.graph)</span></pre></td></tr></table></figure></li><li><p>mygraph가 위치하는 폴더에 가서 아래의 명령어를 실행시켜준다.</p> <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">tensorboard --logdir=<span class="hljs-string">"mygraph"</span></span></pre></td></tr></table></figure></li><li><p>커맨드창 가장 하단에 있는 <a href="http://localhost:6006으로" target="_blank" rel="noopener">http://localhost:6006으로</a> 들어가면 tensorboard가 실행되어진다.</p> <center><img src="/images/setting/20190308_1724.png" alt="tensorboard 실행 이미지"></center><br></li><li><p>최종 결과</p> <center><img src="/images/setting/20190308_1725.png" alt="tensorboard 실행 이미지"></center><br>​</li><li><p>응용</p></li></ol><ul><li><p>아래의 코드는 callback 함수로 만들어서 log를 쌓는 방법이다.</p>  <figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> keras.callbacks <span class="hljs-keyword">import</span> TensorBoard</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">create_callbacks</span><span class="hljs-params">()</span>:</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">    tensorboard_callback = TensorBoard(log_dir=<span class="hljs-string">'./mygraph/mlp'</span>, histogram_freq=<span class="hljs-number">1</span>, batch_size=<span class="hljs-number">32</span>, write_graph=<span class="hljs-literal">True</span>, write_grads=<span class="hljs-literal">False</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="hljs-keyword">return</span> [tensorboard_callback]</span></pre></td></tr></table></figure></li><li><p>위의 코드를 만든후에 model을 실행시킬 때 콜백으로 넣어주면 log가 실시간으로 쌓인다.</p>  <figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line">callbacks = create_callbacks()</span></pre></td></tr><tr><td class="code"><pre><span class="line">model.fit(x=data[<span class="hljs-string">"train_X"</span>], y=data[<span class="hljs-string">"train_y"</span>], batch_size=<span class="hljs-number">32</span>, epochs=<span class="hljs-number">200</span>, verbose=<span class="hljs-number">1</span>, validation_data=(data[<span class="hljs-string">"val_X"</span>], data[<span class="hljs-string">"val_y"</span>]), callbacks=callbacks)</span></pre></td></tr></table></figure></li></ul>]]></content:encoded>
+      
+      <comments>http://yoursite.com/2019/03/08/setting/tensorboard_setting/#disqus_thread</comments>
+    </item>
+    
+    <item>
       <title>python encoding error</title>
       <link>http://yoursite.com/2019/03/06/error_set/python_encoding_error/</link>
       <guid>http://yoursite.com/2019/03/06/error_set/python_encoding_error/</guid>
@@ -170,6 +210,25 @@
     </item>
     
     <item>
+      <title>Pytube Sample Code</title>
+      <link>http://yoursite.com/2019/02/25/setting/pytube_sample/</link>
+      <guid>http://yoursite.com/2019/02/25/setting/pytube_sample/</guid>
+      <pubDate>Mon, 25 Feb 2019 02:36:00 GMT</pubDate>
+      <description>
+      
+        &lt;ul&gt;
+&lt;li&gt;Python을 이용한 Youtube 다운로드 라이브러리.&lt;/li&gt;
+&lt;/ul&gt;
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<ul><li>Python을 이용한 Youtube 다운로드 라이브러리.</li></ul><a id="more"></a>​<ol><li><p>pip 툴을 사용해 pytube를 install 한다.</p></li><li><p>code를 돌려 youtube 영상을 다운 받는다.</p></li></ol><figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-comment"># -*- coding: utf-8 -*-</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> os</span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> subprocess</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> pytube</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">yt = pytube.YouTube(<span class="hljs-string">"https://www.youtube.com/watch?v=ZMpQgvmw3kk"</span>) <span class="hljs-comment">#다운받을 동영상 URL 지정</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">vids= yt.streams.all()</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-comment">#영상 형식 리스트 확인</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(len(vids)):</span></pre></td></tr><tr><td class="code"><pre><span class="line">    print(i,<span class="hljs-string">'. '</span>,vids[i])</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">vnum = int(input(<span class="hljs-string">"다운 받을 화질은? "</span>))</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">parent_dir = <span class="hljs-string">"/home/lee"</span> <span class="hljs-comment">#저장 경로 지정(Windows or mac)</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">vids[vnum].download(parent_dir) <span class="hljs-comment">#다운로드 수행</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">default_filename = vids[vnum].default_filename</span></pre></td></tr><tr><td class="code"><pre><span class="line">subprocess.call([<span class="hljs-string">'ffmpeg'</span>, <span class="hljs-string">'-i'</span>,                 <span class="hljs-comment">#cmd 명령어 수행</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">    os.path.join(parent_dir, default_filename)</span></pre></td></tr><tr><td class="code"><pre><span class="line">])</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">print(<span class="hljs-string">'동영상 다운로드 및 mp3 변환 완료!'</span>)</span></pre></td></tr></table></figure><p>​</p>]]></content:encoded>
+      
+      <comments>http://yoursite.com/2019/02/25/setting/pytube_sample/#disqus_thread</comments>
+    </item>
+    
+    <item>
       <title>Google Speech API 아무것도 출력이 되지 않는 에러</title>
       <link>http://yoursite.com/2019/02/25/error_set/google_speech_api_error/</link>
       <guid>http://yoursite.com/2019/02/25/error_set/google_speech_api_error/</guid>
@@ -186,6 +245,25 @@
       <content:encoded><![CDATA[<ul><li>원인<br>아래 코드의 sample_rate_hertz가 일치하지 않아서 그렇다.<br>ffmpeg를 사용해 동영상 확장자를 변환할 때 맞춰주어야 한다.</li></ul><a id="more"></a><hr><ul><li><p>해결방법<br>  ffmpeg로 변환을 시킨다.<br>  sample_rate_hertz가 16000으로 설정했기 때문에 변활시킬 때 16000으로 바꿔주어야 한다.</p>  <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">ffmpeg -i audio_file.mp4 -acodec pcm_s16le -ac 1 -ar 16000 audio_file.wav</span></pre></td></tr></table></figure></li></ul><ul><li><p>예제 코드  </p>  <figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">transcribe_file</span><span class="hljs-params">(speech_file)</span>:</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="hljs-string">"""Transcribe the given audio file."""</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="hljs-keyword">from</span> google.cloud <span class="hljs-keyword">import</span> speech</span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="hljs-keyword">from</span> google.cloud.speech <span class="hljs-keyword">import</span> enums</span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="hljs-keyword">from</span> google.cloud.speech <span class="hljs-keyword">import</span> types</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">    client = speech.SpeechClient()</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="hljs-keyword">with</span> io.open(speech_file, <span class="hljs-string">'rb'</span>) <span class="hljs-keyword">as</span> audio_file:</span></pre></td></tr><tr><td class="code"><pre><span class="line">        content = audio_file.read()</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">    audio = types.RecognitionAudio(content=content)</span></pre></td></tr><tr><td class="code"><pre><span class="line">    config = types.RecognitionConfig(</span></pre></td></tr><tr><td class="code"><pre><span class="line">        encoding=enums.RecognitionConfig.AudioEncoding.LINEAR16,</span></pre></td></tr><tr><td class="code"><pre><span class="line">        sample_rate_hertz=<span class="hljs-number">16000</span>,</span></pre></td></tr><tr><td class="code"><pre><span class="line">        language_code=<span class="hljs-string">'ko-KR'</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">    response = client.recognize(config, audio)</span></pre></td></tr><tr><td class="code"><pre><span class="line">    print(<span class="hljs-string">"test2"</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="hljs-comment"># Each result is for a consecutive portion of the audio. Iterate through</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="hljs-comment"># them to get the transcripts for the entire audio file.</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="hljs-keyword">for</span> result <span class="hljs-keyword">in</span> response.results:</span></pre></td></tr><tr><td class="code"><pre><span class="line">        print(<span class="hljs-string">"test3"</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line">        <span class="hljs-comment"># The first alternative is the most likely one for this portion.</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">        print(<span class="hljs-string">u'Transcript: &#123;&#125;'</span>.format(result.alternatives[<span class="hljs-number">0</span>].transcript))</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">speech_file = <span class="hljs-string">"audio_file.wav"</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">transcribe_file(speech_file)</span></pre></td></tr></table></figure></li></ul>]]></content:encoded>
       
       <comments>http://yoursite.com/2019/02/25/error_set/google_speech_api_error/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Docker 설치하기</title>
+      <link>http://yoursite.com/2019/02/24/setting/docker_install/</link>
+      <guid>http://yoursite.com/2019/02/24/setting/docker_install/</guid>
+      <pubDate>Sun, 24 Feb 2019 06:35:00 GMT</pubDate>
+      <description>
+      
+        &lt;ul&gt;
+&lt;li&gt;Docker 설치와 기본 명령어 기록.&lt;/li&gt;
+&lt;/ul&gt;
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<ul><li>Docker 설치와 기본 명령어 기록.</li></ul><a id="more"></a>​<h2 id="Docker-설치"><a href="#Docker-설치" class="headerlink" title="Docker 설치"></a>Docker 설치</h2><hr><figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">curl -fsSL https://get.docker.com/ | sudo sh</span></pre></td></tr></table></figure><p>​</p><h2 id="설치-확인"><a href="#설치-확인" class="headerlink" title="설치 확인"></a>설치 확인</h2><hr><figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">docker version</span></pre></td></tr></table></figure><ul><li>설치가 완료되면 아래과 같이 결과가 나온다.</li></ul><center><img src="/images/setting/20190224_1535.png" alt="설치 완료"></center><br>​<h2 id="docker-명령어-모음"><a href="#docker-명령어-모음" class="headerlink" title="docker 명령어 모음"></a>docker 명령어 모음</h2><hr><ol><li>Image 파일 설치 :  <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">docker run ubuntu:16.04</span></pre></td></tr></table></figure></li></ol><ol start="2"><li><p>docker run </p> <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">docker run ubuntu:16.04</span></pre></td></tr></table></figure></li><li><p>docker exec : 실행중인 컨테이너에 접속할 때 사용</p> <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">docker <span class="hljs-built_in">exec</span> -it mysql bash</span></pre></td></tr></table></figure></li><li><p>docker image 확인</p> <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">docker images</span></pre></td></tr></table></figure></li><li><p>docker container 확인</p> <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">docker ps -a</span></pre></td></tr></table></figure></li><li><p>docker image 제거</p> <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">docker rmi <span class="hljs-string">'image id'</span></span></pre></td></tr></table></figure></li><li><p>docker container 제거</p> <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">docker rm <span class="hljs-string">'conatiner id'</span></span></pre></td></tr></table></figure><p>​</p></li></ol><h2 id="참고한-URL"><a href="#참고한-URL" class="headerlink" title="참고한 URL"></a>참고한 URL</h2><ul><li>[URL] : <a href="https://subicura.com/2017/01/19/docker-guide-for-beginners-2.html" target="_blank" rel="noopener">https://subicura.com/2017/01/19/docker-guide-for-beginners-2.html</a></li><li>매우 잘 설명 되어 있고 예제 코드도 많다.</li></ul><br><ul><li>[URL] : <a href="http://pyrasis.com/book/DockerForTheReallyImpatient/Chapter20/08" target="_blank" rel="noopener">http://pyrasis.com/book/DockerForTheReallyImpatient/Chapter20/08</a></li><li>Exec 명령어 설명되어 있다.</li></ul><br><ul><li>[URL] : <a href="https://blusky10.tistory.com/362" target="_blank" rel="noopener">https://blusky10.tistory.com/362</a></li><li>docker mysql 설치할 때 참조했다.</li></ul><br><ul><li>[URL] : <a href="https://behonestar.tistory.com/85" target="_blank" rel="noopener">https://behonestar.tistory.com/85</a></li><li>docker 전체 삭제 명령어</li></ul><br><ul><li>[URL] : <a href="https://blog.hanumoka.net/2018/04/29/docker-20180429-docker-install-mysql/" target="_blank" rel="noopener">https://blog.hanumoka.net/2018/04/29/docker-20180429-docker-install-mysql/</a></li><li>마찬가지로 mysql 설치할 때 참조했다.<br>​</li></ul>]]></content:encoded>
+      
+      <comments>http://yoursite.com/2019/02/24/setting/docker_install/#disqus_thread</comments>
     </item>
     
     <item>
@@ -355,92 +433,6 @@
       <content:encoded><![CDATA[<ul><li><p>에러 : Pycharm에 JAVA_HOME이 설정되어 있지 않다.</p></li><li><p>에러 원인 : Jpype가 설치되어 있지 않았고 JAVA_HOME이 설정 되어있지 않아서 에러가 발생했다.</p></li></ul><a id="more"></a><hr><p><strong>해결 방법</strong></p><ol><li><p>JPype1-py3을 pycharm setting에 들어가서 설치해준다.<br>위에 것을 설치해도 에러가 발생한다면 JAVA_HOME이 설정되어 있지 않아서이다.</p></li><li><p>시스템 변수에 JAVA_HOME을 추가해주었더니 실행이 되었다.<br><img src="/images/error_set/window_envir_path.png" alt="환경변수"><br></p></li></ol><p><strong>참고 URL</strong><br><a href="https://mainia.tistory.com/5667" target="_blank" rel="noopener">https://mainia.tistory.com/5667</a></p><!-- [링크에 사용할 이름](URL)  -->]]></content:encoded>
       
       <comments>http://yoursite.com/2019/02/01/error_set/pycharm_java_home_error/#disqus_thread</comments>
-    </item>
-    
-    <item>
-      <title>tensorflow version error</title>
-      <link>http://yoursite.com/2019/01/31/error_set/tensorflow_version_error-2/</link>
-      <guid>http://yoursite.com/2019/01/31/error_set/tensorflow_version_error-2/</guid>
-      <pubDate>Thu, 31 Jan 2019 07:39:00 GMT</pubDate>
-      <description>
-      
-        &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;에러 메세지 : TypeError: Expected int32, got list containing Tensors of type _Message instead.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;에러 원인 : Tensorflow가 1.x 대로 업그레이드 되면서 tf.concat의 input이 달라져서 생기는 문제이다. 이미지와 같이 수정해준다.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;해결 방법 : parameter 위치만 바꿔주면 된다.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-      
-      </description>
-      
-      
-      <content:encoded><![CDATA[<ul><li><p>에러 메세지 : TypeError: Expected int32, got list containing Tensors of type _Message instead.</p></li><li><p>에러 원인 : Tensorflow가 1.x 대로 업그레이드 되면서 tf.concat의 input이 달라져서 생기는 문제이다. 이미지와 같이 수정해준다.</p></li><li><p>해결 방법 : parameter 위치만 바꿔주면 된다.</p></li></ul><a id="more"></a><center><img src="/images/error_set/tensorflow_error_set.png" width="100%" alt="해결"></center><br>]]></content:encoded>
-      
-      <comments>http://yoursite.com/2019/01/31/error_set/tensorflow_version_error-2/#disqus_thread</comments>
-    </item>
-    
-    <item>
-      <title>tensorflow version error</title>
-      <link>http://yoursite.com/2019/01/31/error_set/tensorflow_version_error-1/</link>
-      <guid>http://yoursite.com/2019/01/31/error_set/tensorflow_version_error-1/</guid>
-      <pubDate>Thu, 31 Jan 2019 07:37:00 GMT</pubDate>
-      <description>
-      
-        &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;에러 메세지 : Only call softmax_cross_entropy_with_logits with named argument&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;에러 원인 : 텐서플로우가 1.x 대로 업그레이드 되면서 생긴 문제이다.&lt;br&gt;함수 사용할 때 이미지와 같이 parameter를 구체적으로 표시해주어야 한다.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;해결 방법 : labels 와 logits를 붙여주어야 한다.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-      
-      </description>
-      
-      
-      <content:encoded><![CDATA[<ul><li><p>에러 메세지 : Only call softmax_cross_entropy_with_logits with named argument</p></li><li><p>에러 원인 : 텐서플로우가 1.x 대로 업그레이드 되면서 생긴 문제이다.<br>함수 사용할 때 이미지와 같이 parameter를 구체적으로 표시해주어야 한다.</p></li><li><p>해결 방법 : labels 와 logits를 붙여주어야 한다.</p></li></ul><a id="more"></a><center><img src="/images/error_set/tensorflow_version_error.png" width="100%" alt="수정 후 이미지"></center><br>]]></content:encoded>
-      
-      <comments>http://yoursite.com/2019/01/31/error_set/tensorflow_version_error-1/#disqus_thread</comments>
-    </item>
-    
-    <item>
-      <title>Pycharm에서 scrapy 설치 및 실행하기</title>
-      <link>http://yoursite.com/2019/01/30/setting/pycharm_scrapy_install/</link>
-      <guid>http://yoursite.com/2019/01/30/setting/pycharm_scrapy_install/</guid>
-      <pubDate>Wed, 30 Jan 2019 09:06:00 GMT</pubDate>
-      <description>
-      
-        &lt;ul&gt;
-&lt;li&gt;후기 : Local에 VisualBasic C++ 관련 라이브러리 들이 설치되어 있어야 정상적으로 pycharm에서 scrapy를 설치할 수 있다.&lt;/li&gt;
-&lt;/ul&gt;
-      
-      </description>
-      
-      
-      <content:encoded><![CDATA[<ul><li>후기 : Local에 VisualBasic C++ 관련 라이브러리 들이 설치되어 있어야 정상적으로 pycharm에서 scrapy를 설치할 수 있다.</li></ul><a id="more"></a>​<h2 id="설치"><a href="#설치" class="headerlink" title="설치"></a>설치</h2><hr><ol><li>Scrapy 설치</li></ol><ul><li><p>Setting을 들어가 라이브러리 추가하는 곳에서 scrapy를 추가한다.</p></li><li><p>만약, 추가했을 때 에러가 발생한다면 비쥬얼 베이직 프로그램 설치하고 C++ 관련 라이브러리를 추가해야 한다.</p>  <figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> scrapy</span></pre></td></tr></table></figure></li></ul><ol start="2"><li><p>Scrapy 커맨드 실행</p> <figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> scrapy.cmdline <span class="hljs-keyword">import</span> execute</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">execute()</span></pre></td></tr></table></figure></li><li><p>Scrapy 프로젝트 생성</p> <figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> scrapy</span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> scrapy <span class="hljs-keyword">import</span> cmdline</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">cmdline.execute(<span class="hljs-string">"scrapy startproject naverCrawler"</span>.split())</span></pre></td></tr></table></figure></li></ol><p>​</p><h2 id="참고-URL"><a href="#참고-URL" class="headerlink" title="참고 URL"></a>참고 URL</h2><hr><ul><li>[URL] : <a href="https://krksap.tistory.com/1053" target="_blank" rel="noopener">https://krksap.tistory.com/1053</a></li></ul><p>​</p>]]></content:encoded>
-      
-      <comments>http://yoursite.com/2019/01/30/setting/pycharm_scrapy_install/#disqus_thread</comments>
-    </item>
-    
-    <item>
-      <title>Konlpy 설치</title>
-      <link>http://yoursite.com/2019/01/18/setting/konlpy_install/</link>
-      <guid>http://yoursite.com/2019/01/18/setting/konlpy_install/</guid>
-      <pubDate>Fri, 18 Jan 2019 02:29:00 GMT</pubDate>
-      <description>
-      
-        &lt;ul&gt;
-&lt;li&gt;Konlpy install 방법.&lt;/li&gt;
-&lt;/ul&gt;
-      
-      </description>
-      
-      
-      <content:encoded><![CDATA[<ul><li>Konlpy install 방법.</li></ul><a id="more"></a><h2 id="설치"><a href="#설치" class="headerlink" title="설치"></a>설치</h2><hr><ol><li><p>Python 환경을 설정해준다.</p><ul><li><p>pip 환경을 설치해준다. </p></li><li><p>python 2.x 버전과 3.x 버전의 설치 명령어가 다르다.</p><figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">apt-get install python-pip     <span class="hljs-comment"># 2.x version</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">apt-get install python3-pip    <span class="hljs-comment"># 3.x version</span></span></pre></td></tr></table></figure></li></ul></li></ol><ol start="2"><li><p>Konlpy 설치</p><ul><li><p>python 2버전과 3버전의 설치 명령어가 다르다.</p><figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">apt-get install python-dev      <span class="hljs-comment"># 2.x version</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">pip install konlpy</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">apt-get install python3-dev     <span class="hljs-comment"># 3.x version</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">pip3 install konlpy</span></pre></td></tr></table></figure><p>​</p></li></ul></li><li><p>Java 설치</p><ul><li><p>Konlpy를 실행시키기 위해서 Java가 필요하다.</p><figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">apt-get install openjdk-8-jdk</span></pre></td></tr></table></figure></li></ul></li></ol><p>​</p><h2 id="Jpype-Error"><a href="#Jpype-Error" class="headerlink" title="Jpype Error"></a>Jpype Error</h2><hr><ol><li><p>java-open-jdk가 설치되었는지 확인.</p><ul><li>설치 안되면 다시 설치!</li></ul></li></ol><ol start="2"><li><p>환경변수를 설정해준다.</p><ul><li>[참고 URL] : <a href="https://zetawiki.com/wiki/%EB%A6%AC%EB%88%85%EC%8A%A4_$JAVA_HOME_%ED%99%98%EA%B2%BD%EB%B3%80%EC%88%98_%EC%84%A4%EC%A0%95" target="_blank" rel="noopener">https://zetawiki.com/wiki/%EB%A6%AC%EB%88%85%EC%8A%A4_$JAVA_HOME_%ED%99%98%EA%B2%BD%EB%B3%80%EC%88%98_%EC%84%A4%EC%A0%95</a></li></ul></li></ol><p>​<br>    <center><img src="/images/setting/20190118_1129.png" alt="java home 설정"></center><br></p><ol start="3"><li><p>jpype를 설치한다.</p> <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">$ sudo apt-get install g++ openjdk-8-jdk python-dev python3-dev</span></pre></td></tr><tr><td class="code"><pre><span class="line">$ pip install JPype1         <span class="hljs-comment"># in Python 2.x</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">$ pip3 install JPype1-py3    <span class="hljs-comment"># in Python 3.x</span></span></pre></td></tr></table></figure><p>​</p></li></ol><h2 id="메캅-설치-에러"><a href="#메캅-설치-에러" class="headerlink" title="메캅 설치 에러"></a>메캅 설치 에러</h2><hr><ul><li><p>mecab 설치 제대로 안되었을 때 bash에서 설치해주어야 한다.</p></li><li><p>정말 안되면은 autoconf를 해준다음 다시 설치해야 한다.</p></li></ul><pre><code><figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">$ sudo apt-get install curl</span></pre></td></tr><tr><td class="code"><pre><span class="line">$ bash &lt;(curl -s https://raw.githubusercontent.com/konlpy/konlpy/master/scripts/mecab.sh)</span></pre></td></tr><tr><td class="code"><pre><span class="line">apt-get install -y autoconf     <span class="hljs-comment">#중요해!!</span></span></pre></td></tr></table></figure></code></pre><h2 id="자바-heap-메모리-부족할-때"><a href="#자바-heap-메모리-부족할-때" class="headerlink" title="자바 heap 메모리 부족할 때"></a>자바 heap 메모리 부족할 때</h2><hr><ul><li>자바 옵션을 건드리면 된다.</li></ul><figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-built_in">export</span> _JAVA_OPTIONS=-Xmx4096m</span></pre></td></tr></table></figure>]]></content:encoded>
-      
-      <comments>http://yoursite.com/2019/01/18/setting/konlpy_install/#disqus_thread</comments>
     </item>
     
   </channel>
