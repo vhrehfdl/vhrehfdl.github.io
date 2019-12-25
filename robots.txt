@@ -1,3 +1,2 @@
 User-agent: *
 Allow: /
-Sitemap: https://vhrehfdl.github.io/sitemap.xml

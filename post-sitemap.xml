@@ -2,21 +2,77 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
-        <loc>http://yoursite.com</loc>
+        <loc>https://vhrehfdl.github.io</loc>
         <changefreq>daily</changefreq>
         <priority>1</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/2019/11/09/setting/nginx_flask_uwsgi/</loc>
-        <lastmod>2019-12-24T09:06:39.684Z</lastmod>
+        <loc>https://vhrehfdl.github.io/2019/02/23/word_embedding/bert/</loc>
+        <lastmod>2019-12-25T05:10:53.822Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>http://yoursite.com/2019/11/08/setting/aws_port_open/</loc>
+        <loc>https://vhrehfdl.github.io/2019/02/20/word_embedding/word2vec_example/</loc>
+        <lastmod>2019-12-25T04:37:38.574Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://vhrehfdl.github.io/2019/02/19/word_embedding/word2vec/</loc>
+        <lastmod>2019-12-25T04:06:41.757Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://vhrehfdl.github.io/2019/11/08/setting/aws_putty/</loc>
+        <lastmod>2019-12-25T03:51:47.296Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://vhrehfdl.github.io/2019/02/08/word_embedding/tf_idf/</loc>
+        <lastmod>2019-12-25T03:51:18.846Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://vhrehfdl.github.io/2019/01/31/word_embedding/bag_of_words/</loc>
+        <lastmod>2019-12-25T03:51:18.845Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://vhrehfdl.github.io/2019/01/31/word_embedding/one_hot_encoding/</loc>
+        <lastmod>2019-12-25T03:51:18.845Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://vhrehfdl.github.io/2019/11/09/setting/nginx_flask_uwsgi/</loc>
+        <lastmod>2019-12-25T03:50:44.335Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://vhrehfdl.github.io/2019/11/08/setting/aws_port_open/</loc>
         <lastmod>2019-12-24T08:35:09.788Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -24,15 +80,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2019/11/08/setting/aws_putty/</loc>
-        <lastmod>2019-12-24T08:31:29.987Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://yoursite.com/2019/02/26/error_set/scrapy_error/</loc>
+        <loc>https://vhrehfdl.github.io/2019/02/26/error_set/scrapy_error/</loc>
         <lastmod>2019-12-24T08:20:59.002Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -40,7 +88,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2019/04/07/error_set/pandas_error/</loc>
+        <loc>https://vhrehfdl.github.io/2019/04/07/error_set/pandas_error/</loc>
         <lastmod>2019-12-24T08:19:45.564Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -48,7 +96,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2019/09/11/error_set/pytorch_error/</loc>
+        <loc>https://vhrehfdl.github.io/2019/09/11/error_set/pytorch_error/</loc>
         <lastmod>2019-12-24T08:18:38.681Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -56,7 +104,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2019/02/07/setting/linux_git/</loc>
+        <loc>https://vhrehfdl.github.io/2019/02/07/setting/linux_git/</loc>
         <lastmod>2019-12-24T08:10:29.605Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -64,7 +112,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2019/02/07/setting/mysql_backup/</loc>
+        <loc>https://vhrehfdl.github.io/2019/02/07/setting/mysql_backup/</loc>
         <lastmod>2019-12-24T08:10:25.911Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -72,7 +120,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2019/01/30/setting/pycharm_scrapy_install/</loc>
+        <loc>https://vhrehfdl.github.io/2019/01/30/setting/pycharm_scrapy_install/</loc>
         <lastmod>2019-12-24T08:10:17.422Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -80,7 +128,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2019/01/15/setting/ssh_connect/</loc>
+        <loc>https://vhrehfdl.github.io/2019/01/15/setting/ssh_connect/</loc>
         <lastmod>2019-12-24T08:10:09.936Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -88,7 +136,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2019/01/15/setting/tensorflow_gpu_setting/</loc>
+        <loc>https://vhrehfdl.github.io/2019/01/15/setting/tensorflow_gpu_setting/</loc>
         <lastmod>2019-12-24T08:09:27.983Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -96,7 +144,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2019/01/15/setting/ubuntu_open_port/</loc>
+        <loc>https://vhrehfdl.github.io/2019/01/15/setting/ubuntu_open_port/</loc>
         <lastmod>2019-12-24T08:08:40.106Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -104,7 +152,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2019/03/22/setting/colab_tutorial/</loc>
+        <loc>https://vhrehfdl.github.io/2019/03/22/setting/colab_tutorial/</loc>
         <lastmod>2019-12-24T07:47:25.562Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -112,7 +160,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2019/03/08/setting/tensorboard_setting/</loc>
+        <loc>https://vhrehfdl.github.io/2019/03/08/setting/tensorboard_setting/</loc>
         <lastmod>2019-12-24T07:42:09.084Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -120,7 +168,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2019/02/24/setting/docker_install/</loc>
+        <loc>https://vhrehfdl.github.io/2019/02/24/setting/docker_install/</loc>
         <lastmod>2019-12-24T07:42:01.878Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -128,7 +176,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2019/02/25/setting/pytube_sample/</loc>
+        <loc>https://vhrehfdl.github.io/2019/02/25/setting/pytube_sample/</loc>
         <lastmod>2019-12-24T07:41:56.420Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -136,7 +184,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2019/02/07/setting/postgresql_backup/</loc>
+        <loc>https://vhrehfdl.github.io/2019/02/07/setting/postgresql_backup/</loc>
         <lastmod>2019-12-24T04:41:00.446Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -144,7 +192,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2019/02/14/setting/google_cloud_storage/</loc>
+        <loc>https://vhrehfdl.github.io/2019/02/14/setting/google_cloud_storage/</loc>
         <lastmod>2019-12-23T05:51:54.319Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -152,7 +200,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2019/01/16/setting/nginx_php_mysql_install/</loc>
+        <loc>https://vhrehfdl.github.io/2019/01/16/setting/nginx_php_mysql_install/</loc>
         <lastmod>2019-12-22T07:37:00.646Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -160,7 +208,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2019/01/18/setting/konlpy_install/</loc>
+        <loc>https://vhrehfdl.github.io/2019/01/18/setting/konlpy_install/</loc>
         <lastmod>2019-12-22T07:36:30.666Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -168,7 +216,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2019/01/16/setting/keras_gpu_install/</loc>
+        <loc>https://vhrehfdl.github.io/2019/01/16/setting/keras_gpu_install/</loc>
         <lastmod>2019-12-22T06:55:13.429Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -176,7 +224,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2019/01/16/setting/pycharm_setting/</loc>
+        <loc>https://vhrehfdl.github.io/2019/01/16/setting/pycharm_setting/</loc>
         <lastmod>2019-12-22T06:37:33.327Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -184,7 +232,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2019/01/16/setting/mysql_window/</loc>
+        <loc>https://vhrehfdl.github.io/2019/01/16/setting/mysql_window/</loc>
         <lastmod>2019-12-21T08:09:22.831Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -192,7 +240,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2019/03/27/error_set/tensorflow_hub_error/</loc>
+        <loc>https://vhrehfdl.github.io/2019/03/27/error_set/tensorflow_hub_error/</loc>
         <lastmod>2019-12-15T07:32:45.529Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -200,7 +248,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2019/04/04/error_set/tensorflow_hub_error-1/</loc>
+        <loc>https://vhrehfdl.github.io/2019/04/04/error_set/tensorflow_hub_error-1/</loc>
         <lastmod>2019-12-15T07:32:39.747Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -208,7 +256,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2019/04/07/error_set/tensorflow_gpu_error/</loc>
+        <loc>https://vhrehfdl.github.io/2019/04/07/error_set/tensorflow_gpu_error/</loc>
         <lastmod>2019-12-15T07:31:58.337Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -216,7 +264,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2019/03/06/error_set/python_encoding_error/</loc>
+        <loc>https://vhrehfdl.github.io/2019/03/06/error_set/python_encoding_error/</loc>
         <lastmod>2019-12-15T07:08:58.956Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -224,7 +272,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2019/02/14/error_set/google_cloud_storage_error/</loc>
+        <loc>https://vhrehfdl.github.io/2019/02/14/error_set/google_cloud_storage_error/</loc>
         <lastmod>2019-12-15T06:38:55.740Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -232,7 +280,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2019/02/07/error_set/php_exec_error/</loc>
+        <loc>https://vhrehfdl.github.io/2019/02/07/error_set/php_exec_error/</loc>
         <lastmod>2019-12-14T15:25:07.747Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -240,7 +288,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2018/01/15/hello-world/</loc>
+        <loc>https://vhrehfdl.github.io/2018/01/15/hello-world/</loc>
         <lastmod>2019-12-14T15:18:44.095Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -248,7 +296,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2019/01/31/error_set/tensorflow_version_error-2/</loc>
+        <loc>https://vhrehfdl.github.io/2019/01/31/error_set/tensorflow_version_error-2/</loc>
         <lastmod>2019-12-14T15:18:44.094Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -256,7 +304,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2019/01/31/error_set/tensorflow_version_error-1/</loc>
+        <loc>https://vhrehfdl.github.io/2019/01/31/error_set/tensorflow_version_error-1/</loc>
         <lastmod>2019-12-14T15:18:44.094Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -264,7 +312,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2019/04/08/error_set/tensorflow_version_error/</loc>
+        <loc>https://vhrehfdl.github.io/2019/04/08/error_set/tensorflow_version_error/</loc>
         <lastmod>2019-12-14T15:18:44.094Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -272,7 +320,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2019/02/24/error_set/ubuntu_error/</loc>
+        <loc>https://vhrehfdl.github.io/2019/02/24/error_set/ubuntu_error/</loc>
         <lastmod>2019-12-14T15:18:44.094Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -280,7 +328,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2019/02/25/error_set/google_speech_api_error/</loc>
+        <loc>https://vhrehfdl.github.io/2019/02/25/error_set/google_speech_api_error/</loc>
         <lastmod>2019-12-14T15:18:44.093Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -288,7 +336,7 @@
     </url>
 
     <url>
-        <loc>http://yoursite.com/2019/02/01/error_set/pycharm_java_home_error/</loc>
+        <loc>https://vhrehfdl.github.io/2019/02/01/error_set/pycharm_java_home_error/</loc>
         <lastmod>2019-12-14T15:18:44.093Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>

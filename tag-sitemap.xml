@@ -3,252 +3,287 @@
 
 
     <url>
-        <loc>http://yoursite.com/tags/uwsgi/</loc>
-        <lastmod>2019-12-24T09:06:39.684Z</lastmod>
+        <loc>https://vhrehfdl.github.io/tags/bert/</loc>
+        <lastmod>2019-12-25T05:10:53.822Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/flask/</loc>
-        <lastmod>2019-12-24T09:06:39.684Z</lastmod>
+        <loc>https://vhrehfdl.github.io/tags/word2vec/</loc>
+        <lastmod>2019-12-25T04:37:38.574Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/nginx/</loc>
-        <lastmod>2019-12-24T09:06:39.684Z</lastmod>
+        <loc>https://vhrehfdl.github.io/tags/putty/</loc>
+        <lastmod>2019-12-25T03:51:47.296Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/aws/</loc>
-        <lastmod>2019-12-24T08:35:09.788Z</lastmod>
+        <loc>https://vhrehfdl.github.io/tags/aws/</loc>
+        <lastmod>2019-12-25T03:51:47.296Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/putty/</loc>
-        <lastmod>2019-12-24T08:31:29.987Z</lastmod>
+        <loc>https://vhrehfdl.github.io/tags/tf-idf/</loc>
+        <lastmod>2019-12-25T03:51:18.846Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/scrapy/</loc>
+        <loc>https://vhrehfdl.github.io/tags/one-hot-encoding/</loc>
+        <lastmod>2019-12-25T03:51:18.845Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://vhrehfdl.github.io/tags/bow/</loc>
+        <lastmod>2019-12-25T03:51:18.845Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://vhrehfdl.github.io/tags/uwsgi/</loc>
+        <lastmod>2019-12-25T03:50:44.335Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://vhrehfdl.github.io/tags/flask/</loc>
+        <lastmod>2019-12-25T03:50:44.335Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://vhrehfdl.github.io/tags/nginx/</loc>
+        <lastmod>2019-12-25T03:50:44.335Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://vhrehfdl.github.io/tags/scrapy/</loc>
         <lastmod>2019-12-24T08:20:59.002Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/pickle/</loc>
+        <loc>https://vhrehfdl.github.io/tags/pickle/</loc>
         <lastmod>2019-12-24T08:19:45.564Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/pandas/</loc>
+        <loc>https://vhrehfdl.github.io/tags/pandas/</loc>
         <lastmod>2019-12-24T08:19:45.564Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/pytorch/</loc>
+        <loc>https://vhrehfdl.github.io/tags/pytorch/</loc>
         <lastmod>2019-12-24T08:18:38.681Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/git/</loc>
+        <loc>https://vhrehfdl.github.io/tags/git/</loc>
         <lastmod>2019-12-24T08:10:29.605Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/ubuntu/</loc>
+        <loc>https://vhrehfdl.github.io/tags/ubuntu/</loc>
         <lastmod>2019-12-24T08:10:29.605Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/mysql/</loc>
+        <loc>https://vhrehfdl.github.io/tags/mysql/</loc>
         <lastmod>2019-12-24T08:10:25.911Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/pycharm/</loc>
+        <loc>https://vhrehfdl.github.io/tags/pycharm/</loc>
         <lastmod>2019-12-24T08:10:17.422Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/port/</loc>
+        <loc>https://vhrehfdl.github.io/tags/port/</loc>
         <lastmod>2019-12-24T08:10:09.936Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/tensorflow-gpu/</loc>
+        <loc>https://vhrehfdl.github.io/tags/tensorflow-gpu/</loc>
         <lastmod>2019-12-24T08:09:27.983Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/colab/</loc>
+        <loc>https://vhrehfdl.github.io/tags/colab/</loc>
         <lastmod>2019-12-24T07:47:25.562Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/tensorboard/</loc>
+        <loc>https://vhrehfdl.github.io/tags/tensorboard/</loc>
         <lastmod>2019-12-24T07:42:09.084Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/docker/</loc>
+        <loc>https://vhrehfdl.github.io/tags/docker/</loc>
         <lastmod>2019-12-24T07:42:01.878Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/pytube/</loc>
+        <loc>https://vhrehfdl.github.io/tags/pytube/</loc>
         <lastmod>2019-12-24T07:41:56.420Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/postgresql/</loc>
+        <loc>https://vhrehfdl.github.io/tags/postgresql/</loc>
         <lastmod>2019-12-24T04:41:00.446Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/gcs/</loc>
+        <loc>https://vhrehfdl.github.io/tags/gcs/</loc>
         <lastmod>2019-12-23T05:51:54.319Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/php/</loc>
+        <loc>https://vhrehfdl.github.io/tags/php/</loc>
         <lastmod>2019-12-22T07:37:00.646Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/konlpy/</loc>
+        <loc>https://vhrehfdl.github.io/tags/konlpy/</loc>
         <lastmod>2019-12-22T07:36:30.666Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/gpu/</loc>
+        <loc>https://vhrehfdl.github.io/tags/gpu/</loc>
         <lastmod>2019-12-22T06:55:13.429Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/keras/</loc>
+        <loc>https://vhrehfdl.github.io/tags/keras/</loc>
         <lastmod>2019-12-22T06:55:13.429Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/window/</loc>
+        <loc>https://vhrehfdl.github.io/tags/window/</loc>
         <lastmod>2019-12-22T06:37:33.327Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/elmo/</loc>
+        <loc>https://vhrehfdl.github.io/tags/elmo/</loc>
         <lastmod>2019-12-15T07:32:45.529Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/tensorflow-hub/</loc>
+        <loc>https://vhrehfdl.github.io/tags/tensorflow-hub/</loc>
         <lastmod>2019-12-15T07:32:45.529Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/encoding/</loc>
+        <loc>https://vhrehfdl.github.io/tags/encoding/</loc>
         <lastmod>2019-12-15T07:08:58.956Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/python/</loc>
+        <loc>https://vhrehfdl.github.io/tags/python/</loc>
         <lastmod>2019-12-15T07:08:58.956Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/google-cloud/</loc>
+        <loc>https://vhrehfdl.github.io/tags/google-cloud/</loc>
         <lastmod>2019-12-15T06:38:55.740Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/exec/</loc>
+        <loc>https://vhrehfdl.github.io/tags/exec/</loc>
         <lastmod>2019-12-14T15:25:07.747Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/drop-remainder/</loc>
+        <loc>https://vhrehfdl.github.io/tags/drop-remainder/</loc>
         <lastmod>2019-12-14T15:18:44.094Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/tensorflow/</loc>
+        <loc>https://vhrehfdl.github.io/tags/tensorflow/</loc>
         <lastmod>2019-12-14T15:18:44.094Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/java/</loc>
+        <loc>https://vhrehfdl.github.io/tags/java/</loc>
         <lastmod>2019-12-14T15:18:44.093Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://yoursite.com/tags/google-speech-api/</loc>
+        <loc>https://vhrehfdl.github.io/tags/google-speech-api/</loc>
         <lastmod>2019-12-14T15:18:44.093Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>

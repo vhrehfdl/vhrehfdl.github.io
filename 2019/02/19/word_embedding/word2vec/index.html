@@ -1,0 +1,1767 @@
+<!DOCTYPE html>
+<html  lang="en">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 4.0.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<link rel="canonical" href="https://vhrehfdl.github.io/2019/02/19/word_embedding/word2vec/"/>
+<title>word2vec - Hooni</title>
+
+
+    <meta name="description" content="정리  앞서 소개했던 BoW, TF-IDF는 Count Based Language Model에 속한다.  왜나하면 word를 vector로 표현할 때 단어의 빈도수를 특성으로 표현하기 때문이다.  이제부터 소개할 Language Model은 Neural Network Language Model이다.   NNLM에는 word2vec, FASTTEXT, Glo">
+<meta name="keywords" content="word2vec">
+<meta property="og:type" content="article">
+<meta property="og:title" content="word2vec">
+<meta property="og:url" content="https:&#x2F;&#x2F;vhrehfdl.github.io&#x2F;2019&#x2F;02&#x2F;19&#x2F;word_embedding&#x2F;word2vec&#x2F;index.html">
+<meta property="og:site_name" content="Hooni">
+<meta property="og:description" content="정리  앞서 소개했던 BoW, TF-IDF는 Count Based Language Model에 속한다.  왜나하면 word를 vector로 표현할 때 단어의 빈도수를 특성으로 표현하기 때문이다.  이제부터 소개할 Language Model은 Neural Network Language Model이다.   NNLM에는 word2vec, FASTTEXT, Glo">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https:&#x2F;&#x2F;vhrehfdl.github.io&#x2F;images&#x2F;word_embedding&#x2F;word_embedding.png">
+<meta property="og:updated_time" content="2019-12-25T04:06:41.757Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;vhrehfdl.github.io&#x2F;images&#x2F;word_embedding&#x2F;word_embedding.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/railscasts.css">
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-154384419-1"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-154384419-1');
+</script>
+
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+<link rel="alternate" href="/rss2.xml" title="Hooni" type="application/rss+xml">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo.svg" alt="word2vec" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">Home</a>
+                
+                <a class="navbar-item"
+                href="/archives">Archives</a>
+                
+                <a class="navbar-item"
+                href="/categories">Categories</a>
+                
+                <a class="navbar-item"
+                href="/tags">Tags</a>
+                
+                <a class="navbar-item"
+                href="/about">About</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                
+                <a class="navbar-item search" title="Search" href="javascript:;" target="_blank" rel="noopener">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-image">
+        <span  class="image is-7by1">
+            <img class="thumbnail" src="/images/word_embedding/word_embedding.png" alt="word2vec">
+        </span>
+    </div>
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-02-19T04:36:00.000Z">2019-02-19</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/word-embedding/">word embedding</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    14 minutes read (About 2173 words)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                word2vec
+            
+        </h1>
+        <div class="content">
+            <h2 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h2><hr>
+<ul>
+<li><p>앞서 소개했던 BoW, TF-IDF는 Count Based Language Model에 속한다.  왜나하면 word를 vector로 표현할 때 단어의 빈도수를 특성으로 표현하기 때문이다.</p>
+</li>
+<li><p>이제부터 소개할 Language Model은 Neural Network Language Model이다. </p>
+</li>
+<li><p>NNLM에는 word2vec, FASTTEXT, Glove와 같은 방법들이 존재한다.</p>
+</li>
+</ul>
+<a id="more"></a>​​
+
+
+
+<h2 id="Count-Based-Language-Model의-문제점"><a href="#Count-Based-Language-Model의-문제점" class="headerlink" title="Count Based Language Model의 문제점"></a>Count Based Language Model의 문제점</h2><hr>
+<ul>
+<li><p>Problem 1 : 하나의 단어를 표현하는데 큰 벡터가 필요하다.</p>
+<ul>
+<li><p>기존의 원 핫 인코딩에서 하나의 Column은 사전에 등록된 단어를 의미했다.</p>
+<p>  강아지 : [ 1 0 0 ]<br>  멍멍이 : [ 0 1 0 ]<br>  고양이 : [ 0 0 1 ]</p>
+</li>
+<li><p>만약 사전에 30,000개의 단어가 들어있다면 하나의 단어를 표현하기 위해서는 30,000 차원이 필요하다. ( Count Based LM은 듬성 듬성한 Sparse Vector의 모습을 가지게 된다. )</p>
+</li>
+<li><p>큰 차원의 벡터는 계산복잡성이 크고 메모리 문제가 존재한다. 그리고 실제 위의 벡터에서 필요한 값은 1이 들어간 하나의 요소 뿐이고 나머지는 불필요한 0들만 포함되어 있다.</p>
+</li>
+</ul>
+</li>
+<li><p>Problem2 : 단어와의 관련성을 파악할 수 없다.</p>
+<ul>
+<li><p>예를 들어 “강아지”와 멍멍이”가 유사하다는 것을 Count Based LM에서는 알 수 없었다. 저런 형태로는 관계를 전혀 파악할 수가 없다.</p>
+<p>  강아지 : [ 1 0 0 ]<br>  멍멍이 : [ 0 1 0 ]</p>
+</li>
+<li><p>또한 위의 Vector를 내적하면 0이 된다. 길이가 1인 두 벡터의 내적은 두 벡터 사이의 각도가 되므로 두 벡터가 직교한다는 의미가 된다.</p>
+</li>
+<li><p>이를 확장해서 생각하면 원 핫 인코딩은 서로 독립한다는 것을 알 수 있다.  </p>
+</li>
+<li><p>즉, 모든 단어들이 서로 영향을 미치지 않는 다는 것을 의미한다.<br>​</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Distributed-Representation"><a href="#Distributed-Representation" class="headerlink" title="Distributed Representation"></a>Distributed Representation</h2><hr>
+<ul>
+<li><p>위의 문제들을 해결하기 위해 Distributed Representation(분산 표상)을 사용한다.  ​</p>
+</li>
+<li><p>( 그림1 )을 보면 총 9개의 도형이 있다.</p>
+<p>  초록색 해 / 초록색 달 / 초록색 구름<br>  파란색 해 / 파란색 달 / 파란색 구름<br>  주황색 해 / 주황색 달 / 주황색 구름</p>
+<p>  만약 파란색 해를 One hot encoding으로 표현한다면 [ 0 0 0 1 0 0 0 0 0 ] 이 될 것이다.</p>
+  <center><img src="/images/word_embedding/20190219_1336.png" alt="(그림1) 출처 : https://ratsgo.github.io/from%20frequency%20to%20semantics/2017/03/29/NNLM/"></center><br>
+</li>
+<li><p>위의 9차원 벡터는 2차원 벡터로도 표현 가능하다.  각 도형의 속성인 colors와 shapes를 조합하여 9개의 도형을 표현할 수 있기 때문이다.  </p>
+</li>
+<li><p>분산표상은 데이터의 차원수를 줄여주기도 하지만 개체간 유사성을 비교할 수도 있게 만든다. 의미가 유사한 단어는 벡터 공간에서 가깝게, 반대의 경우에는 멀게 배치하는 것이 분산표상의 목표이다.</p>
+</li>
+<li><p>Word2vec에서 단어 vector는 “강아지” = [ 0.2, 1.8, 2.8 … , -7.2 ]와 같이 표현된다. </p>
+</li>
+<li><p>이전의 Count-Based LM에서 vector의 column은 사전에 등록된 단어를 의미했다.</p>
+</li>
+<li><p>그렇다면 Word2vec에서 vector의 column은 위에서 언급한 colors, shapes와 같은 특성을 의미하는 것일까?</p>
+</li>
+<li><p>정답은 아니다. 그렇게 딱 딱 떨어지는 것이 아닌 colors와 shapes의 특성이 혼합된 것을 의미한다. </p>
+</li>
+<li><p>즉 “강아지”라는 단어 vector에서 0.2 가 동물, 1.8이 종류를 나타내는 것이 아니다. 여러 특성이 섞여서 수치로 표현 되는 것이다.    </p>
+</li>
+<li><p>“강아지” = [ 0.2, 1.8, 2.8 … , -7.2 ]와 같이 vector의 값이 dense(빽빽하게) 있기 때문에 dense vector라고도 한다.</p>
+</li>
+</ul>
+<h2 id="Neural-Network-Language-Model"><a href="#Neural-Network-Language-Model" class="headerlink" title="Neural Network Language Model"></a>Neural Network Language Model</h2><hr>
+<ul>
+<li>위에서 설명한 분산 표상을 가지는 Vector를 만들기 위해서 Shallow Neural Net 학습을 진행한다.</li>
+</ul>
+<center><img src="/images/word_embedding/20190219_1337.png" alt="(그림2) 출처 : https://towardsdatascience.com/introduction-to-word-embedding-and-word2vec-652d0c2060fa"></center><br>  
+
+<ul>
+<li><p>Input Layer에는 One-Hot Encoding의 값이 들어간다.<br>강아지 = [ 1 0 0 ] 의 값이 들어가는 것이다.<br>x1 = 1 / x2 = 0 / x3 = 0</p>
+</li>
+<li><p>Hidden Layer에서 Weight와 Bias의 값이 존재한다.</p>
+</li>
+<li><p>Hidden Layer의 노드 개수는 사용자가 정의한다. ( Hidden Layer의 노드 개수가 embedding dimention을 의미한다. )</p>
+</li>
+<li><p>보통 128 / 256 / 512와 같이 2의 배수를 사용해서 정의한다. ( 딥러닝 학습 연산과 관련이 있다.)</p>
+</li>
+<li><p>Output Layer에서는 Input Layer와 노드의 개수가 같다.<br>(Input Layer와 Output Layer 노드 개수는 One-hot Encoding의 dictionary 개수와 같다.)<br>출력값은 [ 0 1 0 ] 을 가지게 된다.<br>y1 = 0 / y2 = 1 / y3 = 0<br>멍멍이 = [ 0 1 0 ]</p>
+</li>
+<li><p>NNLM의 학습은 다음 단어가 무엇인지를 예측하는 방식으로 이루어진다.  </p>
+</li>
+<li><p>“The fat cat sat on the mat” 이라는 문장이 있다.<br>Input에는 The = [ 1 0 0 0 0 0 0 ] 이 들어가고 hidden layer를 거쳐서 predict 한 값이 [ 0 1 0 0 0 0 0 ]이 되도록 학습을 진행하다는 것이다.   </p>
+</li>
+<li><p>이렇게 학습을 진행하면 단어간의 의미적인 관계가 담겨있는 weight vector가 생성된다는 것이 NNLM의 기본개념이다.</p>
+</li>
+<li><p>CBOW와 Skip-gram을 설명하면서 더 자세하게 설명하겠다.</p>
+</li>
+</ul>
+<h2 id="CBOW"><a href="#CBOW" class="headerlink" title="CBOW"></a>CBOW</h2><hr>
+<ul>
+<li><p>NNLM의 학습 방법은 CBOW와 Skip-Gram 방법이 존재한다.</p>
+</li>
+<li><p>CBOW는 주변 단어를 사용해 중간 단어를 예측하는 방법을 의미한다. </p>
+</li>
+</ul>
+<p>​<center><img src="/images/word_embedding/20190219_1338.png" alt="(그림3) 출처 : https://wikidocs.net/22660"></center><br>  </p>
+<ul>
+<li><p>(그림3)을 보면 중심 단어를 기준으로 앞뒤 2개의 단어를 학습데이터로 사용을 한다.</p>
+</li>
+<li><p>주변 단어를 Input에 넣고 Hidden Layer를 거쳐서 Output Layer에서 나온 값이 중심 단어가 되도록 학습시키는 것이다.</p>
+</li>
+</ul>
+<p>​<center><img src="/images/word_embedding/20190219_1339.png" alt="(그림4) 출처 : https://wikidocs.net/22660"></center><br>  </p>
+<ul>
+<li><p>(그림4)는 (그림3)을 이해하기 쉽게 도식화한 이미지이다.</p>
+</li>
+<li><p>sat이라는 중심단어를 예측하기 위해 fat, cat, on, the와 같은 주변 단어를 입력하였다.</p>
+</li>
+</ul>
+<p>​<center><img src="/images/word_embedding/20190219_1340.png" alt="(그림5) https://wikidocs.net/22660"></center><br>  </p>
+<ul>
+<li>(그림5)를 보면 알 수 있듯이 4개의 벡터 값의 평균을 구하여 해당 Vector 값을 Word Vector로 사용한다.</li>
+</ul>
+<p>​<br>​</p>
+<h2 id="Skip-Gram"><a href="#Skip-Gram" class="headerlink" title="Skip-Gram"></a>Skip-Gram</h2><hr>
+<ul>
+<li><p>Skip-gram은 CBOW와 반대로 중심단어를 사용해 주변단어를 예측하는 것이다.<br>보통 CBOW보다 Skip-gram을 많이 사용한다고 하는데 이유는 다음과 같다.</p>
+</li>
+<li><p>CBOW에서는 주변단어를 4개를 사용해 predict를 하고 한 번만 역전파를 한다.<br>하지만 skip-gram에서는 중심단어 1개를 사용해 predict를 하고 네 번 역전파를 진행한다.</p>
+</li>
+<li><p>즉, skip-gram이 역전파하는 회수가 CBOW보다 더 많기 때문에 학습이 잘 된다고 한다.</p>
+</li>
+</ul>
+<p>​<center><img src="/images/word_embedding/20190219_1340.png" alt="(그림6) 출처 : https://wikidocs.net/22660"></center><br><br>​<br>​</p>
+<h2 id="정리-1"><a href="#정리-1" class="headerlink" title="정리"></a>정리</h2><hr>
+<ul>
+<li>word2vec을 이용해 단어의 vector를 구한다는 것은 NNLM의 신경망에서 학습된 가중치 벡터를 가져오는 것이다. </li>
+</ul>
+<p>​<center><img src="/images/word_embedding/20190219_1340.png" alt="(그림7) 출처 : https://ratsgo.github.io/from%20frequency%20to%20semantics/2017/03/30/word2vec/"></center><br> </p>
+<ul>
+<li><p>( 그림7 ) 과 같이 좌측 행렬은 단어를 의미하는 행렬이고 우측 행렬은 weight vector이다.</p>
+</li>
+<li><p>“강아지”라는 단어는 [ 10 12 19 ] 라는 벡터로 표현되는 것이다.<br>이것은 weight vector의 행이 단어의 벡터를 의미한다고 볼 수 있다.</p>
+</li>
+<li><p>왜냐하면 [ 0 0 0 1 0 ]에서 보는 것처럼 0과 곱해지면서 1이 포함된 weight vector의 행만 출력이 되기 때문이다.<br>(말로 잘 설명이 안되네요… 행렬의 곱셈을 할 줄 아는 사람이라면 충분히 이해할 것이라 생각합니다.)</p>
+</li>
+<li><p>그렇다면 weight vector는 어디서 가져올까?</p>
+</li>
+<li><p>wiki-docs 와 같은 데이터를 Pre-trained한 Weight vector 값을 가져올 수 있다.</p>
+</li>
+<li><p>아니면 자신의 목적에 맞게 학습을 시켜 Weight vector를 생성하고 그 vector 값을 가져와 사용할 수 있다.</p>
+</li>
+<li><p>wiki-docs에서 사전에 학습한 weight vector 값을 가져온다고 가정해보자.<br>wiki-docs가 많은 단어를 가지고 있기는 하지만 내가 사용하는 데이터의 단어를 가지고 있지 않은 경우도있을 것이다.</p>
+</li>
+<li><p>그런 경우에는 해당 단어의 vector 값을 random 하게 부여하기도 하고 값을 크게 부여하기도 한다.<br>자기가 설계하기 나름이다.</p>
+</li>
+<li><p>기존의 Count Based LM에서는 사전의 단어 개수가 차원수 였다면 NNLM에서는 사용자가embedding_dim을 몇으로 정의하는가에 따라 단어의 차원수가 정해진다. ( 처음에는 이게 이해가 안 되서 고생을 했다. )</p>
+</li>
+</ul>
+<p>​</p>
+<h2 id="공부할-때-참고했던-URL"><a href="#공부할-때-참고했던-URL" class="headerlink" title="공부할 때 참고했던 URL"></a>공부할 때 참고했던 URL</h2><hr>
+<ul>
+<li><p>[URL] : <a href="https://ratsgo.github.io/from%20frequency%20to%20semantics/2017/03/30/word2vec/" target="_blank" rel="noopener">https://ratsgo.github.io/from%20frequency%20to%20semantics/2017/03/30/word2vec/</a></p>
+<ul>
+<li>word2vec 학습 방식  </li>
+<li>개괄적으로 잘 설명해두었다.<br>​</li>
+</ul>
+</li>
+<li><p>[URL] : <a href="https://ratsgo.github.io/from%20frequency%20to%20semantics/2017/03/29/NNLM/" target="_blank" rel="noopener">https://ratsgo.github.io/from%20frequency%20to%20semantics/2017/03/29/NNLM/</a></p>
+<ul>
+<li>Distributed Representation 잘 설명</li>
+<li>Neural Network Language Model을 설명</li>
+</ul>
+</li>
+<li><p>[URL] : <a href="https://wikidocs.net/22660" target="_blank" rel="noopener">https://wikidocs.net/22660</a></p>
+<ul>
+<li>NNLM의 학습방법에 대해 매우 자세히 설명되어 있다.</li>
+</ul>
+</li>
+<li><p>[URL] : <a href="https://dreamgonfly.github.io/machine/learning,/natural/language/processing/2017/08/16/word2vec_explained.html" target="_blank" rel="noopener">https://dreamgonfly.github.io/machine/learning,/natural/language/processing/2017/08/16/word2vec_explained.html</a></p>
+<ul>
+<li>Count-Based LM 부터 NNLM의 방법까지 잘 설명되어 있다.</li>
+</ul>
+</li>
+<li><p>[URL] : <a href="https://lovit.github.io/nlp/2018/04/05/space_odyssey_of_word2vec/" target="_blank" rel="noopener">https://lovit.github.io/nlp/2018/04/05/space_odyssey_of_word2vec/</a></p>
+<ul>
+<li>코드와 구체적인 예시등이 설명되어 있다.</li>
+</ul>
+</li>
+<li><p>[URL] : <a href="https://tensorflowkorea.gitbooks.io/tensorflow-kr/content/g3doc/tutorials/word2vec/" target="_blank" rel="noopener">https://tensorflowkorea.gitbooks.io/tensorflow-kr/content/g3doc/tutorials/word2vec/</a></p>
+<ul>
+<li>텐서플로우 코리아 word2vec 문서</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/word2vec/" rel="tag">word2vec</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
+            
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/02/20/word_embedding/word2vec_example/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">word2vec 실습</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/02/14/setting/google_cloud_storage/">
+                <span class="level-item">Google Cloud Storage 설치하기</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left ">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="" src="/images/avatar.png" alt="Hooni">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        Hooni
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        More and more.
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>Suwon, South Korea</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Posts
+                    </p>
+                    <a href="/archives">
+                        <p class="title has-text-weight-normal">
+                            42
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Categories
+                    </p>
+                    <a href="/categories">
+                        <p class="title has-text-weight-normal">
+                            3
+                        </p>
+                    </a>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        Tags
+                    </p>
+                    <a href="/tags">
+                        <p class="title has-text-weight-normal">
+                            41
+                        </p>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/ppoffice" target="_blank">
+                Follow</a>
+        </div>
+        
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Github" href="https://github.com/vhrehfdl">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Facebook" href="https://facebook.com">
+                
+                <i class="fab fa-facebook"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Twitter" href="https://twitter.com">
+                
+                <i class="fab fa-twitter"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Dribbble" href="https://dribbble.com">
+                
+                <i class="fab fa-dribbble"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="RSS" href="/">
+                
+                <i class="fas fa-rss"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Categories
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/Error/">
+            <span class="level-start">
+                <span class="level-item">Error</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">15</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/setting/">
+            <span class="level-start">
+                <span class="level-item">setting</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">20</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/word-embedding/">
+            <span class="level-start">
+                <span class="level-item">word embedding</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">6</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen ">
+        
+            <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/11/09/setting/nginx_flask_uwsgi/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/setting/setting.jpg" alt="Nginx + Flask + Uwsgi 초기 세팅">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-09T06:20:00.000Z">2019-11-09</time></div>
+                    <a href="/2019/11/09/setting/nginx_flask_uwsgi/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Nginx + Flask + Uwsgi 초기 세팅</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/setting/">setting</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/11/08/setting/aws_port_open/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/setting/setting.jpg" alt="EC2 Instance 웹서버 설치 후 구동하기">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-08T14:17:00.000Z">2019-11-08</time></div>
+                    <a href="/2019/11/08/setting/aws_port_open/" class="title has-link-black-ter is-size-6 has-text-weight-normal">EC2 Instance 웹서버 설치 후 구동하기</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/setting/">setting</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/11/08/setting/aws_putty/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/setting/setting.jpg" alt="EC2 Instance 생성 후 putty 접속">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-08T14:11:00.000Z">2019-11-08</time></div>
+                    <a href="/2019/11/08/setting/aws_putty/" class="title has-link-black-ter is-size-6 has-text-weight-normal">EC2 Instance 생성 후 putty 접속</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/setting/">setting</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/09/11/error_set/pytorch_error/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/error_set/error.jpg" alt="ImportError dll load failed 지정된 모듈을 찾을 수 없습니다">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-11T08:33:00.000Z">2019-09-11</time></div>
+                    <a href="/2019/09/11/error_set/pytorch_error/" class="title has-link-black-ter is-size-6 has-text-weight-normal">ImportError dll load failed 지정된 모듈을 찾을 수 없습니다</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Error/">Error</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/04/08/error_set/tensorflow_version_error/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/error_set/error.jpg" alt="tensorflow version error">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-08T05:46:00.000Z">2019-04-08</time></div>
+                    <a href="/2019/04/08/error_set/tensorflow_version_error/" class="title has-link-black-ter is-size-6 has-text-weight-normal">tensorflow version error</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Error/">Error</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archives
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/11/">
+                <span class="level-start">
+                    <span class="level-item">November 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/09/">
+                <span class="level-start">
+                    <span class="level-item">September 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">April 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/03/">
+                <span class="level-start">
+                    <span class="level-item">March 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">16</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/01/">
+                <span class="level-start">
+                    <span class="level-item">January 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">13</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/01/">
+                <span class="level-start">
+                    <span class="level-item">January 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Tags
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/aws/">
+                        <span class="tag">aws</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/bert/">
+                        <span class="tag">bert</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/bow/">
+                        <span class="tag">bow</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/colab/">
+                        <span class="tag">colab</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/docker/">
+                        <span class="tag">docker</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/drop-remainder/">
+                        <span class="tag">drop_remainder</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/elmo/">
+                        <span class="tag">elmo</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/encoding/">
+                        <span class="tag">encoding</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/exec/">
+                        <span class="tag">exec</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/flask/">
+                        <span class="tag">flask</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/gcs/">
+                        <span class="tag">gcs</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/git/">
+                        <span class="tag">git</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/google-cloud/">
+                        <span class="tag">google cloud</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/google-speech-api/">
+                        <span class="tag">google speech api</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/gpu/">
+                        <span class="tag">gpu</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/java/">
+                        <span class="tag">java</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/keras/">
+                        <span class="tag">keras</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/konlpy/">
+                        <span class="tag">konlpy</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/mysql/">
+                        <span class="tag">mysql</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/nginx/">
+                        <span class="tag">nginx</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/one-hot-encoding/">
+                        <span class="tag">one hot encoding</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/pandas/">
+                        <span class="tag">pandas</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/php/">
+                        <span class="tag">php</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/pickle/">
+                        <span class="tag">pickle</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/port/">
+                        <span class="tag">port</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/postgresql/">
+                        <span class="tag">postgresql</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/putty/">
+                        <span class="tag">putty</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/pycharm/">
+                        <span class="tag">pycharm</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/python/">
+                        <span class="tag">python</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/pytorch/">
+                        <span class="tag">pytorch</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/pytube/">
+                        <span class="tag">pytube</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/scrapy/">
+                        <span class="tag">scrapy</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/tensorboard/">
+                        <span class="tag">tensorboard</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/tensorflow/">
+                        <span class="tag">tensorflow</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/tensorflow-gpu/">
+                        <span class="tag">tensorflow gpu</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/tensorflow-hub/">
+                        <span class="tag">tensorflow hub</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/tf-idf/">
+                        <span class="tag">tf idf</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ubuntu/">
+                        <span class="tag">ubuntu</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/uwsgi/">
+                        <span class="tag">uwsgi</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/window/">
+                        <span class="tag">window</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/word2vec/">
+                        <span class="tag">word2vec</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right ">
+    
+        <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            Recent
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/11/09/setting/nginx_flask_uwsgi/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/setting/setting.jpg" alt="Nginx + Flask + Uwsgi 초기 세팅">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-09T06:20:00.000Z">2019-11-09</time></div>
+                    <a href="/2019/11/09/setting/nginx_flask_uwsgi/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Nginx + Flask + Uwsgi 초기 세팅</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/setting/">setting</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/11/08/setting/aws_port_open/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/setting/setting.jpg" alt="EC2 Instance 웹서버 설치 후 구동하기">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-08T14:17:00.000Z">2019-11-08</time></div>
+                    <a href="/2019/11/08/setting/aws_port_open/" class="title has-link-black-ter is-size-6 has-text-weight-normal">EC2 Instance 웹서버 설치 후 구동하기</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/setting/">setting</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/11/08/setting/aws_putty/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/setting/setting.jpg" alt="EC2 Instance 생성 후 putty 접속">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-11-08T14:11:00.000Z">2019-11-08</time></div>
+                    <a href="/2019/11/08/setting/aws_putty/" class="title has-link-black-ter is-size-6 has-text-weight-normal">EC2 Instance 생성 후 putty 접속</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/setting/">setting</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/09/11/error_set/pytorch_error/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/error_set/error.jpg" alt="ImportError dll load failed 지정된 모듈을 찾을 수 없습니다">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-09-11T08:33:00.000Z">2019-09-11</time></div>
+                    <a href="/2019/09/11/error_set/pytorch_error/" class="title has-link-black-ter is-size-6 has-text-weight-normal">ImportError dll load failed 지정된 모듈을 찾을 수 없습니다</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Error/">Error</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/04/08/error_set/tensorflow_version_error/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/error_set/error.jpg" alt="tensorflow version error">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-04-08T05:46:00.000Z">2019-04-08</time></div>
+                    <a href="/2019/04/08/error_set/tensorflow_version_error/" class="title has-link-black-ter is-size-6 has-text-weight-normal">tensorflow version error</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/Error/">Error</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            Archives
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/11/">
+                <span class="level-start">
+                    <span class="level-item">November 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">3</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/09/">
+                <span class="level-start">
+                    <span class="level-item">September 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/04/">
+                <span class="level-start">
+                    <span class="level-item">April 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/03/">
+                <span class="level-start">
+                    <span class="level-item">March 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">4</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/02/">
+                <span class="level-start">
+                    <span class="level-item">February 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">16</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/01/">
+                <span class="level-start">
+                    <span class="level-item">January 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">13</span>
+                </span>
+            </a>
+        </li>
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2018/01/">
+                <span class="level-start">
+                    <span class="level-item">January 2018</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                Tags
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/aws/">
+                        <span class="tag">aws</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/bert/">
+                        <span class="tag">bert</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/bow/">
+                        <span class="tag">bow</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/colab/">
+                        <span class="tag">colab</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/docker/">
+                        <span class="tag">docker</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/drop-remainder/">
+                        <span class="tag">drop_remainder</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/elmo/">
+                        <span class="tag">elmo</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/encoding/">
+                        <span class="tag">encoding</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/exec/">
+                        <span class="tag">exec</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/flask/">
+                        <span class="tag">flask</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/gcs/">
+                        <span class="tag">gcs</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/git/">
+                        <span class="tag">git</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/google-cloud/">
+                        <span class="tag">google cloud</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/google-speech-api/">
+                        <span class="tag">google speech api</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/gpu/">
+                        <span class="tag">gpu</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/java/">
+                        <span class="tag">java</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/keras/">
+                        <span class="tag">keras</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/konlpy/">
+                        <span class="tag">konlpy</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/mysql/">
+                        <span class="tag">mysql</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/nginx/">
+                        <span class="tag">nginx</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/one-hot-encoding/">
+                        <span class="tag">one hot encoding</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/pandas/">
+                        <span class="tag">pandas</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/php/">
+                        <span class="tag">php</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/pickle/">
+                        <span class="tag">pickle</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/port/">
+                        <span class="tag">port</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/postgresql/">
+                        <span class="tag">postgresql</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/putty/">
+                        <span class="tag">putty</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/pycharm/">
+                        <span class="tag">pycharm</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/python/">
+                        <span class="tag">python</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/pytorch/">
+                        <span class="tag">pytorch</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/pytube/">
+                        <span class="tag">pytube</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/scrapy/">
+                        <span class="tag">scrapy</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/tensorboard/">
+                        <span class="tag">tensorboard</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/tensorflow/">
+                        <span class="tag">tensorflow</span>
+                        <span class="tag is-grey">3</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/tensorflow-gpu/">
+                        <span class="tag">tensorflow gpu</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/tensorflow-hub/">
+                        <span class="tag">tensorflow hub</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/tf-idf/">
+                        <span class="tag">tf idf</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/ubuntu/">
+                        <span class="tag">ubuntu</span>
+                        <span class="tag is-grey">4</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/uwsgi/">
+                        <span class="tag">uwsgi</span>
+                        <span class="tag is-grey">1</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/window/">
+                        <span class="tag">window</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+                <div class="control">
+                    <a class="tags has-addons" href="/tags/word2vec/">
+                        <span class="tag">word2vec</span>
+                        <span class="tag is-grey">2</span>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo.svg" alt="word2vec" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 JungHoon Lee&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Creative Commons" href="https://creativecommons.org/">
+                        
+                        <i class="fab fa-creative-commons"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/">
+                        
+                        <i class="fab fa-creative-commons-by"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("en");</script>
+
+<script>
+var IcarusThemeSettings = {
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+    
+    
+<script src="/js/animation.js"></script>
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+    
+    
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+    
+    
+<a id="back-to-top" title="Back to Top" href="javascript:;" target="_blank" rel="noopener">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="Type something..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: 'Posts',
+                PAGES: 'Pages',
+                CATEGORIES: 'Categories',
+                TAGS: 'Tags',
+                UNTITLED: '(Untitled)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+</body>
+</html>
