@@ -3,6 +3,34 @@
 
 
     <url>
+        <loc>https://vhrehfdl.github.io/tags/hexo/</loc>
+        <lastmod>2019-12-26T00:54:51.620Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://vhrehfdl.github.io/tags/sentiment-classification/</loc>
+        <lastmod>2019-12-26T00:54:51.619Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://vhrehfdl.github.io/tags/machine-learning/</loc>
+        <lastmod>2019-12-26T00:54:51.619Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://vhrehfdl.github.io/tags/deep-learning/</loc>
+        <lastmod>2019-12-26T00:54:51.618Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://vhrehfdl.github.io/tags/bert/</loc>
         <lastmod>2019-12-25T05:10:53.822Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -276,14 +304,14 @@
     </url>
 
     <url>
-        <loc>https://vhrehfdl.github.io/tags/google-speech-api/</loc>
+        <loc>https://vhrehfdl.github.io/tags/java/</loc>
         <lastmod>2019-12-14T15:18:44.093Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://vhrehfdl.github.io/tags/java/</loc>
+        <loc>https://vhrehfdl.github.io/tags/google-speech-api/</loc>
         <lastmod>2019-12-14T15:18:44.093Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
