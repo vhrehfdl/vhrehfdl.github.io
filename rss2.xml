@@ -9,8 +9,27 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>IT Blog</description>
-    <pubDate>Thu, 26 Dec 2019 00:54:51 GMT</pubDate>
+    <pubDate>Wed, 01 Jan 2020 07:03:43 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>VScode SFTP 연결 방법</title>
+      <link>https://vhrehfdl.github.io/2020/01/01/setting/vscode_sftp/</link>
+      <guid>https://vhrehfdl.github.io/2020/01/01/setting/vscode_sftp/</guid>
+      <pubDate>Wed, 01 Jan 2020 06:46:00 GMT</pubDate>
+      <description>
+      
+        &lt;ul&gt;
+&lt;li&gt;VSCODE SFTP 연결 방법 기록.&lt;/li&gt;
+&lt;/ul&gt;
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<ul><li>VSCODE SFTP 연결 방법 기록.</li></ul><a id="more"></a>​<ol><li><p>Extensions에서 SFTP 설치</p><p> VSCODE 확장기능 TAB에서 SFTP를 설치한다.</p> <center><img src="/images/setting/20200101_1546.png"></center><br></li><li><p>sftp.json 파일을 설정한다.</p><ul><li><p>F1을 누르고 sftp.json를 입력한다.</p><center><img src="/images/setting/20200101_1547.png"></center><br></li><li><p>sftp.json의 서버 접속하는데 필요한 정보를 입력한다.</p><figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">&#123;</span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="hljs-string">"name"</span>: <span class="hljs-string">"My Server"</span>,</span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="hljs-string">"host"</span>: <span class="hljs-string">"IP주소 입력"</span>,</span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="hljs-string">"protocol"</span>: <span class="hljs-string">"sftp"</span>,</span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="hljs-string">"port"</span>: 22,</span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="hljs-string">"username"</span>: <span class="hljs-string">"Username 입력"</span>,</span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="hljs-string">"password"</span>: <span class="hljs-string">"비밀번호 입력"</span>,</span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="hljs-string">"remotePath"</span>: <span class="hljs-string">"/var/www/html/MyResume/"</span>,</span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="hljs-string">"uploadOnSave"</span>: <span class="hljs-literal">true</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">&#125;</span></pre></td></tr></table></figure></li></ul></li><li><p>서버에서 폴더를 다운로드 한다.</p><ul><li><p>SFTP: Download Project를 하면 서버에 저장되어 있던 파일이 로컬로 저장된다.</p><center><img src="/images/setting/20200101_1548.png"></center><br></li></ul></li></ol><ol start="3"><li><p>서버에서 폴더를 업로드 한다.</p><ul><li><p>SFTP: Upload Project를 하면 로컬 파일이 서버에 업로드 된다.</p><center><img src="/images/setting/20200101_1548.png"></center><br></li></ul></li></ol>]]></content:encoded>
+      
+      <comments>https://vhrehfdl.github.io/2020/01/01/setting/vscode_sftp/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>EmoContext 소개</title>
@@ -396,25 +415,6 @@
       <content:encoded><![CDATA[<ul><li>Docker 설치와 기본 명령어 기록.</li></ul><a id="more"></a>​<h2 id="Docker-설치"><a href="#Docker-설치" class="headerlink" title="Docker 설치"></a>Docker 설치</h2><hr><figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">curl -fsSL https://get.docker.com/ | sudo sh</span></pre></td></tr></table></figure><p>​</p><h2 id="설치-확인"><a href="#설치-확인" class="headerlink" title="설치 확인"></a>설치 확인</h2><hr><figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">docker version</span></pre></td></tr></table></figure><ul><li>설치가 완료되면 아래과 같이 결과가 나온다.</li></ul><center><img src="/images/setting/20190224_1535.png" alt="설치 완료"></center><br>​<h2 id="docker-명령어-모음"><a href="#docker-명령어-모음" class="headerlink" title="docker 명령어 모음"></a>docker 명령어 모음</h2><hr><ol><li>Image 파일 설치 :  <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">docker run ubuntu:16.04</span></pre></td></tr></table></figure></li></ol><ol start="2"><li><p>docker run </p> <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">docker run ubuntu:16.04</span></pre></td></tr></table></figure></li><li><p>docker exec : 실행중인 컨테이너에 접속할 때 사용</p> <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">docker <span class="hljs-built_in">exec</span> -it mysql bash</span></pre></td></tr></table></figure></li><li><p>docker image 확인</p> <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">docker images</span></pre></td></tr></table></figure></li><li><p>docker container 확인</p> <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">docker ps -a</span></pre></td></tr></table></figure></li><li><p>docker image 제거</p> <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">docker rmi <span class="hljs-string">'image id'</span></span></pre></td></tr></table></figure></li><li><p>docker container 제거</p> <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">docker rm <span class="hljs-string">'conatiner id'</span></span></pre></td></tr></table></figure><p>​</p></li></ol><h2 id="참고한-URL"><a href="#참고한-URL" class="headerlink" title="참고한 URL"></a>참고한 URL</h2><ul><li>[URL] : <a href="https://subicura.com/2017/01/19/docker-guide-for-beginners-2.html" target="_blank" rel="noopener">https://subicura.com/2017/01/19/docker-guide-for-beginners-2.html</a></li><li>매우 잘 설명 되어 있고 예제 코드도 많다.</li></ul><br><ul><li>[URL] : <a href="http://pyrasis.com/book/DockerForTheReallyImpatient/Chapter20/08" target="_blank" rel="noopener">http://pyrasis.com/book/DockerForTheReallyImpatient/Chapter20/08</a></li><li>Exec 명령어 설명되어 있다.</li></ul><br><ul><li>[URL] : <a href="https://blusky10.tistory.com/362" target="_blank" rel="noopener">https://blusky10.tistory.com/362</a></li><li>docker mysql 설치할 때 참조했다.</li></ul><br><ul><li>[URL] : <a href="https://behonestar.tistory.com/85" target="_blank" rel="noopener">https://behonestar.tistory.com/85</a></li><li>docker 전체 삭제 명령어</li></ul><br><ul><li>[URL] : <a href="https://blog.hanumoka.net/2018/04/29/docker-20180429-docker-install-mysql/" target="_blank" rel="noopener">https://blog.hanumoka.net/2018/04/29/docker-20180429-docker-install-mysql/</a></li><li>마찬가지로 mysql 설치할 때 참조했다.<br>​</li></ul>]]></content:encoded>
       
       <comments>https://vhrehfdl.github.io/2019/02/24/setting/docker_install/#disqus_thread</comments>
-    </item>
-    
-    <item>
-      <title>Ubuntu E Problem executing scripts</title>
-      <link>https://vhrehfdl.github.io/2019/02/24/error_set/ubuntu_error/</link>
-      <guid>https://vhrehfdl.github.io/2019/02/24/error_set/ubuntu_error/</guid>
-      <pubDate>Sun, 24 Feb 2019 03:22:00 GMT</pubDate>
-      <description>
-      
-        &lt;ul&gt;
-&lt;li&gt;Error : Ubuntu E: Problem executing scripts APT&lt;br&gt;우분투에서 apt-get 사용하다 발생한 error&lt;/li&gt;
-&lt;/ul&gt;
-      
-      </description>
-      
-      
-      <content:encoded><![CDATA[<ul><li>Error : Ubuntu E: Problem executing scripts APT<br>우분투에서 apt-get 사용하다 발생한 error</li></ul><a id="more"></a><ul><li><p>Solution </p>  <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">sudo apt-get remove libappstream3</span></pre></td></tr></table></figure><p>  쉽게 해결된다.</p></li></ul>]]></content:encoded>
-      
-      <comments>https://vhrehfdl.github.io/2019/02/24/error_set/ubuntu_error/#disqus_thread</comments>
     </item>
     
   </channel>
