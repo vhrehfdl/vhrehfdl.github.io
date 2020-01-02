@@ -9,8 +9,27 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>IT Blog</description>
-    <pubDate>Thu, 02 Jan 2020 06:23:10 GMT</pubDate>
+    <pubDate>Thu, 02 Jan 2020 10:38:12 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>CUDNN_STATUS_EXECUTION_FAILED</title>
+      <link>https://vhrehfdl.github.io/2020/01/02/error_set/pytorch_error-1/</link>
+      <guid>https://vhrehfdl.github.io/2020/01/02/error_set/pytorch_error-1/</guid>
+      <pubDate>Thu, 02 Jan 2020 10:30:00 GMT</pubDate>
+      <description>
+      
+        &lt;ul&gt;
+&lt;li&gt;Error Message : RuntimeError: cuDNN error: CUDNN_STATUS_EXECUTION_FAILED&lt;/li&gt;
+&lt;/ul&gt;
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<ul><li>Error Message : RuntimeError: cuDNN error: CUDNN_STATUS_EXECUTION_FAILED</li></ul><a id="more"></a><h2 id="문제-원인"><a href="#문제-원인" class="headerlink" title="문제 원인"></a>문제 원인</h2><hr><ul><li><p>pytorch의 GPU가 문제가 발생했다.</p></li><li><p>최근의 GPU를 2080TI로 변경했는데 이게 문제였다.</p></li><li><p>GPU 2080TI로 하고 CUDA 9점대 버전을 사용하면 Pytorch가 제대로 인식을 못하는 에러가 발생한다.</p></li></ul><h2 id="문제-해결-방법"><a href="#문제-해결-방법" class="headerlink" title="문제 해결 방법"></a>문제 해결 방법</h2><hr><ul><li><p>해결방법은 간단한다.<br>CUDA를 10점대 버전으로 업데이트 한다.</p></li><li><p>그리고 pytorch를 업데이트 한다.</p>  <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">conda install pytorch torchvision cudatoolkit=10.0 -c pytorch</span></pre></td></tr></table></figure></li></ul>]]></content:encoded>
+      
+      <comments>https://vhrehfdl.github.io/2020/01/02/error_set/pytorch_error-1/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>Pytorch Window 설치 (CUDA)</title>
@@ -397,25 +416,6 @@
       <content:encoded><![CDATA[<ul><li>Python을 이용한 Youtube 다운로드 라이브러리.</li></ul><a id="more"></a>​<ol><li><p>pip 툴을 사용해 pytube를 install 한다.</p></li><li><p>code를 돌려 youtube 영상을 다운 받는다.</p></li></ol><figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-comment"># -*- coding: utf-8 -*-</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> os</span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> subprocess</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> pytube</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">yt = pytube.YouTube(<span class="hljs-string">"https://www.youtube.com/watch?v=ZMpQgvmw3kk"</span>) <span class="hljs-comment">#다운받을 동영상 URL 지정</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">vids= yt.streams.all()</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-comment">#영상 형식 리스트 확인</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(len(vids)):</span></pre></td></tr><tr><td class="code"><pre><span class="line">    print(i,<span class="hljs-string">'. '</span>,vids[i])</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">vnum = int(input(<span class="hljs-string">"다운 받을 화질은? "</span>))</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">parent_dir = <span class="hljs-string">"/home/lee"</span> <span class="hljs-comment">#저장 경로 지정(Windows or mac)</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">vids[vnum].download(parent_dir) <span class="hljs-comment">#다운로드 수행</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">default_filename = vids[vnum].default_filename</span></pre></td></tr><tr><td class="code"><pre><span class="line">subprocess.call([<span class="hljs-string">'ffmpeg'</span>, <span class="hljs-string">'-i'</span>,                 <span class="hljs-comment">#cmd 명령어 수행</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">    os.path.join(parent_dir, default_filename)</span></pre></td></tr><tr><td class="code"><pre><span class="line">])</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">print(<span class="hljs-string">'동영상 다운로드 및 mp3 변환 완료!'</span>)</span></pre></td></tr></table></figure><p>​</p>]]></content:encoded>
       
       <comments>https://vhrehfdl.github.io/2019/02/25/setting/pytube_sample/#disqus_thread</comments>
-    </item>
-    
-    <item>
-      <title>Google Speech API 아무것도 출력이 되지 않는 에러</title>
-      <link>https://vhrehfdl.github.io/2019/02/25/error_set/google_speech_api_error/</link>
-      <guid>https://vhrehfdl.github.io/2019/02/25/error_set/google_speech_api_error/</guid>
-      <pubDate>Mon, 25 Feb 2019 02:32:00 GMT</pubDate>
-      <description>
-      
-        &lt;ul&gt;
-&lt;li&gt;원인&lt;br&gt;아래 코드의 sample_rate_hertz가 일치하지 않아서 그렇다.&lt;br&gt;ffmpeg를 사용해 동영상 확장자를 변환할 때 맞춰주어야 한다.&lt;/li&gt;
-&lt;/ul&gt;
-      
-      </description>
-      
-      
-      <content:encoded><![CDATA[<ul><li>원인<br>아래 코드의 sample_rate_hertz가 일치하지 않아서 그렇다.<br>ffmpeg를 사용해 동영상 확장자를 변환할 때 맞춰주어야 한다.</li></ul><a id="more"></a><hr><ul><li><p>해결방법<br>  ffmpeg로 변환을 시킨다.<br>  sample_rate_hertz가 16000으로 설정했기 때문에 변활시킬 때 16000으로 바꿔주어야 한다.</p>  <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">ffmpeg -i audio_file.mp4 -acodec pcm_s16le -ac 1 -ar 16000 audio_file.wav</span></pre></td></tr></table></figure></li></ul><ul><li><p>예제 코드  </p>  <figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">transcribe_file</span><span class="hljs-params">(speech_file)</span>:</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="hljs-string">"""Transcribe the given audio file."""</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="hljs-keyword">from</span> google.cloud <span class="hljs-keyword">import</span> speech</span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="hljs-keyword">from</span> google.cloud.speech <span class="hljs-keyword">import</span> enums</span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="hljs-keyword">from</span> google.cloud.speech <span class="hljs-keyword">import</span> types</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">    client = speech.SpeechClient()</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="hljs-keyword">with</span> io.open(speech_file, <span class="hljs-string">'rb'</span>) <span class="hljs-keyword">as</span> audio_file:</span></pre></td></tr><tr><td class="code"><pre><span class="line">        content = audio_file.read()</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">    audio = types.RecognitionAudio(content=content)</span></pre></td></tr><tr><td class="code"><pre><span class="line">    config = types.RecognitionConfig(</span></pre></td></tr><tr><td class="code"><pre><span class="line">        encoding=enums.RecognitionConfig.AudioEncoding.LINEAR16,</span></pre></td></tr><tr><td class="code"><pre><span class="line">        sample_rate_hertz=<span class="hljs-number">16000</span>,</span></pre></td></tr><tr><td class="code"><pre><span class="line">        language_code=<span class="hljs-string">'ko-KR'</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">    response = client.recognize(config, audio)</span></pre></td></tr><tr><td class="code"><pre><span class="line">    print(<span class="hljs-string">"test2"</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="hljs-comment"># Each result is for a consecutive portion of the audio. Iterate through</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="hljs-comment"># them to get the transcripts for the entire audio file.</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="hljs-keyword">for</span> result <span class="hljs-keyword">in</span> response.results:</span></pre></td></tr><tr><td class="code"><pre><span class="line">        print(<span class="hljs-string">"test3"</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line">        <span class="hljs-comment"># The first alternative is the most likely one for this portion.</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">        print(<span class="hljs-string">u'Transcript: &#123;&#125;'</span>.format(result.alternatives[<span class="hljs-number">0</span>].transcript))</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">speech_file = <span class="hljs-string">"audio_file.wav"</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">transcribe_file(speech_file)</span></pre></td></tr></table></figure></li></ul>]]></content:encoded>
-      
-      <comments>https://vhrehfdl.github.io/2019/02/25/error_set/google_speech_api_error/#disqus_thread</comments>
     </item>
     
   </channel>

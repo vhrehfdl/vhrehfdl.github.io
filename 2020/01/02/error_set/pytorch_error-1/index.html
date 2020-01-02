@@ -7,22 +7,22 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<link rel="canonical" href="https://vhrehfdl.github.io/2019/02/07/setting/linux_git/"/>
-<title>Ubuntu git 설치 - Hooni</title>
+<link rel="canonical" href="https://vhrehfdl.github.io/2020/01/02/error_set/pytorch_error-1/"/>
+<title>CUDNN_STATUS_EXECUTION_FAILED - Hooni</title>
 
 
-    <meta name="description" content="Git Install">
-<meta name="keywords" content="ubuntu,git">
+    <meta name="description" content="Error Message : RuntimeError: cuDNN error: CUDNN_STATUS_EXECUTION_FAILED">
+<meta name="keywords" content="pytorch">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ubuntu git 설치">
-<meta property="og:url" content="https:&#x2F;&#x2F;vhrehfdl.github.io&#x2F;2019&#x2F;02&#x2F;07&#x2F;setting&#x2F;linux_git&#x2F;index.html">
+<meta property="og:title" content="CUDNN_STATUS_EXECUTION_FAILED">
+<meta property="og:url" content="https:&#x2F;&#x2F;vhrehfdl.github.io&#x2F;2020&#x2F;01&#x2F;02&#x2F;error_set&#x2F;pytorch_error-1&#x2F;index.html">
 <meta property="og:site_name" content="Hooni">
-<meta property="og:description" content="Git Install">
+<meta property="og:description" content="Error Message : RuntimeError: cuDNN error: CUDNN_STATUS_EXECUTION_FAILED">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https:&#x2F;&#x2F;vhrehfdl.github.io&#x2F;images&#x2F;setting&#x2F;setting.jpg">
-<meta property="og:updated_time" content="2019-12-24T08:10:29.605Z">
+<meta property="og:image" content="https:&#x2F;&#x2F;vhrehfdl.github.io&#x2F;images&#x2F;error_set&#x2F;error.jpg">
+<meta property="og:updated_time" content="2020-01-02T10:38:12.840Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;vhrehfdl.github.io&#x2F;images&#x2F;setting&#x2F;setting.jpg">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;vhrehfdl.github.io&#x2F;images&#x2F;error_set&#x2F;error.jpg">
 
 
 
@@ -89,7 +89,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="Ubuntu git 설치" height="28">
+                <img src="/images/logo.svg" alt="CUDNN_STATUS_EXECUTION_FAILED" height="28">
             
             </a>
         </div>
@@ -143,7 +143,7 @@
     
     <div class="card-image">
         <span  class="image is-7by1">
-            <img class="thumbnail" src="/images/setting/setting.jpg" alt="Ubuntu git 설치">
+            <img class="thumbnail" src="/images/error_set/error.jpg" alt="CUDNN_STATUS_EXECUTION_FAILED">
         </span>
     </div>
     
@@ -151,17 +151,17 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-02-07T02:54:00.000Z">2019-02-07</time>
+                <time class="level-item has-text-grey" datetime="2020-01-02T10:30:00.000Z">2020-01-02</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/setting/">setting</a>
+                <a class="has-link-grey -link" href="/categories/Error/">Error</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    a minute read (About 118 words)
+                    a minute read (About 124 words)
                 </span>
                 
                 
@@ -170,40 +170,33 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                Ubuntu git 설치
+                CUDNN_STATUS_EXECUTION_FAILED
             
         </h1>
         <div class="content">
             <ul>
-<li>Git Install</li>
+<li>Error Message : RuntimeError: cuDNN error: CUDNN_STATUS_EXECUTION_FAILED</li>
 </ul>
-<a id="more"></a>​
+<a id="more"></a>
 
-<h2 id="설치"><a href="#설치" class="headerlink" title="설치"></a>설치</h2><hr>
-<ol>
-<li><p>Git 설치하기</p>
- <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">apt-get install git-core</span></pre></td></tr></table></figure>
+<h2 id="문제-원인"><a href="#문제-원인" class="headerlink" title="문제 원인"></a>문제 원인</h2><hr>
+<ul>
+<li><p>pytorch의 GPU가 문제가 발생했다.</p>
 </li>
-<li><p>Git 환경설정하기</p>
- <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">git config --global user.name <span class="hljs-string">"UserName"</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">git config --global user.email UserEmail</span></pre></td></tr></table></figure>
+<li><p>최근의 GPU를 2080TI로 변경했는데 이게 문제였다.</p>
 </li>
-<li><p>Git 추가하기</p>
- <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">git add .</span></pre></td></tr></table></figure>
-
-
+<li><p>GPU 2080TI로 하고 CUDA 9점대 버전을 사용하면 Pytorch가 제대로 인식을 못하는 에러가 발생한다.</p>
 </li>
-</ol>
-<ol start="4">
-<li><p>Git commit 하기</p>
- <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">        git commit -m <span class="hljs-string">"upload server"</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">    ```​​</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">5. 기존에 git에 있는 코드를 가져온다.</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">    ``` bash</span></pre></td></tr><tr><td class="code"><pre><span class="line">        <span class="hljs-comment">#git에 있는 코드를 땡겨온다. 자동으로 merge가 된다.</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">        git pull origin master</span></pre></td></tr></table></figure>
+</ul>
+<h2 id="문제-해결-방법"><a href="#문제-해결-방법" class="headerlink" title="문제 해결 방법"></a>문제 해결 방법</h2><hr>
+<ul>
+<li><p>해결방법은 간단한다.<br>CUDA를 10점대 버전으로 업데이트 한다.</p>
 </li>
-<li><p>Git 서버에 올린다.</p>
- <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-comment">#현재 server 코드를 upload 해준다.</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">git push origin master</span></pre></td></tr></table></figure>
-
+<li><p>그리고 pytorch를 업데이트 한다.</p>
+  <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">conda install pytorch torchvision cudatoolkit=10.0 -c pytorch</span></pre></td></tr></table></figure>
 
 </li>
-</ol>
-<p>​</p>
+</ul>
 
         </div>
         
@@ -211,7 +204,7 @@
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/git/" rel="tag">git</a>, <a class="has-link-grey -link" href="/tags/ubuntu/" rel="tag">ubuntu</a>
+                    <a class="has-link-grey -link" href="/tags/pytorch/" rel="tag">pytorch</a>
                 </div>
             </div>
         </div>
@@ -237,17 +230,10 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/02/07/setting/mysql_backup/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">MySQL 백업 복원</span>
-            </a>
-        </div>
-        
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2019/02/07/error_set/php_exec_error/">
-                <span class="level-item">php exec error</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/01/02/setting/pytorch_install/">
+                <span class="level-item">Pytorch Window 설치 (CUDA)</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -263,8 +249,8 @@
         
 <script>
     var disqus_config = function () {
-        this.page.url = 'https://vhrehfdl.github.io/2019/02/07/setting/linux_git/';
-        this.page.identifier = '2019/02/07/setting/linux_git/';
+        this.page.url = 'https://vhrehfdl.github.io/2020/01/02/error_set/pytorch_error-1/';
+        this.page.identifier = '2020/01/02/error_set/pytorch_error-1/';
     };
     (function() {
         var d = document, s = d.createElement('script');  
@@ -1597,7 +1583,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="Ubuntu git 설치" height="28">
+                    <img src="/images/logo.svg" alt="CUDNN_STATUS_EXECUTION_FAILED" height="28">
                 
                 </a>
                 <p class="is-size-7">
