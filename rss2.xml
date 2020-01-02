@@ -9,8 +9,28 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>IT Blog</description>
-    <pubDate>Wed, 01 Jan 2020 07:03:43 GMT</pubDate>
+    <pubDate>Thu, 02 Jan 2020 06:23:10 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Pytorch Window 설치 (CUDA)</title>
+      <link>https://vhrehfdl.github.io/2020/01/02/setting/pytorch_install/</link>
+      <guid>https://vhrehfdl.github.io/2020/01/02/setting/pytorch_install/</guid>
+      <pubDate>Thu, 02 Jan 2020 06:12:00 GMT</pubDate>
+      <description>
+      
+        &lt;p&gt;pytorch install 기록&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;window에 CUDA와 CuDNN 설정되어 있다고 가정.&lt;/li&gt;
+&lt;/ul&gt;
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<p>pytorch install 기록</p><ul><li>window에 CUDA와 CuDNN 설정되어 있다고 가정.</li></ul><a id="more"></a>​<h2 id="설치"><a href="#설치" class="headerlink" title="설치"></a>설치</h2><hr><ol><li><p>window의 CUDA 버전확인</p><ul><li><p>window CMD 창에서 입력.</p><figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">nvcc --version</span></pre></td></tr></table></figure></li><li><p>명령어를 입력하면 9점대 버전인 것을 확인할 수 있다.</p><center><img src="/images/setting/20200102_1512.png" alt="cmd 결과"></center><br></li></ul></li></ol><ol start="2"><li><p>해당 버전에 맞는 Pytorch 설치</p><ul><li><p>pytorch는 anaconda에서 설치하는 것이 편하다.</p></li><li><p>anaconda prompt 창에서 입력. (설치하고 싶은 가상환경 activate후 입력)</p><figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">conda install pytorch torchvision cudatoolkit=9.0 -c pytorch</span></pre></td></tr></table></figure></li></ul></li></ol><h2 id="설치-확인"><a href="#설치-확인" class="headerlink" title="설치 확인"></a>설치 확인</h2><hr><p>torch를 불러오고 device_name을 확인한다.</p><figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> torch</span></pre></td></tr><tr><td class="code"><pre><span class="line">torch.cuda.get_device_name(<span class="hljs-number">0</span>)</span></pre></td></tr></table></figure>]]></content:encoded>
+      
+      <comments>https://vhrehfdl.github.io/2020/01/02/setting/pytorch_install/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>VScode SFTP 연결 방법</title>
@@ -396,25 +416,6 @@
       <content:encoded><![CDATA[<ul><li>원인<br>아래 코드의 sample_rate_hertz가 일치하지 않아서 그렇다.<br>ffmpeg를 사용해 동영상 확장자를 변환할 때 맞춰주어야 한다.</li></ul><a id="more"></a><hr><ul><li><p>해결방법<br>  ffmpeg로 변환을 시킨다.<br>  sample_rate_hertz가 16000으로 설정했기 때문에 변활시킬 때 16000으로 바꿔주어야 한다.</p>  <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">ffmpeg -i audio_file.mp4 -acodec pcm_s16le -ac 1 -ar 16000 audio_file.wav</span></pre></td></tr></table></figure></li></ul><ul><li><p>예제 코드  </p>  <figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">transcribe_file</span><span class="hljs-params">(speech_file)</span>:</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="hljs-string">"""Transcribe the given audio file."""</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="hljs-keyword">from</span> google.cloud <span class="hljs-keyword">import</span> speech</span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="hljs-keyword">from</span> google.cloud.speech <span class="hljs-keyword">import</span> enums</span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="hljs-keyword">from</span> google.cloud.speech <span class="hljs-keyword">import</span> types</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">    client = speech.SpeechClient()</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="hljs-keyword">with</span> io.open(speech_file, <span class="hljs-string">'rb'</span>) <span class="hljs-keyword">as</span> audio_file:</span></pre></td></tr><tr><td class="code"><pre><span class="line">        content = audio_file.read()</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">    audio = types.RecognitionAudio(content=content)</span></pre></td></tr><tr><td class="code"><pre><span class="line">    config = types.RecognitionConfig(</span></pre></td></tr><tr><td class="code"><pre><span class="line">        encoding=enums.RecognitionConfig.AudioEncoding.LINEAR16,</span></pre></td></tr><tr><td class="code"><pre><span class="line">        sample_rate_hertz=<span class="hljs-number">16000</span>,</span></pre></td></tr><tr><td class="code"><pre><span class="line">        language_code=<span class="hljs-string">'ko-KR'</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">    response = client.recognize(config, audio)</span></pre></td></tr><tr><td class="code"><pre><span class="line">    print(<span class="hljs-string">"test2"</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="hljs-comment"># Each result is for a consecutive portion of the audio. Iterate through</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="hljs-comment"># them to get the transcripts for the entire audio file.</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="hljs-keyword">for</span> result <span class="hljs-keyword">in</span> response.results:</span></pre></td></tr><tr><td class="code"><pre><span class="line">        print(<span class="hljs-string">"test3"</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line">        <span class="hljs-comment"># The first alternative is the most likely one for this portion.</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">        print(<span class="hljs-string">u'Transcript: &#123;&#125;'</span>.format(result.alternatives[<span class="hljs-number">0</span>].transcript))</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">speech_file = <span class="hljs-string">"audio_file.wav"</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">transcribe_file(speech_file)</span></pre></td></tr></table></figure></li></ul>]]></content:encoded>
       
       <comments>https://vhrehfdl.github.io/2019/02/25/error_set/google_speech_api_error/#disqus_thread</comments>
-    </item>
-    
-    <item>
-      <title>Docker 설치하기</title>
-      <link>https://vhrehfdl.github.io/2019/02/24/setting/docker_install/</link>
-      <guid>https://vhrehfdl.github.io/2019/02/24/setting/docker_install/</guid>
-      <pubDate>Sun, 24 Feb 2019 06:35:00 GMT</pubDate>
-      <description>
-      
-        &lt;ul&gt;
-&lt;li&gt;Docker 설치와 기본 명령어 기록.&lt;/li&gt;
-&lt;/ul&gt;
-      
-      </description>
-      
-      
-      <content:encoded><![CDATA[<ul><li>Docker 설치와 기본 명령어 기록.</li></ul><a id="more"></a>​<h2 id="Docker-설치"><a href="#Docker-설치" class="headerlink" title="Docker 설치"></a>Docker 설치</h2><hr><figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">curl -fsSL https://get.docker.com/ | sudo sh</span></pre></td></tr></table></figure><p>​</p><h2 id="설치-확인"><a href="#설치-확인" class="headerlink" title="설치 확인"></a>설치 확인</h2><hr><figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">docker version</span></pre></td></tr></table></figure><ul><li>설치가 완료되면 아래과 같이 결과가 나온다.</li></ul><center><img src="/images/setting/20190224_1535.png" alt="설치 완료"></center><br>​<h2 id="docker-명령어-모음"><a href="#docker-명령어-모음" class="headerlink" title="docker 명령어 모음"></a>docker 명령어 모음</h2><hr><ol><li>Image 파일 설치 :  <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">docker run ubuntu:16.04</span></pre></td></tr></table></figure></li></ol><ol start="2"><li><p>docker run </p> <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">docker run ubuntu:16.04</span></pre></td></tr></table></figure></li><li><p>docker exec : 실행중인 컨테이너에 접속할 때 사용</p> <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">docker <span class="hljs-built_in">exec</span> -it mysql bash</span></pre></td></tr></table></figure></li><li><p>docker image 확인</p> <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">docker images</span></pre></td></tr></table></figure></li><li><p>docker container 확인</p> <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">docker ps -a</span></pre></td></tr></table></figure></li><li><p>docker image 제거</p> <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">docker rmi <span class="hljs-string">'image id'</span></span></pre></td></tr></table></figure></li><li><p>docker container 제거</p> <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">docker rm <span class="hljs-string">'conatiner id'</span></span></pre></td></tr></table></figure><p>​</p></li></ol><h2 id="참고한-URL"><a href="#참고한-URL" class="headerlink" title="참고한 URL"></a>참고한 URL</h2><ul><li>[URL] : <a href="https://subicura.com/2017/01/19/docker-guide-for-beginners-2.html" target="_blank" rel="noopener">https://subicura.com/2017/01/19/docker-guide-for-beginners-2.html</a></li><li>매우 잘 설명 되어 있고 예제 코드도 많다.</li></ul><br><ul><li>[URL] : <a href="http://pyrasis.com/book/DockerForTheReallyImpatient/Chapter20/08" target="_blank" rel="noopener">http://pyrasis.com/book/DockerForTheReallyImpatient/Chapter20/08</a></li><li>Exec 명령어 설명되어 있다.</li></ul><br><ul><li>[URL] : <a href="https://blusky10.tistory.com/362" target="_blank" rel="noopener">https://blusky10.tistory.com/362</a></li><li>docker mysql 설치할 때 참조했다.</li></ul><br><ul><li>[URL] : <a href="https://behonestar.tistory.com/85" target="_blank" rel="noopener">https://behonestar.tistory.com/85</a></li><li>docker 전체 삭제 명령어</li></ul><br><ul><li>[URL] : <a href="https://blog.hanumoka.net/2018/04/29/docker-20180429-docker-install-mysql/" target="_blank" rel="noopener">https://blog.hanumoka.net/2018/04/29/docker-20180429-docker-install-mysql/</a></li><li>마찬가지로 mysql 설치할 때 참조했다.<br>​</li></ul>]]></content:encoded>
-      
-      <comments>https://vhrehfdl.github.io/2019/02/24/setting/docker_install/#disqus_thread</comments>
     </item>
     
   </channel>

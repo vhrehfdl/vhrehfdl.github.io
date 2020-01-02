@@ -7,20 +7,20 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<link rel="canonical" href="https://vhrehfdl.github.io/2019/11/08/setting/aws_putty/"/>
-<title>EC2 Instance 생성 후 putty 접속 - Hooni</title>
+<link rel="canonical" href="https://vhrehfdl.github.io/2020/01/02/setting/pytorch_install/"/>
+<title>Pytorch Window 설치 (CUDA) - Hooni</title>
 
 
-    <meta name="description" content="EC2에 putty로 접속하는 방법 기록.">
-<meta name="keywords" content="aws,putty">
+    <meta name="description" content="pytorch install 기록  window에 CUDA와 CuDNN 설정되어 있다고 가정.">
+<meta name="keywords" content="pytorch">
 <meta property="og:type" content="article">
-<meta property="og:title" content="EC2 Instance 생성 후 putty 접속">
-<meta property="og:url" content="https:&#x2F;&#x2F;vhrehfdl.github.io&#x2F;2019&#x2F;11&#x2F;08&#x2F;setting&#x2F;aws_putty&#x2F;index.html">
+<meta property="og:title" content="Pytorch Window 설치 (CUDA)">
+<meta property="og:url" content="https:&#x2F;&#x2F;vhrehfdl.github.io&#x2F;2020&#x2F;01&#x2F;02&#x2F;setting&#x2F;pytorch_install&#x2F;index.html">
 <meta property="og:site_name" content="Hooni">
-<meta property="og:description" content="EC2에 putty로 접속하는 방법 기록.">
+<meta property="og:description" content="pytorch install 기록  window에 CUDA와 CuDNN 설정되어 있다고 가정.">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https:&#x2F;&#x2F;vhrehfdl.github.io&#x2F;images&#x2F;setting&#x2F;setting.jpg">
-<meta property="og:updated_time" content="2019-12-25T03:51:47.296Z">
+<meta property="og:updated_time" content="2020-01-02T06:23:10.028Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;vhrehfdl.github.io&#x2F;images&#x2F;setting&#x2F;setting.jpg">
 
@@ -89,7 +89,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo.svg" alt="EC2 Instance 생성 후 putty 접속" height="28">
+                <img src="/images/logo.svg" alt="Pytorch Window 설치 (CUDA)" height="28">
             
             </a>
         </div>
@@ -143,7 +143,7 @@
     
     <div class="card-image">
         <span  class="image is-7by1">
-            <img class="thumbnail" src="/images/setting/setting.jpg" alt="EC2 Instance 생성 후 putty 접속">
+            <img class="thumbnail" src="/images/setting/setting.jpg" alt="Pytorch Window 설치 (CUDA)">
         </span>
     </div>
     
@@ -151,7 +151,7 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-11-08T14:11:00.000Z">2019-11-08</time>
+                <time class="level-item has-text-grey" datetime="2020-01-02T06:12:00.000Z">2020-01-02</time>
                 
                 <div class="level-item">
                 <a class="has-link-grey -link" href="/categories/setting/">setting</a>
@@ -161,7 +161,7 @@
                 <span class="level-item has-text-grey">
                     
                     
-                    2 minutes read (About 274 words)
+                    a minute read (About 138 words)
                 </span>
                 
                 
@@ -170,58 +170,48 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                EC2 Instance 생성 후 putty 접속
+                Pytorch Window 설치 (CUDA)
             
         </h1>
         <div class="content">
-            <ul>
-<li>EC2에 putty로 접속하는 방법 기록.</li>
+            <p>pytorch install 기록</p>
+<ul>
+<li>window에 CUDA와 CuDNN 설정되어 있다고 가정.</li>
 </ul>
 <a id="more"></a>​
 
-<h2 id="AWS-EC2-Instance-생성"><a href="#AWS-EC2-Instance-생성" class="headerlink" title="AWS EC2 Instance 생성"></a>AWS EC2 Instance 생성</h2><hr>
+<h2 id="설치"><a href="#설치" class="headerlink" title="설치"></a>설치</h2><hr>
+<ol>
+<li><p>window의 CUDA 버전확인</p>
 <ul>
-<li>[URL] : <a href="https://aws.amazon.com/ko/" target="_blank" rel="noopener">https://aws.amazon.com/ko/</a></li>
-</ul>
-<center><img src="/images/setting/20191108_2311.png"></center><br>
-
-<ul>
-<li><p>콘솔에 로그인 하기를 한 후 EC2 인스턴스를 생성한다.</p>
+<li><p>window CMD 창에서 입력.</p>
+<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">nvcc --version</span></pre></td></tr></table></figure>
 </li>
-<li><p>사실 생성까지는 쉽지만 약간 어려울 수 있는게 보안 그룹에 Key File 부분이 헷갈릴 수 있다.</p>
-</li>
-<li><p>우선 .pem 확장자 파일을 다운 받는다. ( 접속 때 중요하게 사용되어진다. )</p>
-</li>
-</ul>
-<h2 id="AWS-putty-접속"><a href="#AWS-putty-접속" class="headerlink" title="AWS putty 접속"></a>AWS putty 접속</h2><hr>
-<ul>
-<li><p>우선 puttygen을 사용해 .pem 파일을 .ppk 파일로 생성한다.</p>
-</li>
-<li><p>Load 버튼을 클릭한 후에 방금 만들었던 .pem 파일을 선택한다.</p>
-<center><img src="/images/setting/20191108_2312.png" alt="load 버튼 클릭"></center><br>
-</li>
-<li><p>save 버튼을 누르고 이름을 지정한 후 저장한다.</p>
-<center><img src="/images/setting/20191108_2313.png" alt="save 버튼 클릭"></center><br>
-</li>
-<li><p>Host Name에는 퍼블릭 DNS(IPv4)의 주소값을 입력한다.</p>
-<center><img src="/images/setting/20191108_2314.png" alt="host name 입력"></center><br>
-</li>
-<li><p>접속&gt;SSH&gt;AUTH로 가서 Private Key파일을 선택한다.</p>
-<center><img src="/images/setting/20191108_2315.png"></center><br>
+<li><p>명령어를 입력하면 9점대 버전인 것을 확인할 수 있다.</p>
+<center><img src="/images/setting/20200102_1512.png" alt="cmd 결과"></center><br>
 
 
 </li>
 </ul>
-<ul>
-<li><p>.ppk 파일을 세팅하고 접속한다.</p>
 </li>
-<li><p>EC2에 접속하면 “login as:”가 화면에 뜨는데 우분투로 설치했다면 ubuntu로 입력한다. ( 처음에 아무생각 없이 root를 했다가 안되었다. )</p>
+</ol>
+<ol start="2">
+<li><p>해당 버전에 맞는 Pytorch 설치</p>
+<ul>
+<li><p>pytorch는 anaconda에서 설치하는 것이 편하다.</p>
+</li>
+<li><p>anaconda prompt 창에서 입력. (설치하고 싶은 가상환경 activate후 입력)</p>
+<figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">conda install pytorch torchvision cudatoolkit=9.0 -c pytorch</span></pre></td></tr></table></figure>
+
+
 </li>
 </ul>
-<h2 id="참고-URL"><a href="#참고-URL" class="headerlink" title="참고 URL"></a>참고 URL</h2><hr>
-<ul>
-<li>[URL] : <a href="https://hyeonstorage.tistory.com/271" target="_blank" rel="noopener">https://hyeonstorage.tistory.com/271</a></li>
-</ul>
+</li>
+</ol>
+<h2 id="설치-확인"><a href="#설치-확인" class="headerlink" title="설치 확인"></a>설치 확인</h2><hr>
+<p>torch를 불러오고 device_name을 확인한다.</p>
+<figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> torch</span></pre></td></tr><tr><td class="code"><pre><span class="line">torch.cuda.get_device_name(<span class="hljs-number">0</span>)</span></pre></td></tr></table></figure>
+
 
         </div>
         
@@ -229,7 +219,7 @@
             <div class="level-start">
                 <div class="level-item">
                     <span class="is-size-6 has-text-grey has-mr-7">#</span>
-                    <a class="has-link-grey -link" href="/tags/aws/" rel="tag">aws</a>, <a class="has-link-grey -link" href="/tags/putty/" rel="tag">putty</a>
+                    <a class="has-link-grey -link" href="/tags/pytorch/" rel="tag">pytorch</a>
                 </div>
             </div>
         </div>
@@ -255,17 +245,10 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/11/08/setting/aws_port_open/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">EC2 Instance 웹서버 설치 후 구동하기</span>
-            </a>
-        </div>
-        
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2019/09/11/error_set/pytorch_error/">
-                <span class="level-item">ImportError dll load failed 지정된 모듈을 찾을 수 없습니다</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2020/01/01/setting/vscode_sftp/">
+                <span class="level-item">VScode SFTP 연결 방법</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -281,8 +264,8 @@
         
 <script>
     var disqus_config = function () {
-        this.page.url = 'https://vhrehfdl.github.io/2019/11/08/setting/aws_putty/';
-        this.page.identifier = '2019/11/08/setting/aws_putty/';
+        this.page.url = 'https://vhrehfdl.github.io/2020/01/02/setting/pytorch_install/';
+        this.page.identifier = '2020/01/02/setting/pytorch_install/';
     };
     (function() {
         var d = document, s = d.createElement('script');  
@@ -1615,7 +1598,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo.svg" alt="EC2 Instance 생성 후 putty 접속" height="28">
+                    <img src="/images/logo.svg" alt="Pytorch Window 설치 (CUDA)" height="28">
                 
                 </a>
                 <p class="is-size-7">
