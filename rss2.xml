@@ -9,8 +9,46 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>IT Blog</description>
-    <pubDate>Thu, 02 Jan 2020 10:38:12 GMT</pubDate>
+    <pubDate>Wed, 08 Jan 2020 04:26:02 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>tensorflow load error</title>
+      <link>https://vhrehfdl.github.io/2020/01/08/error_set/tensorflow_error/</link>
+      <guid>https://vhrehfdl.github.io/2020/01/08/error_set/tensorflow_error/</guid>
+      <pubDate>Wed, 08 Jan 2020 04:25:00 GMT</pubDate>
+      <description>
+      
+        &lt;ul&gt;
+&lt;li&gt;tensorflow.python.framework.errors_impl.UnknownError: 2 root error(s) found.&lt;/li&gt;
+&lt;/ul&gt;
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<ul><li>tensorflow.python.framework.errors_impl.UnknownError: 2 root error(s) found.</li></ul><a id="more"></a><ul><li>에러 메세지</li></ul><center><img src="/images/error_set/20200108_1312.png" width="100%"></center><br><ul><li><p>문제 원인</p><ul><li><p>처음에는 CUDA 버전 에러인 줄 알았다. (2080TI에 CUDA 10 사용 중)</p></li><li><p>그런데 저 에러가 뜨는 코드가 있고 안 뜨는 코드가 있었다.</p></li><li><p>그래서 cuda 버전 에러가 아닐 수도 있겠다고 생각했고 찾아본 결과 GPU 메모리 에러였다.</p></li><li><p>GPU 메모리를 초과해서 사용하는 경우 이런 에러가 발생할 수 있다고 했다.</p></li></ul></li></ul><ul><li><p>해결 방법 : gpu_memory를 적당양 사용하니까 문제가 해결됬다. ( 여기서는 75% 사용 )</p>  <figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-comment"># Tensor 환경 설정</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">set_env</span><span class="hljs-params">()</span>:</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">    os.environ[<span class="hljs-string">'CUDA_VISIBLE_DEVICES'</span>] = <span class="hljs-string">'0'</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">    config = tf.ConfigProto()</span></pre></td></tr><tr><td class="code"><pre><span class="line">    config.gpu_options.per_process_gpu_memory_fraction = <span class="hljs-number">0.75</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">    session = tf.Session(config=config)</span></pre></td></tr><tr><td class="code"><pre><span class="line">    session</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">set_env()</span></pre></td></tr></table></figure></li></ul>]]></content:encoded>
+      
+      <comments>https://vhrehfdl.github.io/2020/01/08/error_set/tensorflow_error/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>scipy import error</title>
+      <link>https://vhrehfdl.github.io/2020/01/08/error_set/scipy_error/</link>
+      <guid>https://vhrehfdl.github.io/2020/01/08/error_set/scipy_error/</guid>
+      <pubDate>Wed, 08 Jan 2020 04:14:00 GMT</pubDate>
+      <description>
+      
+        &lt;ul&gt;
+&lt;li&gt;ImportError: cannot import name ‘imresize’ from ‘scipy.misc’ &lt;/li&gt;
+&lt;/ul&gt;
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<ul><li>ImportError: cannot import name ‘imresize’ from ‘scipy.misc’ </li></ul><a id="more"></a><ul><li>Solution : Scipy를 1.1버전으로 downgrade 하면 된다. 버전 에러였다.</li></ul>]]></content:encoded>
+      
+      <comments>https://vhrehfdl.github.io/2020/01/08/error_set/scipy_error/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>CUDNN_STATUS_EXECUTION_FAILED</title>
@@ -376,46 +414,6 @@
       <content:encoded><![CDATA[<ul><li><p>에러 메세지 : UnicodeDecodeError: ‘utf-8’ codec can’t decode byte 0xff in position 0: invalid</p></li><li><p>해결 방법 : encoding 부분을 utf-8에서 utf-16으로 바꿔주니까 된다. ( python3 기준 )</p></li></ul><a id="more"></a><ul><li><p>예시 코드</p>  <figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-comment"># -*- coding: utf-8 -*-:</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> csv</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">f = open(<span class="hljs-string">'1_50000.csv'</span>, <span class="hljs-string">'r'</span>, encoding=<span class="hljs-string">'utf-16'</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line">rdr = csv.reader(f)</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> rdr:</span></pre></td></tr><tr><td class="code"><pre><span class="line">    print(line)</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">f.close()</span></pre></td></tr></table></figure></li></ul>]]></content:encoded>
       
       <comments>https://vhrehfdl.github.io/2019/03/06/error_set/python_encoding_error/#disqus_thread</comments>
-    </item>
-    
-    <item>
-      <title>Scrapy AttributeError module &#39;lib&#39; has no attribute &#39;Cryptography_HAS_SSL_ST</title>
-      <link>https://vhrehfdl.github.io/2019/02/26/error_set/scrapy_error/</link>
-      <guid>https://vhrehfdl.github.io/2019/02/26/error_set/scrapy_error/</guid>
-      <pubDate>Tue, 26 Feb 2019 10:30:00 GMT</pubDate>
-      <description>
-      
-        &lt;ul&gt;
-&lt;li&gt;Error Message : AttributeError module ‘lib’ has no attribute ‘Cryptography_HAS_SSL_ST&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&quot;원인&quot;&gt;&lt;a href=&quot;#원인&quot; class=&quot;headerlink&quot; title=&quot;원인&quot;&gt;&lt;/a&gt;원인&lt;/h2&gt;&lt;hr&gt;
-&lt;p&gt;Scrapy 설치하고 실행하려는데 에러가 발생했었다.&lt;br&gt;찾아보니까 pyOpenSSL 문제인 것 같다.&lt;br&gt;그냥 install 하나 해주니까 해결되었다. &lt;/p&gt;
-      
-      </description>
-      
-      
-      <content:encoded><![CDATA[<ul><li>Error Message : AttributeError module ‘lib’ has no attribute ‘Cryptography_HAS_SSL_ST</li></ul><h2 id="원인"><a href="#원인" class="headerlink" title="원인"></a>원인</h2><hr><p>Scrapy 설치하고 실행하려는데 에러가 발생했었다.<br>찾아보니까 pyOpenSSL 문제인 것 같다.<br>그냥 install 하나 해주니까 해결되었다. </p><a id="more"></a><h2 id="해결방법"><a href="#해결방법" class="headerlink" title="해결방법"></a>해결방법</h2><hr><figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">pip3 install pyOpenSSL==0.15.1</span></pre></td></tr></table></figure>]]></content:encoded>
-      
-      <comments>https://vhrehfdl.github.io/2019/02/26/error_set/scrapy_error/#disqus_thread</comments>
-    </item>
-    
-    <item>
-      <title>Pytube Sample Code</title>
-      <link>https://vhrehfdl.github.io/2019/02/25/setting/pytube_sample/</link>
-      <guid>https://vhrehfdl.github.io/2019/02/25/setting/pytube_sample/</guid>
-      <pubDate>Mon, 25 Feb 2019 02:36:00 GMT</pubDate>
-      <description>
-      
-        &lt;ul&gt;
-&lt;li&gt;Python을 이용한 Youtube 다운로드 라이브러리.&lt;/li&gt;
-&lt;/ul&gt;
-      
-      </description>
-      
-      
-      <content:encoded><![CDATA[<ul><li>Python을 이용한 Youtube 다운로드 라이브러리.</li></ul><a id="more"></a>​<ol><li><p>pip 툴을 사용해 pytube를 install 한다.</p></li><li><p>code를 돌려 youtube 영상을 다운 받는다.</p></li></ol><figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-comment"># -*- coding: utf-8 -*-</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> os</span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> subprocess</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> pytube</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">yt = pytube.YouTube(<span class="hljs-string">"https://www.youtube.com/watch?v=ZMpQgvmw3kk"</span>) <span class="hljs-comment">#다운받을 동영상 URL 지정</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">vids= yt.streams.all()</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-comment">#영상 형식 리스트 확인</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> range(len(vids)):</span></pre></td></tr><tr><td class="code"><pre><span class="line">    print(i,<span class="hljs-string">'. '</span>,vids[i])</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">vnum = int(input(<span class="hljs-string">"다운 받을 화질은? "</span>))</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">parent_dir = <span class="hljs-string">"/home/lee"</span> <span class="hljs-comment">#저장 경로 지정(Windows or mac)</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">vids[vnum].download(parent_dir) <span class="hljs-comment">#다운로드 수행</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">default_filename = vids[vnum].default_filename</span></pre></td></tr><tr><td class="code"><pre><span class="line">subprocess.call([<span class="hljs-string">'ffmpeg'</span>, <span class="hljs-string">'-i'</span>,                 <span class="hljs-comment">#cmd 명령어 수행</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">    os.path.join(parent_dir, default_filename)</span></pre></td></tr><tr><td class="code"><pre><span class="line">])</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">print(<span class="hljs-string">'동영상 다운로드 및 mp3 변환 완료!'</span>)</span></pre></td></tr></table></figure><p>​</p>]]></content:encoded>
-      
-      <comments>https://vhrehfdl.github.io/2019/02/25/setting/pytube_sample/#disqus_thread</comments>
     </item>
     
   </channel>
