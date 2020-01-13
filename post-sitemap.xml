@@ -8,6 +8,30 @@
     </url>
 
     <url>
+        <loc>https://vhrehfdl.github.io/2020/01/01/setting/vscode_sftp/</loc>
+        <lastmod>2020-01-13T04:12:59.202Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://vhrehfdl.github.io/2020/01/02/setting/pytorch_install/</loc>
+        <lastmod>2020-01-13T04:12:43.150Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://vhrehfdl.github.io/2020/01/08/error_set/tensorflow_error/</loc>
+        <lastmod>2020-01-13T04:11:48.928Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://vhrehfdl.github.io/2020/01/02/error_set/pytorch_error-1/</loc>
         <lastmod>2020-01-13T04:03:44.052Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -16,32 +40,8 @@
     </url>
 
     <url>
-        <loc>https://vhrehfdl.github.io/2020/01/01/setting/vscode_sftp/</loc>
-        <lastmod>2020-01-13T04:00:33.625Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://vhrehfdl.github.io/2020/01/08/error_set/tensorflow_error/</loc>
-        <lastmod>2020-01-13T03:34:45.742Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://vhrehfdl.github.io/2020/01/08/error_set/scipy_error/</loc>
         <lastmod>2020-01-08T04:18:01.072Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://vhrehfdl.github.io/2020/01/02/setting/pytorch_install/</loc>
-        <lastmod>2020-01-02T06:23:10.028Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -376,14 +376,6 @@
     </url>
 
     <url>
-        <loc>https://vhrehfdl.github.io/2019/04/08/error_set/tensorflow_version_error/</loc>
-        <lastmod>2019-12-14T15:18:44.094Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>https://vhrehfdl.github.io/2019/01/31/error_set/tensorflow_version_error-1/</loc>
         <lastmod>2019-12-14T15:18:44.094Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -393,6 +385,14 @@
 
     <url>
         <loc>https://vhrehfdl.github.io/2019/01/31/error_set/tensorflow_version_error-2/</loc>
+        <lastmod>2019-12-14T15:18:44.094Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>https://vhrehfdl.github.io/2019/04/08/error_set/tensorflow_version_error/</loc>
         <lastmod>2019-12-14T15:18:44.094Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
