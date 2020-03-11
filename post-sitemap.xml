@@ -8,6 +8,14 @@
     </url>
 
     <url>
+        <loc>https://vhrehfdl.github.io/2020/03/10/setting/khaiii-install/</loc>
+        <lastmod>2020-03-10T13:21:40.354Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://vhrehfdl.github.io/2020/01/01/setting/vscode_sftp/</loc>
         <lastmod>2020-01-13T04:12:59.202Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -362,14 +370,6 @@
     <url>
         <loc>https://vhrehfdl.github.io/2019/02/07/error_set/php_exec_error/</loc>
         <lastmod>2019-12-14T15:25:07.747Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>https://vhrehfdl.github.io/2018/01/15/hello-world/</loc>
-        <lastmod>2019-12-14T15:18:44.095Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 

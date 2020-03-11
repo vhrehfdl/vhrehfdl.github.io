@@ -9,8 +9,27 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>IT Blog</description>
-    <pubDate>Mon, 13 Jan 2020 04:11:48 GMT</pubDate>
+    <pubDate>Tue, 10 Mar 2020 13:21:40 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>khaiii_install</title>
+      <link>https://vhrehfdl.github.io/2020/03/10/setting/khaiii-install/</link>
+      <guid>https://vhrehfdl.github.io/2020/03/10/setting/khaiii-install/</guid>
+      <pubDate>Tue, 10 Mar 2020 13:10:00 GMT</pubDate>
+      <description>
+      
+        &lt;ul&gt;
+&lt;li&gt;카카오 형태소 분석기 설치.&lt;/li&gt;
+&lt;/ul&gt;
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<ul><li>카카오 형태소 분석기 설치.</li></ul><a id="more"></a><h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><hr><ol><li><p>CMAKE 환경 설정</p><ul><li><p>카카오 형태소 분석기를 사용하려면 cmake가 설치되어 있어야 한다.</p></li><li><p>주의해햐 할 점은 cmake 3.10 이상의 버전을 설치해야 하기 때문에 update를 해주어야 한다.</p><figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">sudo -E apt-get update</span></pre></td></tr><tr><td class="code"><pre><span class="line">sudo apt-get install cmake</span></pre></td></tr></table></figure></li><li><p>만약에 위에 명령어로 설치가 안 될 경우에는 pip로 설치해보자.</p><figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">pip install cmake</span></pre></td></tr></table></figure></li></ul></li></ol><ol start="2"><li><p>Khaiii 설치</p><ul><li><p>아래의 명령어를 쭉 따라하면 khaiii가 설치된다.</p><figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">git <span class="hljs-built_in">clone</span> https://github.com/kakao/khaiii</span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-built_in">cd</span> khaiii</span></pre></td></tr><tr><td class="code"><pre><span class="line">mkdir build</span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-built_in">cd</span> build</span></pre></td></tr><tr><td class="code"><pre><span class="line">cmake ..</span></pre></td></tr><tr><td class="code"><pre><span class="line">make package_python</span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-built_in">cd</span> package_python</span></pre></td></tr><tr><td class="code"><pre><span class="line">pip install .</span></pre></td></tr></table></figure><p>​</p></li></ul></li><li><p>코드 테스트</p><ul><li><p>build 경로 아래에 test.py를 만들고 실행을 시켜면 된다.</p><figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> khaiii <span class="hljs-keyword">import</span> KhaiiiApi</span></pre></td></tr><tr><td class="code"><pre><span class="line">api = KhaiiiApi()</span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">for</span> word <span class="hljs-keyword">in</span> api.analyze(<span class="hljs-string">'안녕, 세상.'</span>):</span></pre></td></tr><tr><td class="code"><pre><span class="line">        print(word)</span></pre></td></tr></table></figure></li></ul></li></ol>]]></content:encoded>
+      
+      <comments>https://vhrehfdl.github.io/2020/03/10/setting/khaiii-install/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>tensorflow load error</title>
@@ -392,28 +411,6 @@
       <content:encoded><![CDATA[<h2 id="생각"><a href="#생각" class="headerlink" title="생각"></a>생각</h2><hr><ul><li>처음에 아무 생각 없이 하다가 내 tensorflow를 아나콘다 가상환경에 설치한 사실을 깜빡하고 tensorboard를 실행 못시켰었다. </li><li>tensorflow가 설치되어 있는 가상환경을 activate하고 tensorboard를 실행시키자. ㅋㅋ</li></ul><a id="more"></a>​<h2 id="설치-및-실행"><a href="#설치-및-실행" class="headerlink" title="설치 및 실행"></a>설치 및 실행</h2><hr><ol><li><p>tensorboard 설치 </p><ul><li>기본적으로 tensorflow 설치하면 자동으로 tensorboard가 설치되어진다.</li></ul></li><li><p>mygraph라는 폴더를 만들어서 log를 저장한다.</p> <figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> tensorflow <span class="hljs-keyword">as</span> tf</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">a = tf.constant(<span class="hljs-number">5</span>, name=<span class="hljs-string">'input_a'</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line">b = tf.constant(<span class="hljs-number">7</span>, name=<span class="hljs-string">'input_b'</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">c = tf.multiply(a, b, name=<span class="hljs-string">'mul_c'</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line">d = tf.add(a, b, name=<span class="hljs-string">'add_d'</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line">e = tf.add(c, d, name=<span class="hljs-string">'add_e'</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">sess = tf.Session()</span></pre></td></tr><tr><td class="code"><pre><span class="line">print(sess.run(e))</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">wirter = tf.summary.FileWriter(<span class="hljs-string">'./mygraph'</span>,sess.graph)</span></pre></td></tr></table></figure></li><li><p>mygraph가 위치하는 폴더에 가서 아래의 명령어를 실행시켜준다.</p> <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">tensorboard --logdir=<span class="hljs-string">"mygraph"</span></span></pre></td></tr></table></figure></li><li><p>커맨드창 가장 하단에 있는 <a href="http://localhost:6006으로" target="_blank" rel="noopener">http://localhost:6006으로</a> 들어가면 tensorboard가 실행되어진다.</p> <center><img src="/images/setting/20190308_1724.png" alt="tensorboard 실행 이미지"></center><br></li><li><p>최종 결과</p> <center><img src="/images/setting/20190308_1725.png" alt="tensorboard 실행 이미지"></center><br>​</li><li><p>응용</p></li></ol><ul><li><p>아래의 코드는 callback 함수로 만들어서 log를 쌓는 방법이다.</p>  <figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> keras.callbacks <span class="hljs-keyword">import</span> TensorBoard</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">create_callbacks</span><span class="hljs-params">()</span>:</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">    tensorboard_callback = TensorBoard(log_dir=<span class="hljs-string">'./mygraph/mlp'</span>, histogram_freq=<span class="hljs-number">1</span>, batch_size=<span class="hljs-number">32</span>, write_graph=<span class="hljs-literal">True</span>, write_grads=<span class="hljs-literal">False</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="hljs-keyword">return</span> [tensorboard_callback]</span></pre></td></tr></table></figure></li><li><p>위의 코드를 만든후에 model을 실행시킬 때 콜백으로 넣어주면 log가 실시간으로 쌓인다.</p>  <figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line">callbacks = create_callbacks()</span></pre></td></tr><tr><td class="code"><pre><span class="line">model.fit(x=data[<span class="hljs-string">"train_X"</span>], y=data[<span class="hljs-string">"train_y"</span>], batch_size=<span class="hljs-number">32</span>, epochs=<span class="hljs-number">200</span>, verbose=<span class="hljs-number">1</span>, validation_data=(data[<span class="hljs-string">"val_X"</span>], data[<span class="hljs-string">"val_y"</span>]), callbacks=callbacks)</span></pre></td></tr></table></figure></li></ul>]]></content:encoded>
       
       <comments>https://vhrehfdl.github.io/2019/03/08/setting/tensorboard_setting/#disqus_thread</comments>
-    </item>
-    
-    <item>
-      <title>python encoding error</title>
-      <link>https://vhrehfdl.github.io/2019/03/06/error_set/python_encoding_error/</link>
-      <guid>https://vhrehfdl.github.io/2019/03/06/error_set/python_encoding_error/</guid>
-      <pubDate>Wed, 06 Mar 2019 01:51:00 GMT</pubDate>
-      <description>
-      
-        &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;에러 메세지 : UnicodeDecodeError: ‘utf-8’ codec can’t decode byte 0xff in position 0: invalid&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;해결 방법 : encoding 부분을 utf-8에서 utf-16으로 바꿔주니까 된다. ( python3 기준 )&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-      
-      </description>
-      
-      
-      <content:encoded><![CDATA[<ul><li><p>에러 메세지 : UnicodeDecodeError: ‘utf-8’ codec can’t decode byte 0xff in position 0: invalid</p></li><li><p>해결 방법 : encoding 부분을 utf-8에서 utf-16으로 바꿔주니까 된다. ( python3 기준 )</p></li></ul><a id="more"></a><ul><li><p>예시 코드</p>  <figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-comment"># -*- coding: utf-8 -*-:</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> csv</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">f = open(<span class="hljs-string">'1_50000.csv'</span>, <span class="hljs-string">'r'</span>, encoding=<span class="hljs-string">'utf-16'</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line">rdr = csv.reader(f)</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> rdr:</span></pre></td></tr><tr><td class="code"><pre><span class="line">    print(line)</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">f.close()</span></pre></td></tr></table></figure></li></ul>]]></content:encoded>
-      
-      <comments>https://vhrehfdl.github.io/2019/03/06/error_set/python_encoding_error/#disqus_thread</comments>
     </item>
     
   </channel>
