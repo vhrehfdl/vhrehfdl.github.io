@@ -9,8 +9,46 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>IT Blog</description>
-    <pubDate>Tue, 28 Apr 2020 05:32:15 GMT</pubDate>
+    <pubDate>Tue, 28 Apr 2020 05:37:43 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Hexo 기본 명령어</title>
+      <link>https://vhrehfdl.github.io/2020/04/28/setting/hexo_basic_command/</link>
+      <guid>https://vhrehfdl.github.io/2020/04/28/setting/hexo_basic_command/</guid>
+      <pubDate>Tue, 28 Apr 2020 05:37:00 GMT</pubDate>
+      <description>
+      
+        &lt;ul&gt;
+&lt;li&gt;Hexo 기본 명령어&lt;/li&gt;
+&lt;/ul&gt;
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<ul><li>Hexo 기본 명령어</li></ul><a id="more"></a>​<ul><li><p>hexo new post -p /setting/hexo_new : post 만들기</p></li><li><p>hexo clean : 초기화</p></li><li><p>hexo g : 생성</p></li><li><p>hexo s : 로컬로 확인</p></li><li><p>hexo d : 배포</p></li></ul>]]></content:encoded>
+      
+      <comments>https://vhrehfdl.github.io/2020/04/28/setting/hexo_basic_command/#disqus_thread</comments>
+    </item>
+    
+    <item>
+      <title>Selenium Install</title>
+      <link>https://vhrehfdl.github.io/2020/04/28/setting/selenium/</link>
+      <guid>https://vhrehfdl.github.io/2020/04/28/setting/selenium/</guid>
+      <pubDate>Tue, 28 Apr 2020 05:17:00 GMT</pubDate>
+      <description>
+      
+        &lt;ul&gt;
+&lt;li&gt;Linux 환경에서 Selenium 실행하기&lt;/li&gt;
+&lt;/ul&gt;
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<ul><li>Linux 환경에서 Selenium 실행하기</li></ul><a id="more"></a>​<h2 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h2><ul><li>Selenium을 리눅스 환경에 작동시키려다 너무 많은 에러를 마주쳤다.</li><li>순서대로 마주친 에러를 정리하려 한다.</li></ul><ol><li>chromedriver.exe 파일 권한 문제.</li></ol><ul><li>Message : selenium webdriver chrome PermissionError: [Errno 13] Permission denied</li><li>Problem : selenium webdriver에서 chromedriver.exe파일에 접근하려 하니 permission 문제가 발생했다.</li><li>Solution : chromedriver.exe 파일에 777 권한을 주니 접근이 되었다.</li></ul><ol start="2"><li>chromedriver에 접근해도 실행이 안되는 문제 발생.</li></ol><ul><li>Solution : 기존에 window chromedriver를 사용해서 발생한 문제였다. linux 64bit 껄로 다운받아 실행한다.</li><li>URL : <a href="https://sites.google.com/a/chromium.org/chromedriver/downloads" target="_blank" rel="noopener">https://sites.google.com/a/chromium.org/chromedriver/downloads</a><center><img src="/images/setting/20200428_1317.png" alt></center><br></li></ul><ol start="3"><li>chromedriver를 변환해도 실행이 안되는 문제 발생.</li></ol><ul><li>Message : OSError: [Errno 8] Exec format error</li><li>Solution : Headless 코드를 다른 것으로 변환한다.</li></ul><figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line">[기존 코드]</span></pre></td></tr><tr><td class="code"><pre><span class="line">options = webdriver.ChromeOptions()</span></pre></td></tr><tr><td class="code"><pre><span class="line">options.add_argument(<span class="hljs-string">'headless'</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line">options.add_argument(<span class="hljs-string">'window-size=1920x1080'</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line">options.add_argument(<span class="hljs-string">"disable-gpu"</span>)</span></pre></td></tr></table></figure><figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line">[변환 코드]</span></pre></td></tr><tr><td class="code"><pre><span class="line">options = webdriver.ChromeOptions()</span></pre></td></tr><tr><td class="code"><pre><span class="line">options.add_argument(<span class="hljs-string">'--headless'</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line">options.add_argument(<span class="hljs-string">'--no-sandbox'</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line">options.add_argument(<span class="hljs-string">"--disable-dev-shm-usage"</span>)</span></pre></td></tr></table></figure><ol start="4"><li>linux에 chrome이 없어서 설치가 안된다.</li></ol><ul><li><p>Solution : Chrome을 설치한다.</p><figure class="highlight shell hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> sudo sh -c <span class="hljs-string">'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" &gt;&gt; /etc/apt/sources.list.d/google.list'</span></span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> sudo apt-get update</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> sudo apt-get install google-chrome-stable</span></span></pre></td></tr></table></figure></li><li><p>참고 사이트 : <a href="https://snowdeer.github.io/linux/2018/02/02/ubuntu-16p04-install-chrome/" target="_blank" rel="noopener">https://snowdeer.github.io/linux/2018/02/02/ubuntu-16p04-install-chrome/</a></p></li></ul><ol start="5"><li>Chrome 버전과 driver 버전이 일치하지 않아서 문제가 생긴다.</li></ol><ul><li>Solution : Chrome 버전을 확인한 후 그에 맞게 chromedrvier를 다시 설치한다.<br>Chrome의 버전이 81버전이라 그에 맞는 chromedrvier를 찾아 설치했다.</li></ul><figure class="highlight shell hljs"><table><tr><td class="code"><pre><span class="line">google-chrome --product-version</span></pre></td></tr></table></figure>]]></content:encoded>
+      
+      <comments>https://vhrehfdl.github.io/2020/04/28/setting/selenium/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>ImportError: No module named pandas</title>
@@ -30,25 +68,6 @@
       <content:encoded><![CDATA[<ul><li>Error Message : ‘ImportError: No module named pandas’</li></ul><p>​<a id="more"></a></p><h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><ul><li>pandas가 설치되어 있는데도 pandas module이 없다고 나오는 경우가 있다.</li></ul><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>두가지 방법이 있는데 대부분 첫번째 방법으로 해결된다.</p><ol><li>최신버전으로 업데이트해 설치한다.</li></ol><figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line">pip install --upgrade pandas <span class="hljs-comment"># 최신 버전으로 업그레이드.</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">pip install pandas==<span class="hljs-number">0.23</span> <span class="hljs-comment"># 지정된 버전으로 업그레이드.</span></span></pre></td></tr></table></figure><ol start="2"><li>가상환경을 만들 때 pip가 제대로 설치되지 않은 경우</li></ol><figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line">source activate py3</span></pre></td></tr><tr><td class="code"><pre><span class="line">pip install --upgrade pip</span></pre></td></tr><tr><td class="code"><pre><span class="line">python -m ensurepip</span></pre></td></tr><tr><td class="code"><pre><span class="line">python -m ensurepip --upgrade</span></pre></td></tr><tr><td class="code"><pre><span class="line">python -m ensurepip --default-pip</span></pre></td></tr></table></figure><h2 id="참고-사이트"><a href="#참고-사이트" class="headerlink" title="참고 사이트"></a>참고 사이트</h2><ul><li><a href="https://bladewalker.tistory.com/713" target="_blank" rel="noopener">https://bladewalker.tistory.com/713</a></li></ul>]]></content:encoded>
       
       <comments>https://vhrehfdl.github.io/2020/04/28/error_set/pandas_install/#disqus_thread</comments>
-    </item>
-    
-    <item>
-      <title>Selenium Install</title>
-      <link>https://vhrehfdl.github.io/2020/04/28/setting/selenium/</link>
-      <guid>https://vhrehfdl.github.io/2020/04/28/setting/selenium/</guid>
-      <pubDate>Tue, 28 Apr 2020 04:17:00 GMT</pubDate>
-      <description>
-      
-        &lt;ul&gt;
-&lt;li&gt;Linux 환경에서 Selenium 실행하기&lt;/li&gt;
-&lt;/ul&gt;
-      
-      </description>
-      
-      
-      <content:encoded><![CDATA[<ul><li>Linux 환경에서 Selenium 실행하기</li></ul><a id="more"></a>​<h2 id="정리"><a href="#정리" class="headerlink" title="정리"></a>정리</h2><ul><li>Selenium을 리눅스 환경에 작동시키려다 너무 많은 에러를 마주쳤다.</li><li>순서대로 마주친 에러를 정리하려 한다.</li></ul><ol><li>chromedriver.exe 파일 권한 문제.</li></ol><ul><li>Message : selenium webdriver chrome PermissionError: [Errno 13] Permission denied</li><li>Problem : selenium webdriver에서 chromedriver.exe파일에 접근하려 하니 permission 문제가 발생했다.</li><li>Solution : chromedriver.exe 파일에 777 권한을 주니 접근이 되었다.</li></ul><ol start="2"><li>chromedriver에 접근해도 실행이 안되는 문제 발생.</li></ol><ul><li>Solution : 기존에 window chromedriver를 사용해서 발생한 문제였다. linux 64bit 껄로 다운받아 실행한다.</li><li>URL : <a href="https://sites.google.com/a/chromium.org/chromedriver/downloads" target="_blank" rel="noopener">https://sites.google.com/a/chromium.org/chromedriver/downloads</a><center><img src="/images/setting/20200428_1317.png" alt></center><br></li></ul><ol start="3"><li>chromedriver를 변환해도 실행이 안되는 문제 발생.</li></ol><ul><li>Message : OSError: [Errno 8] Exec format error</li><li>Solution : Headless 코드를 다른 것으로 변환한다.</li></ul><figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line">[기존 코드]</span></pre></td></tr><tr><td class="code"><pre><span class="line">options = webdriver.ChromeOptions()</span></pre></td></tr><tr><td class="code"><pre><span class="line">options.add_argument(<span class="hljs-string">'headless'</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line">options.add_argument(<span class="hljs-string">'window-size=1920x1080'</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line">options.add_argument(<span class="hljs-string">"disable-gpu"</span>)</span></pre></td></tr></table></figure><figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line">[변환 코드]</span></pre></td></tr><tr><td class="code"><pre><span class="line">options = webdriver.ChromeOptions()</span></pre></td></tr><tr><td class="code"><pre><span class="line">options.add_argument(<span class="hljs-string">'--headless'</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line">options.add_argument(<span class="hljs-string">'--no-sandbox'</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line">options.add_argument(<span class="hljs-string">"--disable-dev-shm-usage"</span>)</span></pre></td></tr></table></figure><ol start="4"><li>linux에 chrome이 없어서 설치가 안된다.</li></ol><ul><li><p>Solution : Chrome을 설치한다.</p><figure class="highlight shell hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> sudo sh -c <span class="hljs-string">'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" &gt;&gt; /etc/apt/sources.list.d/google.list'</span></span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> sudo apt-get update</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> sudo apt-get install google-chrome-stable</span></span></pre></td></tr></table></figure></li><li><p>참고 사이트 : <a href="https://snowdeer.github.io/linux/2018/02/02/ubuntu-16p04-install-chrome/" target="_blank" rel="noopener">https://snowdeer.github.io/linux/2018/02/02/ubuntu-16p04-install-chrome/</a></p></li></ul><ol start="5"><li>Chrome 버전과 driver 버전이 일치하지 않아서 문제가 생긴다.</li></ol><ul><li>Solution : Chrome 버전을 확인한 후 그에 맞게 chromedrvier를 다시 설치한다.<br>Chrome의 버전이 81버전이라 그에 맞는 chromedrvier를 찾아 설치했다.</li></ul><figure class="highlight shell hljs"><table><tr><td class="code"><pre><span class="line">google-chrome --product-version</span></pre></td></tr></table></figure>]]></content:encoded>
-      
-      <comments>https://vhrehfdl.github.io/2020/04/28/setting/selenium/#disqus_thread</comments>
     </item>
     
     <item>
@@ -387,29 +406,6 @@
       <content:encoded><![CDATA[<ul><li><p>에러 메세지 : RuntimeError: Missing implementation that supports: loader(*(‘/tmp/tfhub_modules/mobilenet_module’,)</p></li><li><p>해결 방법 : loader 뒤에 뜨는 에러메세지 경로에 들어가서 tf_hub 파일을 지워주고 다시 실행시키니 작동하였다.<br>이게 갑자기 어느 순간에 에러가 발생하는데… 왜 발생하는지는 모르겠다.<br>그래도 해결방법이 단순하다.</p></li><li><p>참고 URL<br><a href="https://stackoverflow.com/questions/54029556/how-to-fix-runtimeerror-missing-implementation-that-supports-loader-when-cal" target="_blank" rel="noopener">https://stackoverflow.com/questions/54029556/how-to-fix-runtimeerror-missing-implementation-that-supports-loader-when-cal</a></p></li></ul>]]></content:encoded>
       
       <comments>https://vhrehfdl.github.io/2019/04/04/error_set/tensorflow_hub_error-1/#disqus_thread</comments>
-    </item>
-    
-    <item>
-      <title>Tensorflow ImportError cannot import name &#39;regex_replace&#39;</title>
-      <link>https://vhrehfdl.github.io/2019/03/27/error_set/tensorflow_hub_error/</link>
-      <guid>https://vhrehfdl.github.io/2019/03/27/error_set/tensorflow_hub_error/</guid>
-      <pubDate>Wed, 27 Mar 2019 04:41:00 GMT</pubDate>
-      <description>
-      
-        
-        
-          &lt;ul&gt;
-&lt;li&gt;해결 방법 : ELMo 사용하려고 Tensorflow Hub를 설치하고 실행시켜보니 위에 error 발생!&lt;br&gt;처음에 0.3 버전으로 설치했는데…&lt;br&gt;혹시나 해서 버전 0.2로 낮춰서 해보니 실행이 되었다… &lt;/li&gt;
-&lt;/ul&gt;
-
-        
-      
-      </description>
-      
-      
-      <content:encoded><![CDATA[<ul><li>해결 방법 : ELMo 사용하려고 Tensorflow Hub를 설치하고 실행시켜보니 위에 error 발생!<br>처음에 0.3 버전으로 설치했는데…<br>혹시나 해서 버전 0.2로 낮춰서 해보니 실행이 되었다… </li></ul>]]></content:encoded>
-      
-      <comments>https://vhrehfdl.github.io/2019/03/27/error_set/tensorflow_hub_error/#disqus_thread</comments>
     </item>
     
   </channel>

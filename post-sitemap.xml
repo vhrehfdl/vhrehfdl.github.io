@@ -8,8 +8,16 @@
     </url>
 
     <url>
+        <loc>https://vhrehfdl.github.io/2020/04/28/setting/hexo_basic_command/</loc>
+        <lastmod>2020-04-28T05:37:43.681Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>https://vhrehfdl.github.io/2020/04/28/setting/selenium/</loc>
-        <lastmod>2020-04-28T05:33:06.425Z</lastmod>
+        <lastmod>2020-04-28T05:34:22.147Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -96,7 +104,7 @@
     </url>
 
     <url>
-        <loc>https://vhrehfdl.github.io/2019/12/25/setting/hexo_blog/</loc>
+        <loc>https://vhrehfdl.github.io/2019/12/25/setting/hexo_blog_icarus/</loc>
         <lastmod>2019-12-26T00:54:51.620Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -104,7 +112,7 @@
     </url>
 
     <url>
-        <loc>https://vhrehfdl.github.io/2019/12/25/setting/hexo_blog_icarus/</loc>
+        <loc>https://vhrehfdl.github.io/2019/12/25/setting/hexo_blog/</loc>
         <lastmod>2019-12-26T00:54:51.620Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
