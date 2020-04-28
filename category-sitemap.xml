@@ -8,15 +8,22 @@
     </url>
 
     <url>
-        <loc>https://vhrehfdl.github.io/categories/setting/</loc>
-        <lastmod>2020-03-10T13:21:40.354Z</lastmod>
+        <loc>https://vhrehfdl.github.io/categories/Error/</loc>
+        <lastmod>2020-04-28T04:59:40.093Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://vhrehfdl.github.io/categories/Error/</loc>
-        <lastmod>2020-01-13T04:11:48.928Z</lastmod>
+        <loc>https://vhrehfdl.github.io/categories/word-embedding/</loc>
+        <lastmod>2020-03-13T08:28:26.442Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://vhrehfdl.github.io/categories/setting/</loc>
+        <lastmod>2020-03-11T12:09:53.046Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -38,13 +45,6 @@
     <url>
         <loc>https://vhrehfdl.github.io/categories/project/EmoContext/</loc>
         <lastmod>2019-12-26T00:54:51.618Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://vhrehfdl.github.io/categories/word-embedding/</loc>
-        <lastmod>2019-12-25T05:10:53.822Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>

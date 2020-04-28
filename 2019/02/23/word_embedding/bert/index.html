@@ -20,7 +20,7 @@
 <meta property="og:description" content="BERT 소개  Google 에서 만든 Word Embedding 기법 ( 2018. 10. 11 논문 공개 )  NLP 11개 Task에 SOTA(State of the Arts)를 기록했으며, SQuAD v1.1에서는 인간보다 더 높은 정확도를 보여 주목을 받고 있다.  최근까지 GLUE NLP Task 에서 1등을 차지했었다. ( 그러나 MT-DNN에">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https:&#x2F;&#x2F;vhrehfdl.github.io&#x2F;images&#x2F;word_embedding&#x2F;word_embedding.png">
-<meta property="og:updated_time" content="2019-12-25T05:10:53.822Z">
+<meta property="og:updated_time" content="2020-03-13T08:28:26.442Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;vhrehfdl.github.io&#x2F;images&#x2F;word_embedding&#x2F;word_embedding.png">
 
@@ -203,7 +203,7 @@
 <center><img src="/images/word_embedding/20190219_1658.png" alt="출처 : https://ratsgo.github.io/from%20frequency%20to%20semantics/2017/03/30/word2vec/"></center><br>
 
 <ul>
-<li><p>“배를” 이란 단어는 One-hot Encoding 방식으로 표현하면 [ 0 0 0 1 0 ]의 값을 가진다. </p>
+<li><p>“배를” 이란 단어는 One-hot Encoding 방식으로 표현하면 [ 0 0 0 1 0 ]의 값을 가진다.</p>
 </li>
 <li><p>첫번째 문장에서도 [ 0 0 0 1 0 ]을 가지고 두번째 문장에서도 [ 0 0 0 1 0 ]을 가진다.<br>모든 문장에서 고정된 One-hot Encoding 값을 가진다!</p>
 </li>
@@ -252,9 +252,9 @@
 </li>
 <li><p>하지만 양방향 학습을 하게 되면 단어가 자기 자신을 참조하는 문제가 발생한다.</p>
 </li>
-<li><p>“However, it is not possible to train bidirectional models by simply conditioning each word on its previous and next words, since this would allow the word that’s being predicted to indirectly “see itself” in a multi-layer model.” </p>
+<li><p>“However, it is not possible to train bidirectional models by simply conditioning each word on its previous and next words, since this would allow the word that’s being predicted to indirectly “see itself” in a multi-layer model.”</p>
 </li>
-<li><p>예를 들어 “배를 타고 떠났다.”라는 문장이 있고 단방향 학습을 진행한다고 가정해보자.<br>“타고” 라는 단어를 학습할 때 “배를”이라는 단어만을 사용해서 학습을 진행한다.<br>자기 자신을 참조할 일이 전혀 없다. </p>
+<li><p>예를 들어 “배를 타고 떠났다.”라는 문장이 있고 단방향 학습을 진행한다고 가정해보자.<br>“타고” 라는 단어를 학습할 때 “배를”이라는 단어만을 사용해서 학습을 진행한다.<br>자기 자신을 참조할 일이 전혀 없다.</p>
 </li>
 <li><p>(그림5)를 보게 되면 빨간 박스 부분 학습에 영향을 미치는 Layer는 파란색 박스 밖에 없다.<br>​</p>
 <center><img src="/images/word_embedding/20190219_1703.png" alt="(그림5) 단방향 모델"></center><br>
@@ -323,7 +323,7 @@
 </li>
 <li><p>e = self.tok_embed(x) + self.pos_embed(pos) + self.seg_embed(seg)</p>
 </li>
-<li><p>Token Embedding : Glove, Word2vec, Fasttext와 같은 것을 사용해 Vector 값을 가져온다. </p>
+<li><p>Token Embedding : Glove, Word2vec, Fasttext와 같은 것을 사용해 Vector 값을 가져온다.</p>
 </li>
 <li><p>Segment Embedding : 단어가 첫번째 문장에 속하는지 두번째 문장에 속하는지 알려준다.<br>[ 0 0 0 0 0 1 1 1 1 ] 과 같이 표현하며 해당 Vector를 Token Embedding 차원수와 같게 맞추어 임베딩 해준다.</p>
 </li>
@@ -353,7 +353,7 @@
 </li>
 <li><p>전체 step은 1,000,000번 으로 33억개의 단어 corpus에 대해서 대략 40 epoch 정도 학습</p>
 </li>
-<li><p>Dropout : 0.1 로 모든 레이어에 적용 </p>
+<li><p>Dropout : 0.1 로 모든 레이어에 적용</p>
 </li>
 <li><p>Activate function : gelu</p>
 </li>
@@ -418,7 +418,7 @@
 </li>
 <li><p>[URL] : <a href="https://www.facebook.com/groups/TensorFlowKR/permalink/767590103582050/" target="_blank" rel="noopener">https://www.facebook.com/groups/TensorFlowKR/permalink/767590103582050/</a></p>
 <ul>
-<li>정말 깔끔 담백하게 정리되어 있다. </li>
+<li>정말 깔끔 담백하게 정리되어 있다.</li>
 <li>처음에 봤을 때는 잘 이해가 되지 않았지만 이해하고 보니까 이렇게 담백하게 표현할 수 있을까 싶다.</li>
 </ul>
 </li>
@@ -565,7 +565,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            52
+                            53
                         </p>
                     </a>
                 </div>
@@ -661,7 +661,7 @@
                 <span class="level-item">Error</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">18</span>
+                <span class="level-item tag">19</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/project/">
@@ -885,7 +885,7 @@
                     <span class="level-item">April 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">4</span>
+                    <span class="level-item tag">5</span>
                 </span>
             </a>
         </li>
@@ -1114,7 +1114,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/pandas/">
                         <span class="tag">pandas</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
@@ -1461,7 +1461,7 @@
                     <span class="level-item">April 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">4</span>
+                    <span class="level-item tag">5</span>
                 </span>
             </a>
         </li>
@@ -1690,7 +1690,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/pandas/">
                         <span class="tag">pandas</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 

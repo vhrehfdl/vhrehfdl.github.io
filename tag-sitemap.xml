@@ -3,8 +3,36 @@
 
 
     <url>
+        <loc>https://vhrehfdl.github.io/tags/pandas/</loc>
+        <lastmod>2020-04-28T04:59:40.093Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://vhrehfdl.github.io/tags/bert/</loc>
+        <lastmod>2020-03-13T08:28:26.442Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://vhrehfdl.github.io/tags/bow/</loc>
+        <lastmod>2020-03-13T08:27:35.263Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>https://vhrehfdl.github.io/tags/konlpy/</loc>
+        <lastmod>2020-03-11T12:09:53.046Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://vhrehfdl.github.io/tags/khaiii/</loc>
-        <lastmod>2020-03-10T13:21:40.354Z</lastmod>
+        <lastmod>2020-03-11T12:09:50.860Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
@@ -66,13 +94,6 @@
     </url>
 
     <url>
-        <loc>https://vhrehfdl.github.io/tags/bert/</loc>
-        <lastmod>2019-12-25T05:10:53.822Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://vhrehfdl.github.io/tags/word2vec/</loc>
         <lastmod>2019-12-25T04:37:38.574Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -108,13 +129,6 @@
     </url>
 
     <url>
-        <loc>https://vhrehfdl.github.io/tags/bow/</loc>
-        <lastmod>2019-12-25T03:51:18.845Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://vhrehfdl.github.io/tags/uwsgi/</loc>
         <lastmod>2019-12-25T03:50:44.335Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -144,13 +158,6 @@
 
     <url>
         <loc>https://vhrehfdl.github.io/tags/pickle/</loc>
-        <lastmod>2019-12-24T08:19:45.564Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>https://vhrehfdl.github.io/tags/pandas/</loc>
         <lastmod>2019-12-24T08:19:45.564Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -248,13 +255,6 @@
     </url>
 
     <url>
-        <loc>https://vhrehfdl.github.io/tags/konlpy/</loc>
-        <lastmod>2019-12-22T07:36:30.666Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>https://vhrehfdl.github.io/tags/gpu/</loc>
         <lastmod>2019-12-22T06:55:13.429Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -325,14 +325,14 @@
     </url>
 
     <url>
-        <loc>https://vhrehfdl.github.io/tags/java/</loc>
+        <loc>https://vhrehfdl.github.io/tags/google-speech-api/</loc>
         <lastmod>2019-12-14T15:18:44.093Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>https://vhrehfdl.github.io/tags/google-speech-api/</loc>
+        <loc>https://vhrehfdl.github.io/tags/java/</loc>
         <lastmod>2019-12-14T15:18:44.093Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>

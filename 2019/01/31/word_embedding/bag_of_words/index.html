@@ -20,7 +20,7 @@
 <meta property="og:description" content="소개 Bag of Words란 단어들의 순서는 전혀 고려하지 않고, 단어들의 출현 빈도에만 집중하는 텍스트 데이터의 수치화 표현 방법이다.">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https:&#x2F;&#x2F;vhrehfdl.github.io&#x2F;images&#x2F;word_embedding&#x2F;word_embedding.png">
-<meta property="og:updated_time" content="2019-12-25T03:51:18.845Z">
+<meta property="og:updated_time" content="2020-03-13T08:27:35.263Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;vhrehfdl.github.io&#x2F;images&#x2F;word_embedding&#x2F;word_embedding.png">
 
@@ -183,16 +183,16 @@
 <ul>
 <li>sentence_list = [‘오늘은 즐거운 하루입니다’, ‘오늘은 비가 올 것 같은데 내일은 비가 안 왔으면 좋겠네요.’, ‘내일도 비가 올 것 같아요’ ]</li>
 </ul>
-<p>위 세 문장의 전체 단어수는 14개이다. </p>
+<p>위 세 문장의 전체 단어수는 14개이다.</p>
 <ul>
-<li>( 오늘은 / 즐거운 / 하루입니다 / 비가 / 올 / 것 / 같은데 / 내일은 / 안 / 왔으면 / 좋겠네요 / 내일도 / 것 /같아요 ) </li>
+<li>( 오늘은 / 즐거운 / 하루입니다 / 비가 / 올 / 것 / 같은데 / 내일은 / 안 / 왔으면 / 좋겠네요 / 내일도 / 것 /같아요 )</li>
 </ul>
 <p>세 문장의 단어 사전은 아래와 같다.</p>
 <ul>
 <li>[ 오늘은 : 1 / 즐거운 : 2 / 하루입니다 : 3 / 비가 : 4 / 올 : 5 / 것 : 6 / 같은데 : 7 / 내일은 : 8 / 안 : 9 / 왔으면 : 10 / 좋겠네요 : 11 / 내일도 : 12 / 것 : 13 / 같아요 : 14 ]</li>
 </ul>
 <p>위의 세 문장을 Vector로 표현하면 다음과 같다.</p>
-<p>1 1 1 0 0 0 0 0 0 0 0 0 0 0<br>1 0 0 2 1 1 1 1 1 1 1 0 0 0<br>0 0 0 1 1 0 0 0 0 0 0 1 1 1 </p>
+<p>1 1 1 0 0 0 0 0 0 0 0 0 0 0<br>1 0 0 2 1 1 1 1 1 1 1 0 0 0<br>0 0 0 1 1 0 0 0 0 0 0 1 1 1</p>
 <p>한 문장내에서 중복되는 단어는 카운트하여 표시해준다.</p>
 <h2 id="생각"><a href="#생각" class="headerlink" title="생각"></a>생각</h2><hr>
 <p>사실 BoW를 공부하면서 가장 이해가 안 되었던 것은 One hot encoding과의 차이점이였다.  </p>
@@ -325,7 +325,7 @@
                     </p>
                     <a href="/archives">
                         <p class="title has-text-weight-normal">
-                            52
+                            53
                         </p>
                     </a>
                 </div>
@@ -421,7 +421,7 @@
                 <span class="level-item">Error</span>
             </span>
             <span class="level-end">
-                <span class="level-item tag">18</span>
+                <span class="level-item tag">19</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/project/">
@@ -645,7 +645,7 @@
                     <span class="level-item">April 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">4</span>
+                    <span class="level-item tag">5</span>
                 </span>
             </a>
         </li>
@@ -874,7 +874,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/pandas/">
                         <span class="tag">pandas</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 
@@ -1221,7 +1221,7 @@
                     <span class="level-item">April 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">4</span>
+                    <span class="level-item tag">5</span>
                 </span>
             </a>
         </li>
@@ -1450,7 +1450,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/pandas/">
                         <span class="tag">pandas</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">2</span>
                     </a>
                 </div>
                 

@@ -9,7 +9,7 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>IT Blog</description>
-    <pubDate>Tue, 10 Mar 2020 13:21:40 GMT</pubDate>
+    <pubDate>Wed, 11 Mar 2020 12:09:50 GMT</pubDate>
     <generator>http://hexo.io/</generator>
     
     <item>
@@ -261,6 +261,26 @@
     </item>
     
     <item>
+      <title>ImportError: No module named pandas</title>
+      <link>https://vhrehfdl.github.io/2019/04/28/error_set/pandas_install/</link>
+      <guid>https://vhrehfdl.github.io/2019/04/28/error_set/pandas_install/</guid>
+      <pubDate>Sun, 28 Apr 2019 04:48:00 GMT</pubDate>
+      <description>
+      
+        &lt;ul&gt;
+&lt;li&gt;Error Message : ‘ImportError: No module named pandas’&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;​&lt;/p&gt;
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<ul><li>Error Message : ‘ImportError: No module named pandas’</li></ul><p>​<a id="more"></a></p><h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><ul><li>pandas가 설치되어 있는데도 pandas module이 없다고 나오는 경우가 있다.</li></ul><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>두가지 방법이 있는데 대부분 첫번째 방법으로 해결된다.</p><ol><li>최신버전으로 업데이트해 설치한다.</li></ol><figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line">pip install --upgrade pandas <span class="hljs-comment"># 최신 버전으로 업그레이드.</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">pip install pandas==<span class="hljs-number">0.23</span> <span class="hljs-comment"># 지정된 버전으로 업그레이드.</span></span></pre></td></tr></table></figure><ol start="2"><li>가상환경을 만들 때 pip가 제대로 설치되지 않은 경우</li></ol><figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line">source activate py3</span></pre></td></tr><tr><td class="code"><pre><span class="line">pip install --upgrade pip</span></pre></td></tr><tr><td class="code"><pre><span class="line">python -m ensurepip</span></pre></td></tr><tr><td class="code"><pre><span class="line">python -m ensurepip --upgrade</span></pre></td></tr><tr><td class="code"><pre><span class="line">python -m ensurepip --default-pip</span></pre></td></tr></table></figure>]]></content:encoded>
+      
+      <comments>https://vhrehfdl.github.io/2019/04/28/error_set/pandas_install/#disqus_thread</comments>
+    </item>
+    
+    <item>
       <title>tensorflow version error</title>
       <link>https://vhrehfdl.github.io/2019/04/08/error_set/tensorflow_version_error/</link>
       <guid>https://vhrehfdl.github.io/2019/04/08/error_set/tensorflow_version_error/</guid>
@@ -390,27 +410,6 @@
       <content:encoded><![CDATA[<ul><li>colab 기초 사용법</li></ul><a id="more"></a>​<h2 id="Tutorial"><a href="#Tutorial" class="headerlink" title="Tutorial"></a>Tutorial</h2><hr><ol><li><p>Colab에 접속한다.</p><ul><li>[URL] : <a href="https://colab.research.google.com/notebooks/welcome.ipynb" target="_blank" rel="noopener">https://colab.research.google.com/notebooks/welcome.ipynb</a><br>​</li></ul></li><li><p>새로운 python3.ipynb 파일을 만든 후 google drive mount를 한다.</p><ul><li><p>해당 코드를 실행하면 enter authorization code를 입력하라고 창이 뜬다.</p>  <figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> google.colab <span class="hljs-keyword">import</span> drive</span></pre></td></tr><tr><td class="code"><pre><span class="line">drive.mount(<span class="hljs-string">'/content/gdrive'</span>)</span></pre></td></tr></table></figure></li></ul></li></ol><ol start="3"><li><p>authorization code 받는 주소</p><ul><li><p>[URL] : <a href="https://colab.research.google.com/notebooks/io.ipynb#scrollTo=RWSJpsyKqHjH" target="_blank" rel="noopener">https://colab.research.google.com/notebooks/io.ipynb#scrollTo=RWSJpsyKqHjH</a><br>​</p></li><li><p>해당 URL에 들어가면 최종적으로 authorization code를 받을 수 있다.</p><center><img src="/images/setting/20190322_1119.png" alt="tensorboard 실행 이미지"></center><br></li></ul></li></ol><ol start="4"><li><p>foo.txt 파일을 드라이브에 업로드</p> <figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">with</span> open(<span class="hljs-string">'/content/gdrive/My Drive/foo.txt'</span>, <span class="hljs-string">'w'</span>) <span class="hljs-keyword">as</span> f:</span></pre></td></tr><tr><td class="code"><pre><span class="line">    f.write(<span class="hljs-string">'Hello Google Drive!'</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line">!cat /content/gdrive/My\ Drive/foo.txt</span></pre></td></tr></table></figure><p>​</p></li></ol>]]></content:encoded>
       
       <comments>https://vhrehfdl.github.io/2019/03/22/setting/colab_tutorial/#disqus_thread</comments>
-    </item>
-    
-    <item>
-      <title>Tensorboard 사용법</title>
-      <link>https://vhrehfdl.github.io/2019/03/08/setting/tensorboard_setting/</link>
-      <guid>https://vhrehfdl.github.io/2019/03/08/setting/tensorboard_setting/</guid>
-      <pubDate>Fri, 08 Mar 2019 08:24:00 GMT</pubDate>
-      <description>
-      
-        &lt;h2 id=&quot;생각&quot;&gt;&lt;a href=&quot;#생각&quot; class=&quot;headerlink&quot; title=&quot;생각&quot;&gt;&lt;/a&gt;생각&lt;/h2&gt;&lt;hr&gt;
-&lt;ul&gt;
-&lt;li&gt;처음에 아무 생각 없이 하다가 내 tensorflow를 아나콘다 가상환경에 설치한 사실을 깜빡하고 tensorboard를 실행 못시켰었다. &lt;/li&gt;
-&lt;li&gt;tensorflow가 설치되어 있는 가상환경을 activate하고 tensorboard를 실행시키자. ㅋㅋ&lt;/li&gt;
-&lt;/ul&gt;
-      
-      </description>
-      
-      
-      <content:encoded><![CDATA[<h2 id="생각"><a href="#생각" class="headerlink" title="생각"></a>생각</h2><hr><ul><li>처음에 아무 생각 없이 하다가 내 tensorflow를 아나콘다 가상환경에 설치한 사실을 깜빡하고 tensorboard를 실행 못시켰었다. </li><li>tensorflow가 설치되어 있는 가상환경을 activate하고 tensorboard를 실행시키자. ㅋㅋ</li></ul><a id="more"></a>​<h2 id="설치-및-실행"><a href="#설치-및-실행" class="headerlink" title="설치 및 실행"></a>설치 및 실행</h2><hr><ol><li><p>tensorboard 설치 </p><ul><li>기본적으로 tensorflow 설치하면 자동으로 tensorboard가 설치되어진다.</li></ul></li><li><p>mygraph라는 폴더를 만들어서 log를 저장한다.</p> <figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> tensorflow <span class="hljs-keyword">as</span> tf</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">a = tf.constant(<span class="hljs-number">5</span>, name=<span class="hljs-string">'input_a'</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line">b = tf.constant(<span class="hljs-number">7</span>, name=<span class="hljs-string">'input_b'</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">c = tf.multiply(a, b, name=<span class="hljs-string">'mul_c'</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line">d = tf.add(a, b, name=<span class="hljs-string">'add_d'</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line">e = tf.add(c, d, name=<span class="hljs-string">'add_e'</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">sess = tf.Session()</span></pre></td></tr><tr><td class="code"><pre><span class="line">print(sess.run(e))</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line">wirter = tf.summary.FileWriter(<span class="hljs-string">'./mygraph'</span>,sess.graph)</span></pre></td></tr></table></figure></li><li><p>mygraph가 위치하는 폴더에 가서 아래의 명령어를 실행시켜준다.</p> <figure class="highlight bash hljs"><table><tr><td class="code"><pre><span class="line">tensorboard --logdir=<span class="hljs-string">"mygraph"</span></span></pre></td></tr></table></figure></li><li><p>커맨드창 가장 하단에 있는 <a href="http://localhost:6006으로" target="_blank" rel="noopener">http://localhost:6006으로</a> 들어가면 tensorboard가 실행되어진다.</p> <center><img src="/images/setting/20190308_1724.png" alt="tensorboard 실행 이미지"></center><br></li><li><p>최종 결과</p> <center><img src="/images/setting/20190308_1725.png" alt="tensorboard 실행 이미지"></center><br>​</li><li><p>응용</p></li></ol><ul><li><p>아래의 코드는 callback 함수로 만들어서 log를 쌓는 방법이다.</p>  <figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-keyword">from</span> keras.callbacks <span class="hljs-keyword">import</span> TensorBoard</span></pre></td></tr><tr><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">create_callbacks</span><span class="hljs-params">()</span>:</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">    tensorboard_callback = TensorBoard(log_dir=<span class="hljs-string">'./mygraph/mlp'</span>, histogram_freq=<span class="hljs-number">1</span>, batch_size=<span class="hljs-number">32</span>, write_graph=<span class="hljs-literal">True</span>, write_grads=<span class="hljs-literal">False</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line">    <span class="hljs-keyword">return</span> [tensorboard_callback]</span></pre></td></tr></table></figure></li><li><p>위의 코드를 만든후에 model을 실행시킬 때 콜백으로 넣어주면 log가 실시간으로 쌓인다.</p>  <figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line">callbacks = create_callbacks()</span></pre></td></tr><tr><td class="code"><pre><span class="line">model.fit(x=data[<span class="hljs-string">"train_X"</span>], y=data[<span class="hljs-string">"train_y"</span>], batch_size=<span class="hljs-number">32</span>, epochs=<span class="hljs-number">200</span>, verbose=<span class="hljs-number">1</span>, validation_data=(data[<span class="hljs-string">"val_X"</span>], data[<span class="hljs-string">"val_y"</span>]), callbacks=callbacks)</span></pre></td></tr></table></figure></li></ul>]]></content:encoded>
-      
-      <comments>https://vhrehfdl.github.io/2019/03/08/setting/tensorboard_setting/#disqus_thread</comments>
     </item>
     
   </channel>
