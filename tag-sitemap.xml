@@ -3,8 +3,15 @@
 
 
     <url>
+        <loc>https://vhrehfdl.github.io/tags/selenium/</loc>
+        <lastmod>2020-04-28T05:33:06.425Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>https://vhrehfdl.github.io/tags/pandas/</loc>
-        <lastmod>2020-04-28T05:06:40.804Z</lastmod>
+        <lastmod>2020-04-28T05:32:15.088Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
