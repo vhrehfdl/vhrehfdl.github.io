@@ -20,7 +20,7 @@
 <meta property="og:description" content="Linux 환경에서 Selenium 실행하기">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https:&#x2F;&#x2F;vhrehfdl.github.io&#x2F;images&#x2F;setting&#x2F;setting.jpg">
-<meta property="og:updated_time" content="2020-04-28T05:42:02.675Z">
+<meta property="og:updated_time" content="2020-04-28T05:44:33.156Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https:&#x2F;&#x2F;vhrehfdl.github.io&#x2F;images&#x2F;setting&#x2F;setting.jpg">
 
@@ -192,24 +192,24 @@
 </li>
 <li><p>chromedriver에 접근해도 실행이 안되는 문제 발생.</p>
 <ul>
-<li>Solution : 기존에 window chromedriver를 사용해서 발생한 문제였다. linux 64bit 껄로 다운받아 실행한다.</li>
+<li>Solution : 기존에 window chromedriver를 사용해서 발생한 문제였다. linux 64bit 껄로 다운받아 실행한다.<center><img src="/images/setting/20200428_1317.PNG" alt></center><br></li>
 <li>URL : <a href="https://sites.google.com/a/chromium.org/chromedriver/downloads" target="_blank" rel="noopener">https://sites.google.com/a/chromium.org/chromedriver/downloads</a></li>
 </ul>
-<center><img src="/images/setting/20200428_1317.PNG" alt></center><br>
 </li>
 <li><p>chromedriver를 변환해도 실행이 안되는 문제 발생.</p>
 <ul>
 <li><p>Message : OSError: [Errno 8] Exec format error</p>
 </li>
 <li><p>Solution : Headless 코드를 다른 것으로 변환한다.</p>
-<figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line">[기존 코드]</span></pre></td></tr><tr><td class="code"><pre><span class="line">options = webdriver.ChromeOptions()</span></pre></td></tr><tr><td class="code"><pre><span class="line">options.add_argument(<span class="hljs-string">'headless'</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line">options.add_argument(<span class="hljs-string">'window-size=1920x1080'</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line">options.add_argument(<span class="hljs-string">"disable-gpu"</span>)</span></pre></td></tr></table></figure>
-
-
+</li>
+<li><p>기존 코드</p>
+<figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line">options = webdriver.ChromeOptions()</span></pre></td></tr><tr><td class="code"><pre><span class="line">options.add_argument(<span class="hljs-string">'headless'</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line">options.add_argument(<span class="hljs-string">'window-size=1920x1080'</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line">options.add_argument(<span class="hljs-string">"disable-gpu"</span>)</span></pre></td></tr></table></figure>
+</li>
+<li><p>변환 코드</p>
+<figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line">options = webdriver.ChromeOptions()</span></pre></td></tr><tr><td class="code"><pre><span class="line">options.add_argument(<span class="hljs-string">'--headless'</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line">options.add_argument(<span class="hljs-string">'--no-sandbox'</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line">options.add_argument(<span class="hljs-string">"--disable-dev-shm-usage"</span>)</span></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
-</ol>
-<pre><code><figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line">[변환 코드]</span></pre></td></tr><tr><td class="code"><pre><span class="line">options = webdriver.ChromeOptions()</span></pre></td></tr><tr><td class="code"><pre><span class="line">options.add_argument(<span class="hljs-string">'--headless'</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line">options.add_argument(<span class="hljs-string">'--no-sandbox'</span>)</span></pre></td></tr><tr><td class="code"><pre><span class="line">options.add_argument(<span class="hljs-string">"--disable-dev-shm-usage"</span>)</span></pre></td></tr></table></figure></code></pre><ol start="4">
 <li><p>linux에 chrome이 없어서 설치가 안된다.</p>
 <ul>
 <li>Solution : Chrome을 설치한다.<figure class="highlight shell hljs"><table><tr><td class="code"><pre><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> sudo sh -c <span class="hljs-string">'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" &gt;&gt; /etc/apt/sources.list.d/google.list'</span></span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> sudo apt-get update</span></span></pre></td></tr><tr><td class="code"><pre><span class="line"><span class="hljs-meta">$</span><span class="hljs-bash"> sudo apt-get install google-chrome-stable</span></span></pre></td></tr></table></figure></li>
