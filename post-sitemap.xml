@@ -8,16 +8,16 @@
     </url>
 
     <url>
-        <loc>https://vhrehfdl.github.io/2020/04/28/setting/hexo_basic_command/</loc>
-        <lastmod>2020-04-28T05:37:43.681Z</lastmod>
+        <loc>https://vhrehfdl.github.io/2020/04/28/setting/selenium/</loc>
+        <lastmod>2020-04-28T05:40:12.097Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
     </url>
 
     <url>
-        <loc>https://vhrehfdl.github.io/2020/04/28/setting/selenium/</loc>
-        <lastmod>2020-04-28T05:34:22.147Z</lastmod>
+        <loc>https://vhrehfdl.github.io/2020/04/28/setting/hexo_basic_command/</loc>
+        <lastmod>2020-04-28T05:37:43.681Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
 
@@ -104,7 +104,7 @@
     </url>
 
     <url>
-        <loc>https://vhrehfdl.github.io/2019/12/25/setting/hexo_blog_icarus/</loc>
+        <loc>https://vhrehfdl.github.io/2019/12/25/setting/hexo_blog/</loc>
         <lastmod>2019-12-26T00:54:51.620Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -112,7 +112,7 @@
     </url>
 
     <url>
-        <loc>https://vhrehfdl.github.io/2019/12/25/setting/hexo_blog/</loc>
+        <loc>https://vhrehfdl.github.io/2019/12/25/setting/hexo_blog_icarus/</loc>
         <lastmod>2019-12-26T00:54:51.620Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -416,7 +416,7 @@
     </url>
 
     <url>
-        <loc>https://vhrehfdl.github.io/2019/02/24/error_set/ubuntu_error/</loc>
+        <loc>https://vhrehfdl.github.io/2019/04/08/error_set/tensorflow_version_error/</loc>
         <lastmod>2019-12-14T15:18:44.094Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -424,7 +424,7 @@
     </url>
 
     <url>
-        <loc>https://vhrehfdl.github.io/2019/04/08/error_set/tensorflow_version_error/</loc>
+        <loc>https://vhrehfdl.github.io/2019/02/24/error_set/ubuntu_error/</loc>
         <lastmod>2019-12-14T15:18:44.094Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
