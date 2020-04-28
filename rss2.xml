@@ -9,8 +9,28 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>IT Blog</description>
-    <pubDate>Wed, 11 Mar 2020 12:09:50 GMT</pubDate>
+    <pubDate>Tue, 28 Apr 2020 05:06:40 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>ImportError: No module named pandas</title>
+      <link>https://vhrehfdl.github.io/2020/04/28/error_set/pandas_install/</link>
+      <guid>https://vhrehfdl.github.io/2020/04/28/error_set/pandas_install/</guid>
+      <pubDate>Tue, 28 Apr 2020 04:48:00 GMT</pubDate>
+      <description>
+      
+        &lt;ul&gt;
+&lt;li&gt;Error Message : ‘ImportError: No module named pandas’&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;​&lt;/p&gt;
+      
+      </description>
+      
+      
+      <content:encoded><![CDATA[<ul><li>Error Message : ‘ImportError: No module named pandas’</li></ul><p>​<a id="more"></a></p><h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><ul><li>pandas가 설치되어 있는데도 pandas module이 없다고 나오는 경우가 있다.</li></ul><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>두가지 방법이 있는데 대부분 첫번째 방법으로 해결된다.</p><ol><li>최신버전으로 업데이트해 설치한다.</li></ol><figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line">pip install --upgrade pandas <span class="hljs-comment"># 최신 버전으로 업그레이드.</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">pip install pandas==<span class="hljs-number">0.23</span> <span class="hljs-comment"># 지정된 버전으로 업그레이드.</span></span></pre></td></tr></table></figure><ol start="2"><li>가상환경을 만들 때 pip가 제대로 설치되지 않은 경우</li></ol><figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line">source activate py3</span></pre></td></tr><tr><td class="code"><pre><span class="line">pip install --upgrade pip</span></pre></td></tr><tr><td class="code"><pre><span class="line">python -m ensurepip</span></pre></td></tr><tr><td class="code"><pre><span class="line">python -m ensurepip --upgrade</span></pre></td></tr><tr><td class="code"><pre><span class="line">python -m ensurepip --default-pip</span></pre></td></tr></table></figure>]]></content:encoded>
+      
+      <comments>https://vhrehfdl.github.io/2020/04/28/error_set/pandas_install/#disqus_thread</comments>
+    </item>
     
     <item>
       <title>khaiii_install</title>
@@ -258,26 +278,6 @@
       <content:encoded><![CDATA[<ul><li>Error Message : ImportError: dll load failed: 지정된 모듈을 찾을 수 없습니다</li></ul><a id="more"></a><h2 id="문제-상황"><a href="#문제-상황" class="headerlink" title="문제 상황"></a>문제 상황</h2><hr><p>import torch는 문제가 없이 잘 되었는데…<br>import torchvision에서 에러가 터졌다.<br>지정된 모듈을 찾을 수 없다는 에러가 터졌다.</p><p>이게 어디서 자주 본 에러여서 기억을 더음어 보니…<br>tensorflow gpu 할 때 본 에러였다.</p><h2 id="해결-방법"><a href="#해결-방법" class="headerlink" title="해결 방법"></a>해결 방법</h2><hr><ol><li><p>파일 설치해보기</p><ul><li><p>Intel-openmp</p></li><li><p>visual studio 2017 재배포파일</p><p>Intel-openmp는 anaconda 환경에 설치하면 된다.<br>이 방법으로도 해결이 되지 않으면 2번 방법을 적용해보자.</p></li></ul></li></ol><ol start="2"><li><p>torchvision 버전 낮춰보기</p><p> 위에 방법으로 해결되지 않는다면 torchvision 버전을 0.4버전에서 0.2버전으로 낮춰보자.<br> 나는 이렇게 해서 해결했다.<br> 내 cuda 버전과 torchvision 버전이 호환되지 않아서 발생한 문제인 것 같다.</p></li></ol><h2 id="참고-URL"><a href="#참고-URL" class="headerlink" title="참고 URL"></a>참고 URL</h2><hr><ul><li>[URL] : <a href="https://mclearninglab.tistory.com/30" target="_blank" rel="noopener">https://mclearninglab.tistory.com/30</a></li></ul>]]></content:encoded>
       
       <comments>https://vhrehfdl.github.io/2019/09/11/error_set/pytorch_error/#disqus_thread</comments>
-    </item>
-    
-    <item>
-      <title>ImportError: No module named pandas</title>
-      <link>https://vhrehfdl.github.io/2019/04/28/error_set/pandas_install/</link>
-      <guid>https://vhrehfdl.github.io/2019/04/28/error_set/pandas_install/</guid>
-      <pubDate>Sun, 28 Apr 2019 04:48:00 GMT</pubDate>
-      <description>
-      
-        &lt;ul&gt;
-&lt;li&gt;Error Message : ‘ImportError: No module named pandas’&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;​&lt;/p&gt;
-      
-      </description>
-      
-      
-      <content:encoded><![CDATA[<ul><li>Error Message : ‘ImportError: No module named pandas’</li></ul><p>​<a id="more"></a></p><h2 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h2><ul><li>pandas가 설치되어 있는데도 pandas module이 없다고 나오는 경우가 있다.</li></ul><h2 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h2><p>두가지 방법이 있는데 대부분 첫번째 방법으로 해결된다.</p><ol><li>최신버전으로 업데이트해 설치한다.</li></ol><figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line">pip install --upgrade pandas <span class="hljs-comment"># 최신 버전으로 업그레이드.</span></span></pre></td></tr><tr><td class="code"><pre><span class="line">pip install pandas==<span class="hljs-number">0.23</span> <span class="hljs-comment"># 지정된 버전으로 업그레이드.</span></span></pre></td></tr></table></figure><ol start="2"><li>가상환경을 만들 때 pip가 제대로 설치되지 않은 경우</li></ol><figure class="highlight python hljs"><table><tr><td class="code"><pre><span class="line">source activate py3</span></pre></td></tr><tr><td class="code"><pre><span class="line">pip install --upgrade pip</span></pre></td></tr><tr><td class="code"><pre><span class="line">python -m ensurepip</span></pre></td></tr><tr><td class="code"><pre><span class="line">python -m ensurepip --upgrade</span></pre></td></tr><tr><td class="code"><pre><span class="line">python -m ensurepip --default-pip</span></pre></td></tr></table></figure>]]></content:encoded>
-      
-      <comments>https://vhrehfdl.github.io/2019/04/28/error_set/pandas_install/#disqus_thread</comments>
     </item>
     
     <item>
