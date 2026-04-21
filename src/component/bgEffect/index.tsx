@@ -1,75 +1,90 @@
 import { useEffect, useRef } from "react"
-import patelUrl from "../../icons/petal.png"
 
-const X_SPEED = 0.6
-const X_SPEED_VARIANCE = 0.8
+const Y_SPEED = 0.3
+const Y_SPEED_VARIANCE = 0.5
 
-const Y_SPEED = 0.4
-const Y_SPEED_VARIANCE = 0.4
+const SWAY_AMPLITUDE = 0.8
 
-const FLIP_SPEED_VARIANCE = 0.02
-
-// Petal class
-class Petal {
+class Bubble {
   x: number
   y: number
-  w: number = 0
-  h: number = 0
+  r: number = 0
   opacity: number = 0
-  flip: number = 0
-  xSpeed: number = 0
   ySpeed: number = 0
-  flipSpeed: number = 0
+  sway: number = 0
+  swaySpeed: number = 0
+  hueShift: number = 0
 
   constructor(
     private canvas: HTMLCanvasElement,
     private ctx: CanvasRenderingContext2D,
-    private petalImg: HTMLImageElement,
   ) {
     this.x = Math.random() * canvas.width
-    this.y = Math.random() * canvas.height * 2 - canvas.height
+    this.y = Math.random() * canvas.height
 
     this.initialize()
   }
 
   initialize() {
-    this.w = 25 + Math.random() * 15
-    this.h = 20 + Math.random() * 10
-    this.opacity = this.w / 80
-    this.flip = Math.random()
-
-    this.xSpeed = X_SPEED + Math.random() * X_SPEED_VARIANCE
+    this.r = 6 + Math.random() * 22
+    this.opacity = 0.35 + Math.random() * 0.4
     this.ySpeed = Y_SPEED + Math.random() * Y_SPEED_VARIANCE
-    this.flipSpeed = Math.random() * FLIP_SPEED_VARIANCE
+    this.sway = Math.random() * Math.PI * 2
+    this.swaySpeed = 0.008 + Math.random() * 0.02
+    this.hueShift = Math.random() * 20 - 10
   }
 
   draw() {
-    if (this.y > this.canvas.height || this.x > this.canvas.width) {
+    if (this.y + this.r < 0) {
       this.initialize()
-
-      const rand = Math.random() * (this.canvas.width + this.canvas.height)
-      if (rand > this.canvas.width) {
-        this.x = 0
-        this.y = rand - this.canvas.width
-      } else {
-        this.x = rand
-        this.y = 0
-      }
+      this.x = Math.random() * this.canvas.width
+      this.y = this.canvas.height + this.r
     }
-    this.ctx.globalAlpha = this.opacity
-    this.ctx.drawImage(
-      this.petalImg,
+
+    const ctx = this.ctx
+    ctx.save()
+    ctx.globalAlpha = this.opacity
+
+    const gradient = ctx.createRadialGradient(
+      this.x - this.r * 0.3,
+      this.y - this.r * 0.3,
+      this.r * 0.1,
       this.x,
       this.y,
-      this.w * (0.6 + Math.abs(Math.cos(this.flip)) / 3),
-      this.h * (0.8 + Math.abs(Math.sin(this.flip)) / 5),
+      this.r,
     )
+    const hue = 200 + this.hueShift
+    gradient.addColorStop(0, `hsla(${hue}, 70%, 95%, 0.9)`)
+    gradient.addColorStop(0.6, `hsla(${hue}, 60%, 75%, 0.4)`)
+    gradient.addColorStop(1, `hsla(${hue}, 55%, 60%, 0.15)`)
+
+    ctx.fillStyle = gradient
+    ctx.beginPath()
+    ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2)
+    ctx.fill()
+
+    ctx.strokeStyle = `hsla(${hue}, 60%, 70%, 0.5)`
+    ctx.lineWidth = 1
+    ctx.stroke()
+
+    ctx.fillStyle = "rgba(255, 255, 255, 0.9)"
+    ctx.beginPath()
+    ctx.arc(
+      this.x - this.r * 0.35,
+      this.y - this.r * 0.35,
+      this.r * 0.18,
+      0,
+      Math.PI * 2,
+    )
+    ctx.fill()
+
+    ctx.restore()
   }
 
   animate() {
-    this.x += this.xSpeed
-    this.y += this.ySpeed
-    this.flip += this.flipSpeed
+    this.sway += this.swaySpeed
+    this.x += Math.sin(this.sway) * SWAY_AMPLITUDE
+    this.y -= this.ySpeed
     this.draw()
   }
 }
@@ -77,7 +92,7 @@ class Petal {
 export const BGEffect = () => {
   const ref = useRef<HTMLCanvasElement>({} as HTMLCanvasElement)
 
-  const petalsRef = useRef<Petal[]>([])
+  const bubblesRef = useRef<Bubble[]>([])
 
   const resizeTimeoutRef = useRef(0)
   const animationFrameIdRef = useRef(0)
@@ -90,27 +105,24 @@ export const BGEffect = () => {
 
     const ctx = canvas.getContext("2d") as CanvasRenderingContext2D
 
-    const petalImg = new Image()
-    petalImg.src = patelUrl
-
-    const getPetalNum = () => {
-      return Math.floor((window.innerWidth * window.innerHeight) / 30000)
+    const getBubbleNum = () => {
+      return Math.floor((window.innerWidth * window.innerHeight) / 40000)
     }
 
-    const initializePetals = () => {
-      const count = getPetalNum()
-      const petals = []
+    const initializeBubbles = () => {
+      const count = getBubbleNum()
+      const bubbles = []
       for (let i = 0; i < count; i++) {
-        petals.push(new Petal(canvas, ctx, petalImg))
+        bubbles.push(new Bubble(canvas, ctx))
       }
-      petalsRef.current = petals
+      bubblesRef.current = bubbles
     }
 
-    initializePetals()
+    initializeBubbles()
 
     const render = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height)
-      petalsRef.current.forEach((petal) => petal.animate())
+      bubblesRef.current.forEach((bubble) => bubble.animate())
       animationFrameIdRef.current = requestAnimationFrame(render)
     }
 
@@ -121,13 +133,13 @@ export const BGEffect = () => {
       resizeTimeoutRef.current = window.setTimeout(() => {
         canvas.width = window.innerWidth
         canvas.height = window.innerHeight
-        const newPetalNum = getPetalNum()
-        if (newPetalNum > petalsRef.current.length) {
-          for (let i = petalsRef.current.length; i < newPetalNum; i++) {
-            petalsRef.current.push(new Petal(canvas, ctx, petalImg))
+        const newBubbleNum = getBubbleNum()
+        if (newBubbleNum > bubblesRef.current.length) {
+          for (let i = bubblesRef.current.length; i < newBubbleNum; i++) {
+            bubblesRef.current.push(new Bubble(canvas, ctx))
           }
-        } else if (newPetalNum < petalsRef.current.length) {
-          petalsRef.current.splice(newPetalNum)
+        } else if (newBubbleNum < bubblesRef.current.length) {
+          bubblesRef.current.splice(newBubbleNum)
         }
       }, 100)
     }
