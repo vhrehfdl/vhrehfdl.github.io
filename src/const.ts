@@ -40,7 +40,7 @@ export const KMAP_PLACE_ID = 138347153
 export const BRIDE_FULLNAME = "소수진"
 export const BRIDE_FIRSTNAME = "수진"
 export const BRIDE_TITLE = "딸"
-export const BRIDE_FATHER = "故소형건"
+export const BRIDE_FATHER = "소형건"
 export const BRIDE_MOTHER = "박지향"
 export const BRIDE_INFO = [
   {
