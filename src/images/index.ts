@@ -82,8 +82,8 @@ export const GALLERY_PREVIEW = [
   snow3, // 3: 3×2 와이드
   pine1, // 4: 2×2
   snow5, // 5: 2×2
-  bouquetSun, // 6: 2×2
-  kiss, // 7: 6×3 풀폭 footer
+  kiss, // 6: 2×2
+  bouquetSun, // 7: 6×3 풀폭 footer
 ]
 
 // 썸네일 매핑 — 그리드/모자이크에 사용 (라이트박스는 원본)
