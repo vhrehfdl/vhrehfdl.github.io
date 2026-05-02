@@ -7,7 +7,7 @@ import { Location } from "./component/location"
 import { Information } from "./component/information"
 import { Footer } from "./component/footer"
 import { ImageBreak } from "./component/imageBreak"
-import { BEACH_3, BEACH_4, PINE_2 } from "./images"
+import { BEACH_4, OUTDOOR_PORTRAIT, PINE_2 } from "./images"
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
         <div className="invitation scrollroot">
           <Cover />
           <Invitation />
-          <ImageBreak src={BEACH_3} />
+          <ImageBreak src={OUTDOOR_PORTRAIT} fit="contain" />
           <Calendar />
           <ImageBreak
             src={BEACH_4}

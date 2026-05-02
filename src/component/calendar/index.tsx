@@ -7,21 +7,6 @@ import {
 } from "../../const"
 import { Reveal, SectionLabel } from "../reveal"
 
-const MONTH_EN = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-]
-
 export const Calendar = () => {
   const [now, setNow] = useState(() => Date.now())
   useEffect(() => {
@@ -60,8 +45,11 @@ export const Calendar = () => {
       </Reveal>
       <Reveal delay={120}>
         <div className="cal-month">
-          <div className="cal-month-en">{MONTH_EN[WEDDING_DATE.month()]}</div>
-          <div className="cal-month-num">{WEDDING_DATE.format("YYYY")}</div>
+          <div className="cal-month-en">{WEDDING_DATE.format("YYYY")}</div>
+          <div className="cal-month-num">
+            {WEDDING_DATE.format("M")}
+            <span className="cal-month-suffix">월</span>
+          </div>
         </div>
       </Reveal>
       <Reveal delay={200}>
