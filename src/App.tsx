@@ -7,7 +7,7 @@ import { Location } from "./component/location"
 import { Information } from "./component/information"
 import { Footer } from "./component/footer"
 import { ImageBreak } from "./component/imageBreak"
-import { BEACH_4, OUTDOOR_PORTRAIT, PINE_2 } from "./images"
+import { BEACH_4, OUTDOOR_LOCATION, OUTDOOR_PORTRAIT } from "./images"
 
 function App() {
   return (
@@ -24,7 +24,7 @@ function App() {
             caption="파도 위, 우리의 약속"
           />
           <Gallery />
-          <ImageBreak src={PINE_2} />
+          <ImageBreak src={OUTDOOR_LOCATION} fit="contain" />
           <Location />
           <Information />
           <Footer />

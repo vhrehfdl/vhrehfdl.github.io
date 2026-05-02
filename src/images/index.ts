@@ -18,6 +18,7 @@ import snow5 from "./wedding/snow-5.jpg"
 import snow6 from "./wedding/snow-6.jpg"
 import snowAerial from "./wedding/snow-aerial.jpg"
 import outdoorPortrait from "./wedding/outdoor-portrait.jpg"
+import outdoorLocation from "./wedding/outdoor-location.jpg"
 
 // 720px wide thumbnails (50-150KB each) for grid previews
 import heroAerialT from "./wedding/thumbs/hero-aerial.jpg"
@@ -40,11 +41,13 @@ import snow5T from "./wedding/thumbs/snow-5.jpg"
 import snow6T from "./wedding/thumbs/snow-6.jpg"
 import snowAerialT from "./wedding/thumbs/snow-aerial.jpg"
 import outdoorPortraitT from "./wedding/thumbs/outdoor-portrait.jpg"
+import outdoorLocationT from "./wedding/thumbs/outdoor-location.jpg"
 
 export const BEACH_3 = beach3
 export const BEACH_4 = beach4
 export const PINE_2 = pine2
 export const OUTDOOR_PORTRAIT = outdoorPortrait
+export const OUTDOOR_LOCATION = outdoorLocation
 
 export const COVER_IMAGE = heroAerial
 
@@ -105,6 +108,7 @@ const THUMB_MAP: Record<string, string> = {
   [snow6]: snow6T,
   [snowAerial]: snowAerialT,
   [outdoorPortrait]: outdoorPortraitT,
+  [outdoorLocation]: outdoorLocationT,
 }
 
 export const thumb = (full: string): string => THUMB_MAP[full] ?? full
