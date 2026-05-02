@@ -1,48 +1,34 @@
-import { Cover } from "./component/cover"
-import { Location } from "./component/location"
 import "./App.scss"
-import { BGEffect } from "./component/bgEffect"
+import { Cover } from "./component/cover"
 import { Invitation } from "./component/invitation"
 import { Calendar } from "./component/calendar"
 import { Gallery } from "./component/gallery"
+import { Location } from "./component/location"
 import { Information } from "./component/information"
-import { GuestBook } from "./component/guestbook"
-import { LazyDiv } from "./component/lazyDiv"
-import { STATIC_ONLY } from "./env"
+import { Footer } from "./component/footer"
+import { ImageBreak } from "./component/imageBreak"
+import { BEACH_3, BEACH_4, PINE_2 } from "./images"
 
 function App() {
   return (
-    <div className="background">
-      <BGEffect />
-      <div className="card-view">
-        <LazyDiv className="card-group">
-          {/* 표지 */}
+    <div className="page">
+      <div className="device">
+        <div className="invitation scrollroot">
           <Cover />
-
-          {/* 모시는 글 */}
           <Invitation />
-        </LazyDiv>
-
-        <LazyDiv className="card-group">
-          {/* 결혼식 날짜 (달력) */}
+          <ImageBreak src={BEACH_3} />
           <Calendar />
-
-          {/* 겔러리 */}
+          <ImageBreak
+            src={BEACH_4}
+            en="OUR MOMENTS"
+            caption="파도 위, 우리의 약속"
+          />
           <Gallery />
-        </LazyDiv>
-
-        <LazyDiv className="card-group">
-          {/* 오시는길 */}
+          <ImageBreak src={PINE_2} />
           <Location />
-        </LazyDiv>
-
-        <LazyDiv className="card-group">
-          {/* 마음 전하기 */}
           <Information />
-          {/* 방명록 */}
-          {!STATIC_ONLY && <GuestBook />}
-        </LazyDiv>
-
+          <Footer />
+        </div>
       </div>
     </div>
   )

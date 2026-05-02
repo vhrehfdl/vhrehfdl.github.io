@@ -1,135 +1,135 @@
-import { useEffect, useMemo, useState } from "react"
+import { useEffect, useState } from "react"
 import {
   BRIDE_FIRSTNAME,
+  dayjs,
   GROOM_FIRSTNAME,
-  HOLIDAYS,
   WEDDING_DATE,
-  WEDDING_DATE_FORMAT,
 } from "../../const"
-import { LazyDiv } from "../lazyDiv"
+import { Reveal, SectionLabel } from "../reveal"
 
-const firstDayOfWeek = WEDDING_DATE.startOf("month").day()
-const daysInMonth = WEDDING_DATE.daysInMonth()
+const MONTH_EN = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+]
 
 export const Calendar = () => {
-  const [tsDiff, setTsDiff] = useState(WEDDING_DATE.diff())
-
-  const dayDiff = useMemo(() => {
-    const dayOffset = WEDDING_DATE.diff(WEDDING_DATE.startOf("day"))
-    return Math.ceil((tsDiff - dayOffset) / 1000 / 60 / 60 / 24)
-  }, [tsDiff])
-
+  const [now, setNow] = useState(() => Date.now())
   useEffect(() => {
-    const interval = setInterval(() => {
-      const diff = WEDDING_DATE.diff()
+    const t = setInterval(() => setNow(Date.now()), 1000)
+    return () => clearInterval(t)
+  }, [])
 
-      setTsDiff(diff)
-    }, 1000)
+  const targetMs = WEDDING_DATE.valueOf()
+  const diff = Math.max(0, targetMs - now)
+  const day = Math.floor(diff / 86400000)
+  const hour = Math.floor((diff % 86400000) / 3600000)
+  const min = Math.floor((diff % 3600000) / 60000)
+  const sec = Math.floor((diff % 60000) / 1000)
 
-    return () => clearInterval(interval)
-  })
+  // 자정 기준 D-day 계산 (당일/지난 날 메시지 분기용)
+  const dayDiff = WEDDING_DATE.startOf("day").diff(
+    dayjs(now).startOf("day"),
+    "day",
+  )
 
-  const diffs = useMemo(() => {
-    const tsDiff_ = Math.abs(tsDiff)
-    const seconds = Math.floor((tsDiff_ % 60000) / 1000)
-    const minutes = Math.floor((tsDiff_ % 3600000) / 60000)
-    const hours = Math.floor((tsDiff_ % 86400000) / 3600000)
-    const days = Math.floor(tsDiff_ / 86400000)
-    const isAfter = tsDiff < 0
+  const startDow = WEDDING_DATE.startOf("month").day()
+  const daysInMonth = WEDDING_DATE.daysInMonth()
+  const targetDate = WEDDING_DATE.date()
 
-    return { days, hours, minutes, seconds, isAfter }
-  }, [tsDiff])
+  const cells: (number | null)[] = []
+  for (let i = 0; i < startDow; i++) cells.push(null)
+  for (let d = 1; d <= daysInMonth; d++) cells.push(d)
+  while (cells.length % 7 !== 0) cells.push(null)
+
+  const pad = (n: number) => String(n).padStart(2, "0")
 
   return (
-    <LazyDiv className="card calendar">
-      <h2 className="english">The Wedding Day</h2>
-      <div className="break" />
-      {WEDDING_DATE.format(WEDDING_DATE_FORMAT)}
-      <div className="calendar-wrapper">
-        <div className="head holiday">
-          <span>Su</span>
+    <section className="cal">
+      <Reveal>
+        <SectionLabel en="THE DAY" ko="예식일" />
+      </Reveal>
+      <Reveal delay={120}>
+        <div className="cal-month">
+          <div className="cal-month-en">{MONTH_EN[WEDDING_DATE.month()]}</div>
+          <div className="cal-month-num">{WEDDING_DATE.format("YYYY")}</div>
         </div>
-        <div className="head">
-          <span>Mo</span>
-        </div>
-        <div className="head">
-          <span>Tu</span>
-        </div>
-        <div className="head">
-          <span>We</span>
-        </div>
-        <div className="head">
-          <span>Th</span>
-        </div>
-        <div className="head">
-          <span>Fr</span>
-        </div>
-        <div className="head">
-          <span>Sa</span>
-        </div>
-        {Array.from({ length: firstDayOfWeek }).map((_, i) => (
-          <div key={i} />
-        ))}
-        {Array.from({ length: daysInMonth }).map((_, i) => {
-          const date = i + 1
-
-          const classes = []
-
-          const isSunday = (i + firstDayOfWeek) % 7 === 0
-
-          if (isSunday || HOLIDAYS.includes(date)) {
-            classes.push("holiday")
-          }
-
-          const isWeddingDate = date === WEDDING_DATE.date()
-
-          if (isWeddingDate) {
-            classes.push("wedding-date")
-          }
-
-          return (
-            <div
-              key={i}
-              className={classes.length ? classes.join(" ") : undefined}
-            >
-              <span>{date}</span>
-              {isWeddingDate && <div className="heart" />}
+      </Reveal>
+      <Reveal delay={200}>
+        <div className="cal-grid">
+          {["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"].map((d, i) => (
+            <div key={d} className={`cal-dow ${i === 0 ? "is-sun" : ""}`}>
+              {d}
             </div>
-          )
-        })}
-      </div>
-      <div className="countdown-wrapper">
-        <div className="countdown">
-          <div className="unit">DAY</div>
-          <div />
-          <div className="unit">HOUR</div>
-          <div />
-          <div className="unit">MIN</div>
-          <div />
-          <div className="unit">SEC</div>
-          <div className="count">{diffs.days}</div>
-          <span>:</span>
-          <div className="count">{diffs.hours}</div>
-          <span>:</span>
-          <div className="count">{diffs.minutes}</div>
-          <span>:</span>
-          <div className="count">{diffs.seconds}</div>
+          ))}
+          {cells.map((c, i) => {
+            const dow = i % 7
+            const isTarget = c === targetDate
+            return (
+              <div
+                key={i}
+                className={`cal-day ${dow === 0 ? "is-sun" : ""} ${isTarget ? "is-target" : ""}`}
+              >
+                {c || ""}
+                {isTarget && <span className="cal-ring" />}
+              </div>
+            )
+          })}
         </div>
-        <div className="message">
-          {GROOM_FIRSTNAME} & {BRIDE_FIRSTNAME}의 결혼식이{" "}
+      </Reveal>
+      <Reveal delay={300}>
+        <div className="cal-time">
+          {WEDDING_DATE.format("YYYY년 M월 D일 dddd")} · 오후{" "}
+          {WEDDING_DATE.format("h시")}
+        </div>
+      </Reveal>
+      <Reveal delay={380}>
+        <div className="dday">
+          <div className="dday-cell">
+            <span className="dday-num">{pad(day)}</span>
+            <span className="dday-lbl">DAYS</span>
+          </div>
+          <div className="dday-cell">
+            <span className="dday-num">{pad(hour)}</span>
+            <span className="dday-lbl">HOUR</span>
+          </div>
+          <div className="dday-cell">
+            <span className="dday-num">{pad(min)}</span>
+            <span className="dday-lbl">MIN</span>
+          </div>
+          <div className="dday-cell">
+            <span className="dday-num">{pad(sec)}</span>
+            <span className="dday-lbl">SEC</span>
+          </div>
+        </div>
+        <div className="dday-msg">
           {dayDiff > 0 ? (
             <>
-              <span className="d-day">{dayDiff}</span>일 남았습니다.
+              {GROOM_FIRSTNAME} ♡ {BRIDE_FIRSTNAME}의 결혼식이{" "}
+              <strong>{dayDiff}</strong>일 남았습니다
             </>
           ) : dayDiff === 0 ? (
-            <>오늘입니다.</>
+            <>
+              오늘은 {GROOM_FIRSTNAME} ♡ {BRIDE_FIRSTNAME}의{" "}
+              <strong>결혼식</strong>날입니다
+            </>
           ) : (
             <>
-              <span className="d-day">{-dayDiff}</span>일 지났습니다.
+              {GROOM_FIRSTNAME} ♡ {BRIDE_FIRSTNAME}의 결혼식이{" "}
+              <strong>{-dayDiff}</strong>일 지났습니다
             </>
           )}
         </div>
-      </div>
-    </LazyDiv>
+      </Reveal>
+    </section>
   )
 }

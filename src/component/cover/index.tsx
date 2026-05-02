@@ -6,42 +6,34 @@ import {
   WEDDING_DATE_FORMAT,
 } from "../../const"
 import { COVER_IMAGE } from "../../images"
-import { LazyDiv } from "../lazyDiv"
-
-const DAY_OF_WEEK = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-]
 
 export const Cover = () => {
   return (
-    <LazyDiv className="card cover">
-      <div className="wedding-date">
-        {WEDDING_DATE.format("YYYY")}
-        <div className="divider" />
-        {WEDDING_DATE.format("MM")}
-        <div className="divider" />
-        {WEDDING_DATE.format("DD")}
+    <section className="cover">
+      <img src={COVER_IMAGE} alt="" className="cover-img" />
+      <div className="cover-overlay" />
+      <div className="cover-content">
+        <div className="cover-top">
+          <div className="cover-tagline">Together, Always</div>
+        </div>
+        <div className="cover-bottom">
+          <div className="cover-en">SAVE THE DATE FOR THE WEDDING OF</div>
+          <div className="cover-names">
+            <span>{GROOM_FULLNAME}</span>
+            <span className="cover-amp">&amp;</span>
+            <span>{BRIDE_FULLNAME}</span>
+          </div>
+          <div className="cover-rule" />
+          <div className="cover-info">
+            {WEDDING_DATE.format(WEDDING_DATE_FORMAT)}
+          </div>
+          <div className="cover-venue">{LOCATION}</div>
+        </div>
       </div>
-      <div className="wedding-day-of-week">
-        {DAY_OF_WEEK[WEDDING_DATE.day()]}
+      <div className="cover-scroll">
+        <span>SCROLL</span>
+        <span className="cover-scroll-line" />
       </div>
-      <div className="image-wrapper">
-        <img src={COVER_IMAGE} alt="sample" />
-      </div>
-      <div className="subtitle">Save the date for the wedding of</div>
-      <div className="names">
-        {GROOM_FULLNAME}
-        <div className="divider" />
-        {BRIDE_FULLNAME}
-      </div>
-      <div className="info">{WEDDING_DATE.format(WEDDING_DATE_FORMAT)}</div>
-      <div className="info">{LOCATION}</div>
-    </LazyDiv>
+    </section>
   )
 }

@@ -1,172 +1,121 @@
+import { useState } from "react"
 import { BRIDE_INFO, GROOM_INFO } from "../../const"
-import { STATIC_ONLY } from "../../env"
-import { Button } from "../button"
-import { LazyDiv } from "../lazyDiv"
-import { useModal } from "../modal"
-import { AttendanceInfo } from "./attendance"
+import { Reveal, SectionLabel } from "../reveal"
 
-export const Information1 = () => {
+const showToast = (msg: string) => {
+  const el = document.createElement("div")
+  el.className = "toast"
+  el.textContent = msg
+  document.body.appendChild(el)
+  setTimeout(() => el.remove(), 1600)
+}
+
+type Account = {
+  who: string
+  name: string
+  bank: string
+  no: string
+}
+
+const parseAccount = (
+  relation: string,
+  name: string,
+  account?: string,
+): Account | null => {
+  if (!account) return null
+  const idx = account.indexOf(" ")
+  const bank = idx > 0 ? account.slice(0, idx) : account
+  const no = idx > 0 ? account.slice(idx + 1).trim() : ""
+  return { who: relation, name, bank, no }
+}
+
+const buildAccounts = (
+  source: { relation: string; name: string; account?: string }[],
+): Account[] =>
+  source
+    .map(({ relation, name, account }) => parseAccount(relation, name, account))
+    .filter((a): a is Account => a !== null)
+
+const AccountList = ({ list }: { list: Account[] }) => {
+  const [open, setOpen] = useState<number | null>(null)
+  const copy = async (text: string) => {
+    try {
+      await navigator.clipboard.writeText(text)
+      showToast("계좌번호가 복사되었습니다")
+    } catch {
+      showToast("복사에 실패했습니다")
+    }
+  }
   return (
-    <>
-      <h2 className="english">Information</h2>
-      <div className="info-card">
-        <div className="label">식사 안내</div>
-        <div className="content">
-          식사시간: 16시 30분 ~ 18시 30분
-          <br />
-          장소: 1층 연회장
+    <div className="acc-list">
+      {list.map((a, i) => (
+        <div
+          key={i}
+          className={`acc-item ${open === i ? "is-open" : ""}`}
+        >
+          <button
+            className="acc-row"
+            onClick={() => setOpen(open === i ? null : i)}
+          >
+            <span className="acc-who">{a.who}</span>
+            <span className="acc-name">{a.name}</span>
+            <span className="acc-caret">{open === i ? "−" : "+"}</span>
+          </button>
+          {open === i && (
+            <div className="acc-detail">
+              <div className="acc-bank">{a.bank}</div>
+              <div className="acc-no">{a.no}</div>
+              <button className="acc-copy" onClick={() => copy(a.no)}>
+                복사
+              </button>
+            </div>
+          )}
         </div>
-      </div>
-    </>
+      ))}
+    </div>
   )
 }
 
-export const Information2 = () => {
-  const { openModal, closeModal } = useModal()
+export const Information = () => {
+  const [tab, setTab] = useState<"groom" | "bride">("groom")
+
+  const groomAccounts = buildAccounts(GROOM_INFO)
+  const brideAccounts = buildAccounts(BRIDE_INFO)
+  const accounts = tab === "groom" ? groomAccounts : brideAccounts
 
   return (
-    <>
-      <div className="info-card">
-        <div className="label">마음 전하기</div>
-        <div className="content">
+    <section className="acc">
+      <Reveal>
+        <SectionLabel en="WITH HEART" ko="마음 전하기" />
+      </Reveal>
+      <Reveal delay={100}>
+        <p className="acc-intro">
           참석이 어려워 직접 축하해주지 못하는
           <br />
           분들을 위해 계좌번호를 기재하였습니다.
           <br />
           넓은 마음으로 양해 부탁드립니다.
+        </p>
+      </Reveal>
+      <Reveal delay={180}>
+        <div className="acc-tabs">
+          <button
+            className={`acc-tab ${tab === "groom" ? "is-on" : ""}`}
+            onClick={() => setTab("groom")}
+          >
+            신랑측
+          </button>
+          <button
+            className={`acc-tab ${tab === "bride" ? "is-on" : ""}`}
+            onClick={() => setTab("bride")}
+          >
+            신부측
+          </button>
         </div>
-
-        <div className="break" />
-
-        <Button
-          style={{ width: "100%" }}
-          onClick={() => {
-            openModal({
-              className: "donation-modal",
-              closeOnClickBackground: true,
-              header: <div className="title">신랑측 계좌번호</div>,
-              content: (
-                <>
-                  {GROOM_INFO.filter(({ account }) => !!account).map(
-                    ({ relation, name, account }) => (
-                      <div className="account-info" key={relation}>
-                        <div>
-                          <div className="name">
-                            <span className="relation">{relation}</span> {name}
-                          </div>
-                          <div>{account}</div>
-                        </div>
-                        <Button
-                          className="copy-button"
-                          onClick={async () => {
-                            if (account) {
-                              try {
-                                navigator.clipboard.writeText(account)
-                                alert(account + "\n복사되었습니다.")
-                              } catch {
-                                alert("복사에 실패했습니다.")
-                              }
-                            }
-                          }}
-                        >
-                          복사하기
-                        </Button>
-                      </div>
-                    ),
-                  )}
-                </>
-              ),
-              footer: (
-                <Button
-                  buttonStyle="style2"
-                  className="bg-light-grey-color text-dark-color"
-                  onClick={closeModal}
-                >
-                  닫기
-                </Button>
-              ),
-            })
-          }}
-        >
-          신랑측 계좌번호 보기
-        </Button>
-        <div className="break" />
-        <Button
-          style={{ width: "100%" }}
-          onClick={() => {
-            openModal({
-              className: "donation-modal",
-              closeOnClickBackground: true,
-              header: <div className="title">신부측 계좌번호</div>,
-              content: (
-                <>
-                  {BRIDE_INFO.filter(({ account }) => !!account).map(
-                    ({ relation, name, account }) => (
-                      <div className="account-info" key={relation}>
-                        <div>
-                          <div className="name">
-                            <span className="relation">{relation}</span> {name}
-                          </div>
-                          <div>{account}</div>
-                        </div>
-                        <Button
-                          className="copy-button"
-                          onClick={async () => {
-                            if (account) {
-                              try {
-                                navigator.clipboard.writeText(account)
-                                alert(account + "\n복사되었습니다.")
-                              } catch {
-                                alert("복사에 실패했습니다.")
-                              }
-                            }
-                          }}
-                        >
-                          복사하기
-                        </Button>
-                      </div>
-                    ),
-                  )}
-                </>
-              ),
-              footer: (
-                <Button
-                  buttonStyle="style2"
-                  className="bg-light-grey-color text-dark-color"
-                  onClick={closeModal}
-                >
-                  닫기
-                </Button>
-              ),
-            })
-          }}
-        >
-          신부측 계좌번호 보기
-        </Button>
-      </div>
-    </>
-  )
-}
-
-export const Information = () => {
-  if (STATIC_ONLY) {
-    return (
-      <>
-        <LazyDiv className="card information">
-          <Information1 />
-        </LazyDiv>
-        <LazyDiv className="card information">
-          <Information2 />
-        </LazyDiv>
-      </>
-    )
-  }
-
-  return (
-    <LazyDiv className="card information">
-      <Information1 />
-      <Information2 />
-      <AttendanceInfo />
-    </LazyDiv>
+      </Reveal>
+      <Reveal delay={240}>
+        <AccountList list={accounts} />
+      </Reveal>
+    </section>
   )
 }
