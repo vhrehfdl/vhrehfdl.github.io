@@ -79,7 +79,7 @@ export const Calendar = () => {
                 key={i}
                 className={`cal-day ${dow === 0 ? "is-sun" : ""} ${isTarget ? "is-target" : ""}`}
               >
-                {c || ""}
+                {c && <span className="cal-num">{c}</span>}
                 {isTarget && <span className="cal-ring" />}
               </div>
             )
