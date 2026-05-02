@@ -1,10 +1,9 @@
 import { useEffect, useState, useRef } from "react"
-import { useKakao, useNaver } from "../store"
+import { useNaver } from "../store"
 import LockIcon from "../../icons/lock-icon.svg?react"
 import UnlockIcon from "../../icons/unlock-icon.svg?react"
 import {
   KMAP_PLACE_ID,
-  LOCATION,
   NMAP_PLACE_ID,
   WEDDING_HALL_POSITION,
 } from "../../const"
@@ -94,8 +93,6 @@ const NaverMap = () => {
 }
 
 export const MapNavigation = () => {
-  const kakao = useKakao()
-
   const openNaver = () => {
     switch (checkDevice()) {
       case "ios":
@@ -111,23 +108,12 @@ export const MapNavigation = () => {
   }
 
   const openKakao = () => {
-    switch (checkDevice()) {
-      case "ios":
-      case "android":
-        if (kakao)
-          kakao.Navi.start({
-            name: LOCATION,
-            x: WEDDING_HALL_POSITION[0],
-            y: WEDDING_HALL_POSITION[1],
-            coordType: "wgs84",
-          })
-        break
-      default:
-        window.open(
-          `https://map.kakao.com/link/map/${KMAP_PLACE_ID}`,
-          "_blank",
-        )
-    }
+    // 모바일/데스크탑 모두 카카오맵 웹 URL로 통일
+    // (모바일 카카오맵 앱 설치 시 iOS/Android에서 자동으로 앱으로 라우팅)
+    window.open(
+      `https://map.kakao.com/link/map/${KMAP_PLACE_ID}`,
+      "_blank",
+    )
   }
 
   return (
