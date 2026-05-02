@@ -18,6 +18,27 @@ import snow5 from "./wedding/snow-5.jpg"
 import snow6 from "./wedding/snow-6.jpg"
 import snowAerial from "./wedding/snow-aerial.jpg"
 
+// 720px wide thumbnails (50-150KB each) for grid previews
+import heroAerialT from "./wedding/thumbs/hero-aerial.jpg"
+import heroSnowT from "./wedding/thumbs/hero-snow.jpg"
+import beach1T from "./wedding/thumbs/beach-1.jpg"
+import beach2T from "./wedding/thumbs/beach-2.jpg"
+import beach3T from "./wedding/thumbs/beach-3.jpg"
+import beach4T from "./wedding/thumbs/beach-4.jpg"
+import pine1T from "./wedding/thumbs/pine-1.jpg"
+import pine2T from "./wedding/thumbs/pine-2.jpg"
+import pine3T from "./wedding/thumbs/pine-3.jpg"
+import pine4T from "./wedding/thumbs/pine-4.jpg"
+import bouquetSunT from "./wedding/thumbs/bouquet-sun.jpg"
+import veilBambooT from "./wedding/thumbs/veil-bamboo.jpg"
+import kissT from "./wedding/thumbs/kiss.jpg"
+import snow2T from "./wedding/thumbs/snow-2.jpg"
+import snow3T from "./wedding/thumbs/snow-3.jpg"
+import snow4T from "./wedding/thumbs/snow-4.jpg"
+import snow5T from "./wedding/thumbs/snow-5.jpg"
+import snow6T from "./wedding/thumbs/snow-6.jpg"
+import snowAerialT from "./wedding/thumbs/snow-aerial.jpg"
+
 export const BEACH_3 = beach3
 export const BEACH_4 = beach4
 export const PINE_2 = pine2
@@ -58,3 +79,28 @@ export const GALLERY_PREVIEW = [
   bouquetSun, // 6: 2×2
   kiss, // 7: 6×3 풀폭 footer
 ]
+
+// 썸네일 매핑 — 그리드/모자이크에 사용 (라이트박스는 원본)
+const THUMB_MAP: Record<string, string> = {
+  [heroAerial]: heroAerialT,
+  [heroSnow]: heroSnowT,
+  [beach1]: beach1T,
+  [beach2]: beach2T,
+  [beach3]: beach3T,
+  [beach4]: beach4T,
+  [pine1]: pine1T,
+  [pine2]: pine2T,
+  [pine3]: pine3T,
+  [pine4]: pine4T,
+  [bouquetSun]: bouquetSunT,
+  [veilBamboo]: veilBambooT,
+  [kiss]: kissT,
+  [snow2]: snow2T,
+  [snow3]: snow3T,
+  [snow4]: snow4T,
+  [snow5]: snow5T,
+  [snow6]: snow6T,
+  [snowAerial]: snowAerialT,
+}
+
+export const thumb = (full: string): string => THUMB_MAP[full] ?? full

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { GALLERY_IMAGES, GALLERY_PREVIEW } from "../../images"
+import { GALLERY_IMAGES, GALLERY_PREVIEW, thumb } from "../../images"
 import { Reveal, SectionLabel } from "../reveal"
 
 const Lightbox = ({
@@ -78,7 +78,7 @@ export const Gallery = () => {
               className={`gal-cell gal-cell-${i % 8}`}
               onClick={() => setOpen(GALLERY_IMAGES.indexOf(src))}
             >
-              <img src={src} alt="" loading="lazy" />
+              <img src={thumb(src)} alt="" loading="lazy" />
             </button>
           ))}
         </div>
@@ -118,7 +118,7 @@ export const Gallery = () => {
                     setOpen(i)
                   }}
                 >
-                  <img src={src} alt="" loading="lazy" />
+                  <img src={thumb(src)} alt="" loading="lazy" />
                 </button>
               ))}
             </div>
