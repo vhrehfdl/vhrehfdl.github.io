@@ -18,14 +18,10 @@ function App() {
           <Invitation />
           <ImageBreak src={OUTDOOR_PORTRAIT} fit="contain" />
           <Calendar />
-          <ImageBreak
-            src={BEACH_4}
-            en="OUR MOMENTS"
-            caption="파도 위, 우리의 약속"
-          />
+          <ImageBreak src={BEACH_4} en="OUR MOMENTS" />
           <Gallery />
-          <ImageBreak src={OUTDOOR_LOCATION} fit="contain" />
           <Location />
+          <ImageBreak src={OUTDOOR_LOCATION} fit="contain" />
           <Information />
           <Footer />
         </div>

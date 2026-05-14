@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { GALLERY_IMAGES, GALLERY_PREVIEW, thumb } from "../../images"
+import { GALLERY_IMAGES, thumb } from "../../images"
 import { Reveal, SectionLabel } from "../reveal"
 
 const Lightbox = ({
@@ -62,7 +62,6 @@ const Lightbox = ({
 
 export const Gallery = () => {
   const [open, setOpen] = useState<number | null>(null)
-  const [showAll, setShowAll] = useState(false)
 
   return (
     <section className="gal">
@@ -70,23 +69,18 @@ export const Gallery = () => {
         <SectionLabel en="GALLERY" ko="우리의 순간" />
       </Reveal>
       <Reveal delay={120}>
-        <div className="gal-grid">
-          {GALLERY_PREVIEW.map((src, i) => (
+        <div className="gal-all-grid">
+          {GALLERY_IMAGES.map((src, i) => (
             <button
-              key={src}
+              key={i}
               type="button"
-              className={`gal-cell gal-cell-${i % 8}`}
-              onClick={() => setOpen(GALLERY_IMAGES.indexOf(src))}
+              className="gal-all-cell"
+              onClick={() => setOpen(i)}
             >
               <img src={thumb(src)} alt="" loading="lazy" />
             </button>
           ))}
         </div>
-      </Reveal>
-      <Reveal delay={220}>
-        <button className="gal-all" onClick={() => setShowAll(true)}>
-          사진 전체보기
-        </button>
       </Reveal>
       {open !== null && (
         <Lightbox
@@ -95,35 +89,6 @@ export const Gallery = () => {
           onClose={() => setOpen(null)}
           onChange={setOpen}
         />
-      )}
-      {showAll && (
-        <div className="modal" onClick={() => setShowAll(false)}>
-          <div
-            className="modal-card modal-card-wide"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              className="modal-close"
-              onClick={() => setShowAll(false)}
-            >
-              ×
-            </button>
-            <div className="gal-all-grid">
-              {GALLERY_IMAGES.map((src, i) => (
-                <button
-                  key={i}
-                  className="gal-all-cell"
-                  onClick={() => {
-                    setShowAll(false)
-                    setOpen(i)
-                  }}
-                >
-                  <img src={thumb(src)} alt="" loading="lazy" />
-                </button>
-              ))}
-            </div>
-          </div>
-        </div>
       )}
     </section>
   )

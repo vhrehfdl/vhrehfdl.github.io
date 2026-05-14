@@ -19,6 +19,15 @@ import snow6 from "./wedding/snow-6.jpg"
 import snowAerial from "./wedding/snow-aerial.jpg"
 import outdoorPortrait from "./wedding/outdoor-portrait.jpg"
 import outdoorLocation from "./wedding/outdoor-location.jpg"
+import gallery1 from "./wedding/gallery-1.jpg"
+import gallery2 from "./wedding/gallery-2.jpg"
+import gallery3 from "./wedding/gallery-3.jpg"
+import gallery4 from "./wedding/gallery-4.jpg"
+import gallery5 from "./wedding/gallery-5.jpg"
+import gallery6 from "./wedding/gallery-6.jpg"
+import gallery7 from "./wedding/gallery-7.jpg"
+import gallery8 from "./wedding/gallery-8.jpg"
+import gallery9 from "./wedding/gallery-9.jpg"
 
 // 720px wide thumbnails (50-150KB each) for grid previews
 import heroAerialT from "./wedding/thumbs/hero-aerial.jpg"
@@ -42,6 +51,15 @@ import snow6T from "./wedding/thumbs/snow-6.jpg"
 import snowAerialT from "./wedding/thumbs/snow-aerial.jpg"
 import outdoorPortraitT from "./wedding/thumbs/outdoor-portrait.jpg"
 import outdoorLocationT from "./wedding/thumbs/outdoor-location.jpg"
+import gallery1T from "./wedding/thumbs/gallery-1.jpg"
+import gallery2T from "./wedding/thumbs/gallery-2.jpg"
+import gallery3T from "./wedding/thumbs/gallery-3.jpg"
+import gallery4T from "./wedding/thumbs/gallery-4.jpg"
+import gallery5T from "./wedding/thumbs/gallery-5.jpg"
+import gallery6T from "./wedding/thumbs/gallery-6.jpg"
+import gallery7T from "./wedding/thumbs/gallery-7.jpg"
+import gallery8T from "./wedding/thumbs/gallery-8.jpg"
+import gallery9T from "./wedding/thumbs/gallery-9.jpg"
 
 export const BEACH_3 = beach3
 export const BEACH_4 = beach4
@@ -51,39 +69,17 @@ export const OUTDOOR_LOCATION = outdoorLocation
 
 export const COVER_IMAGE = heroAerial
 
-// 전체보기 갤러리 — 우리 사진 컨셉 흐름: 눈 → 숲 → 바다
-// (표지·구간 브레이크에 쓰인 hero-aerial / beach-3 / beach-4 / pine-2 는 제외)
+// 전체보기 갤러리 — 3×3 (사용자 지정 순서)
 export const GALLERY_IMAGES = [
-  // 눈 (snow)
-  snowAerial,
-  heroSnow,
-  snow2,
-  snow3,
-  snow4,
-  snow5,
-  snow6,
-  // 숲 (forest / bamboo)
-  pine1,
-  pine3,
-  pine4,
-  veilBamboo,
-  bouquetSun,
-  kiss,
-  // 바다 (sea)
-  beach1,
-  beach2,
-]
-
-// 미리보기 모자이크 — 다양성을 위해 별도 큐레이션 (8장, 모자이크 정확히 채움)
-export const GALLERY_PREVIEW = [
-  snowAerial, // 0: 4×3 큰
-  veilBamboo, // 1: 2×3 세로
-  beach1, // 2: 3×2 와이드
-  snow3, // 3: 3×2 와이드
-  pine1, // 4: 2×2
-  snow5, // 5: 2×2
-  kiss, // 6: 2×2
-  bouquetSun, // 7: 6×3 풀폭 footer
+  gallery1,
+  gallery2,
+  gallery3,
+  gallery4,
+  gallery5,
+  gallery6,
+  gallery7,
+  gallery8,
+  gallery9,
 ]
 
 // 썸네일 매핑 — 그리드/모자이크에 사용 (라이트박스는 원본)
@@ -109,6 +105,15 @@ const THUMB_MAP: Record<string, string> = {
   [snowAerial]: snowAerialT,
   [outdoorPortrait]: outdoorPortraitT,
   [outdoorLocation]: outdoorLocationT,
+  [gallery1]: gallery1T,
+  [gallery2]: gallery2T,
+  [gallery3]: gallery3T,
+  [gallery4]: gallery4T,
+  [gallery5]: gallery5T,
+  [gallery6]: gallery6T,
+  [gallery7]: gallery7T,
+  [gallery8]: gallery8T,
+  [gallery9]: gallery9T,
 }
 
 export const thumb = (full: string): string => THUMB_MAP[full] ?? full
