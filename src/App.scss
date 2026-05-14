@@ -513,6 +513,8 @@ img { display: block; max-width: 100%; }
   z-index: 100;
   display: flex; align-items: center; justify-content: center;
   padding: 24px;
+  touch-action: none;
+  overscroll-behavior: contain;
 }
 .lb-img {
   max-width: 100%; max-height: 100%;
