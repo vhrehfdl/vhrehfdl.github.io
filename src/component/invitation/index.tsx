@@ -73,8 +73,6 @@ export const Invitation = () => {
       </Reveal>
       <Reveal delay={120}>
         <p className="greet-poem">
-          파도가 밀려와 약속이 되는 날
-          <br />
           소중한 분들을 모시고
           <br />
           사랑의 약속을 하려고 합니다.

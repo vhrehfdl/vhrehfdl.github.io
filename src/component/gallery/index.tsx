@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { GALLERY_IMAGES, thumb } from "../../images"
 import { Reveal, SectionLabel } from "../reveal"
 
@@ -15,6 +15,7 @@ const Lightbox = ({
 }) => {
   const next = () => onChange((index + 1) % items.length)
   const prev = () => onChange((index - 1 + items.length) % items.length)
+  const touchStart = useRef<{ x: number; y: number } | null>(null)
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose()
@@ -24,8 +25,30 @@ const Lightbox = ({
     window.addEventListener("keydown", onKey)
     return () => window.removeEventListener("keydown", onKey)
   })
+  const onTouchStart = (e: React.TouchEvent) => {
+    const t = e.touches[0]
+    touchStart.current = { x: t.clientX, y: t.clientY }
+  }
+  const onTouchEnd = (e: React.TouchEvent) => {
+    const start = touchStart.current
+    touchStart.current = null
+    if (!start) return
+    const t = e.changedTouches[0]
+    const dx = t.clientX - start.x
+    const dy = t.clientY - start.y
+    // horizontal swipe: |dx| >= 50px and dominantly horizontal
+    if (Math.abs(dx) >= 50 && Math.abs(dx) > Math.abs(dy)) {
+      if (dx < 0) next()
+      else prev()
+    }
+  }
   return (
-    <div className="lb" onClick={onClose}>
+    <div
+      className="lb"
+      onClick={onClose}
+      onTouchStart={onTouchStart}
+      onTouchEnd={onTouchEnd}
+    >
       <img
         src={items[index]}
         alt=""

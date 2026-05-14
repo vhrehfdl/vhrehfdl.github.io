@@ -3,16 +3,9 @@ import {
   BRIDE_FULLNAME,
   GROOM_FIRSTNAME,
   GROOM_FULLNAME,
-  LOCATION,
-  SHARE_ADDRESS,
-  SHARE_ADDRESS_TITLE,
   WEDDING_DATE,
-  WEDDING_DATE_FORMAT,
 } from "../../const"
 import { Reveal } from "../reveal"
-import { useKakao } from "../store"
-
-const baseUrl = import.meta.env.BASE_URL
 
 const showToast = (msg: string) => {
   const el = document.createElement("div")
@@ -23,39 +16,6 @@ const showToast = (msg: string) => {
 }
 
 export const Footer = () => {
-  const kakao = useKakao()
-
-  const sharePages = () => {
-    if (!kakao) {
-      showToast("카카오 SDK 로딩 중입니다")
-      return
-    }
-    const link = window.location.protocol + "//" + window.location.host + baseUrl
-    kakao.Share.sendDefault({
-      objectType: "location",
-      address: SHARE_ADDRESS,
-      addressTitle: SHARE_ADDRESS_TITLE,
-      content: {
-        title: `${GROOM_FULLNAME} ❤️ ${BRIDE_FULLNAME}의 결혼식에 초대합니다.`,
-        description:
-          WEDDING_DATE.format(WEDDING_DATE_FORMAT) + "\n" + LOCATION,
-        imageUrl:
-          window.location.protocol +
-          "//" +
-          window.location.host +
-          baseUrl +
-          "/preview_image.png",
-        link: { mobileWebUrl: link, webUrl: link },
-      },
-      buttons: [
-        {
-          title: "초대장 보기",
-          link: { mobileWebUrl: link, webUrl: link },
-        },
-      ],
-    })
-  }
-
   const copyLink = async () => {
     try {
       await navigator.clipboard.writeText(window.location.href)
@@ -82,9 +42,6 @@ export const Footer = () => {
           {WEDDING_DATE.format("YYYY . MM . DD")}
         </div>
         <div className="ft-share">
-          <button className="ft-share-btn" onClick={sharePages}>
-            카카오톡으로 공유하기
-          </button>
           <button className="ft-share-btn" onClick={copyLink}>
             링크 복사
           </button>
