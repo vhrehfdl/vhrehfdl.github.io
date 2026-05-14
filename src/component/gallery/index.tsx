@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react"
-import { GALLERY_IMAGES, thumb } from "../../images"
+import { GALLERY_IMAGES, large, thumb } from "../../images"
 import { Reveal, SectionLabel } from "../reveal"
 
 const Lightbox = ({
@@ -30,6 +30,15 @@ const Lightbox = ({
     window.addEventListener("keydown", onKey)
     return () => window.removeEventListener("keydown", onKey)
   })
+  useEffect(() => {
+    // preload neighbors so swipe feels instant
+    const n = items.length
+    const neighbors = [(index + 1) % n, (index - 1 + n) % n]
+    neighbors.forEach((i) => {
+      const img = new Image()
+      img.src = large(items[i])
+    })
+  }, [index, items])
   useEffect(() => {
     const { body } = document
     const scrollY = window.scrollY
@@ -123,7 +132,7 @@ const Lightbox = ({
       onTouchEnd={onTouchEnd}
     >
       <img
-        src={items[index]}
+        src={large(items[index])}
         alt=""
         className="lb-img"
         style={{

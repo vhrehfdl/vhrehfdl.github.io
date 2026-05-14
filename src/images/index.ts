@@ -27,6 +27,21 @@ import gallery7T from "./wedding/thumbs/gallery-7.jpg"
 import gallery8T from "./wedding/thumbs/gallery-8.jpg"
 import gallery9T from "./wedding/thumbs/gallery-9.jpg"
 
+// 1600px JPEG q82 (130-520KB each) for the lightbox
+import heroAerialL from "./wedding/large/hero-aerial.jpg"
+import beach4L from "./wedding/large/beach-4.jpg"
+import outdoorPortraitL from "./wedding/large/outdoor-portrait.jpg"
+import outdoorLocationL from "./wedding/large/outdoor-location.jpg"
+import gallery1L from "./wedding/large/gallery-1.jpg"
+import gallery2L from "./wedding/large/gallery-2.jpg"
+import gallery3L from "./wedding/large/gallery-3.jpg"
+import gallery4L from "./wedding/large/gallery-4.jpg"
+import gallery5L from "./wedding/large/gallery-5.jpg"
+import gallery6L from "./wedding/large/gallery-6.jpg"
+import gallery7L from "./wedding/large/gallery-7.jpg"
+import gallery8L from "./wedding/large/gallery-8.jpg"
+import gallery9L from "./wedding/large/gallery-9.jpg"
+
 export const BEACH_4 = beach4
 export const OUTDOOR_PORTRAIT = outdoorPortrait
 export const OUTDOOR_LOCATION = outdoorLocation
@@ -46,7 +61,6 @@ export const GALLERY_IMAGES = [
   gallery9,
 ]
 
-// 썸네일 매핑 — 그리드/모자이크에 사용 (라이트박스는 원본)
 const THUMB_MAP: Record<string, string> = {
   [heroAerial]: heroAerialT,
   [beach4]: beach4T,
@@ -63,4 +77,21 @@ const THUMB_MAP: Record<string, string> = {
   [gallery9]: gallery9T,
 }
 
+const LARGE_MAP: Record<string, string> = {
+  [heroAerial]: heroAerialL,
+  [beach4]: beach4L,
+  [outdoorPortrait]: outdoorPortraitL,
+  [outdoorLocation]: outdoorLocationL,
+  [gallery1]: gallery1L,
+  [gallery2]: gallery2L,
+  [gallery3]: gallery3L,
+  [gallery4]: gallery4L,
+  [gallery5]: gallery5L,
+  [gallery6]: gallery6L,
+  [gallery7]: gallery7L,
+  [gallery8]: gallery8L,
+  [gallery9]: gallery9L,
+}
+
 export const thumb = (full: string): string => THUMB_MAP[full] ?? full
+export const large = (full: string): string => LARGE_MAP[full] ?? full
