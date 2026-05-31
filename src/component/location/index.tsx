@@ -53,9 +53,15 @@ export const Location = () => {
           <div />
           <div className="content">
             <b>
-              ※ 안내: 산빛공원에 주차 후 셔틀버스를 이용하시면 더 편하게
+              ※ 산빛공원에 주차 후 셔틀버스를 이용하시면 더 편하게
               오실 수 있습니다. (주차장 입구에서 셔틀버스 상시운행)
             </b>
+          </div>
+          <div />
+          <div className="content">
+            <b>주차장 ↔ 예식장 이동 안내</b>
+            <br />• 도보 이용 시: 약 <b>10분</b> 소요
+            <br />• 셔틀버스 이용 시: 약 <b>2분</b> 소요
           </div>
         </div>
         <div className="location-info">
