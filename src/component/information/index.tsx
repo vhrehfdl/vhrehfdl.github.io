@@ -76,12 +76,15 @@ const AccountList = ({ list }: { list: Account[] }) => {
   )
 }
 
+type Side = "groom" | "bride"
+
 export const Information = () => {
-  const [tab, setTab] = useState<"groom" | "bride">("groom")
+  const [open, setOpen] = useState<Side | null>(null)
+  const toggle = (side: Side) => setOpen((prev) => (prev === side ? null : side))
 
   const groomAccounts = buildAccounts(GROOM_INFO)
   const brideAccounts = buildAccounts(BRIDE_INFO)
-  const accounts = tab === "groom" ? groomAccounts : brideAccounts
+  const accounts = open === "groom" ? groomAccounts : brideAccounts
 
   return (
     <section className="acc">
@@ -90,32 +93,32 @@ export const Information = () => {
       </Reveal>
       <Reveal delay={100}>
         <p className="acc-intro">
-          참석이 어려워 직접 축하해주지 못하는
+          참석이 어려우신 분들을 위해 기재했습니다.
           <br />
-          분들을 위해 계좌번호를 기재하였습니다.
-          <br />
-          넓은 마음으로 양해 부탁드립니다.
+          진심으로 축하해주셔서 감사합니다.
         </p>
       </Reveal>
       <Reveal delay={180}>
         <div className="acc-tabs">
           <button
-            className={`acc-tab ${tab === "groom" ? "is-on" : ""}`}
-            onClick={() => setTab("groom")}
+            className={`acc-tab ${open === "groom" ? "is-on" : ""}`}
+            onClick={() => toggle("groom")}
           >
             신랑측
           </button>
           <button
-            className={`acc-tab ${tab === "bride" ? "is-on" : ""}`}
-            onClick={() => setTab("bride")}
+            className={`acc-tab ${open === "bride" ? "is-on" : ""}`}
+            onClick={() => toggle("bride")}
           >
             신부측
           </button>
         </div>
       </Reveal>
-      <Reveal delay={240}>
-        <AccountList list={accounts} />
-      </Reveal>
+      {open && (
+        <Reveal delay={240}>
+          <AccountList list={accounts} />
+        </Reveal>
+      )}
     </section>
   )
 }

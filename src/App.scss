@@ -425,8 +425,9 @@ img { display: block; max-width: 100%; }
   z-index: -1;
 }
 .cal-time {
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: 14px;
+  font-weight: 600;
   letter-spacing: 0.16em;
   color: var(--ink);
   margin-bottom: 28px;
@@ -592,7 +593,7 @@ img { display: block; max-width: 100%; }
     line-height: 2;
     margin-bottom: 1rem;
     font-family: var(--display);
-    font-size: 22px;
+    font-size: 16px;
     letter-spacing: 0.04em;
     color: var(--ink);
   }
@@ -760,6 +761,9 @@ img { display: block; max-width: 100%; }
   color: var(--ink-3);
   cursor: pointer;
   transition: background 200ms, color 200ms;
+}
+.acc-tab + .acc-tab {
+  border-left: 1px solid var(--line);
 }
 .acc-tab.is-on {
   background: var(--ink);

@@ -16,16 +16,16 @@ export const Calendar = () => {
 
   const targetMs = WEDDING_DATE.valueOf()
   const diff = Math.max(0, targetMs - now)
-  const day = Math.floor(diff / 86400000)
   const hour = Math.floor((diff % 86400000) / 3600000)
   const min = Math.floor((diff % 3600000) / 60000)
   const sec = Math.floor((diff % 60000) / 1000)
 
-  // 자정 기준 D-day 계산 (당일/지난 날 메시지 분기용)
+  // 자정 기준 D-day 계산 (카운터 DAYS / 당일·지난 날 메시지 공통)
   const dayDiff = WEDDING_DATE.startOf("day").diff(
     dayjs(now).startOf("day"),
     "day",
   )
+  const day = Math.max(0, dayDiff)
 
   const startDow = WEDDING_DATE.startOf("month").day()
   const daysInMonth = WEDDING_DATE.daysInMonth()
