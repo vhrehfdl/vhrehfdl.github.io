@@ -587,19 +587,14 @@ img { display: block; max-width: 100%; }
 .loc { background: var(--bg-2); text-align: center; }
 .location {
   .addr {
+    display: inline-block;
+    text-align: left;
     line-height: 2;
     margin-bottom: 1rem;
     font-family: var(--display);
     font-size: 22px;
     letter-spacing: 0.04em;
     color: var(--ink);
-    .detail {
-      opacity: 0.6;
-      font-family: var(--sans);
-      font-size: 13px;
-      letter-spacing: 0.02em;
-      color: var(--ink-2);
-    }
   }
 
   .map-wrapper {

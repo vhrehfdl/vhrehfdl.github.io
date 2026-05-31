@@ -1,4 +1,3 @@
-import { useState } from "react"
 import {
   BRIDE_FATHER,
   BRIDE_FULLNAME,
@@ -11,61 +10,7 @@ import {
 } from "../../const"
 import { Reveal, SectionLabel } from "../reveal"
 
-type ContactItem = {
-  rel: string
-  name: string
-  phone?: string
-}
-
-const ContactRow = ({ rel, name, phone }: ContactItem) => (
-  <div className="contact-row">
-    <span className="contact-rel">{rel}</span>
-    <span className="contact-name">{name}</span>
-    {phone ? (
-      <a className="contact-icn" href={`tel:${phone}`} aria-label="전화">
-        ☎
-      </a>
-    ) : (
-      <span className="contact-icn is-disabled">☎</span>
-    )}
-    {phone ? (
-      <a className="contact-icn" href={`sms:${phone}`} aria-label="문자">
-        ✉
-      </a>
-    ) : (
-      <span className="contact-icn is-disabled">✉</span>
-    )}
-  </div>
-)
-
-const ContactModal = ({ onClose }: { onClose: () => void }) => (
-  <div className="modal" onClick={onClose}>
-    <div className="modal-card" onClick={(e) => e.stopPropagation()}>
-      <button className="modal-close" onClick={onClose}>
-        ×
-      </button>
-      <div className="modal-en">CONTACT</div>
-      <div className="modal-title">축하 인사 전하기</div>
-      <p className="modal-sub">전화, 문자메세지로 축하 인사를 전해보세요.</p>
-
-      <div className="contact-block">
-        <div className="contact-h">신랑측</div>
-        <ContactRow rel="신랑" name={GROOM_FULLNAME} phone="010-7722-4623" />
-        <ContactRow rel="아버지" name={GROOM_FATHER} />
-        <ContactRow rel="어머니" name={GROOM_MOTHER} />
-      </div>
-      <div className="contact-block">
-        <div className="contact-h">신부측</div>
-        <ContactRow rel="신부" name={BRIDE_FULLNAME} phone="010-2994-2644" />
-        <ContactRow rel="아버지" name={BRIDE_FATHER} />
-        <ContactRow rel="어머니" name={BRIDE_MOTHER} />
-      </div>
-    </div>
-  </div>
-)
-
 export const Invitation = () => {
-  const [open, setOpen] = useState(false)
   return (
     <section className="greeting">
       <Reveal>
@@ -110,12 +55,6 @@ export const Invitation = () => {
           </div>
         </div>
       </Reveal>
-      <Reveal delay={400}>
-        <button className="greet-cta" onClick={() => setOpen(true)}>
-          연락하기
-        </button>
-      </Reveal>
-      {open && <ContactModal onClose={() => setOpen(false)} />}
     </section>
   )
 }

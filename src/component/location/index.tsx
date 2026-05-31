@@ -1,7 +1,6 @@
 import { Map, MapNavigation } from "./map"
 import CarIcon from "../../icons/car-icon.svg?react"
 import BusIcon from "../../icons/bus-icon.svg?react"
-import { LOCATION, LOCATION_ADDRESS } from "../../const"
 import { Reveal, SectionLabel } from "../reveal"
 
 export const Location = () => {
@@ -12,8 +11,9 @@ export const Location = () => {
       </Reveal>
       <Reveal delay={100}>
         <div className="addr">
-          {LOCATION}
-          <div className="detail">{LOCATION_ADDRESS}</div>
+          식장: 그라운드333 (바이더그린)
+          <br />
+          주차: 산빛공원 공영주차장
         </div>
       </Reveal>
       <Reveal delay={180}>
@@ -30,21 +30,11 @@ export const Location = () => {
           <div className="heading">대중교통</div>
           <div />
           <div className="content">
-            * 지하철 이용시
+            • 지하철 <b>4호선 인덕원역</b> 택시 <b>8분</b> 거리
             <br />
-            지하철 4호선 <b>인덕원역 2번 출구</b>로 나와서
+            • 인덕원역 <b>2번 출구</b> 마을버스 <b>12번</b>
             <br />
-            <b>인덕원역에서 셔틀버스를 이용하시면 편리합니다.</b>
-          </div>
-          <div />
-          <div className="content">
-            * 버스 이용 시
-            <br />
-            목적지 근처 정류장: <b>인덕원 IT밸리</b>
-            <br />→ 하차 후 도보 <b>약 5분</b> 이동
-            <br />
-            (인덕원역 방면에서 오면 <b>일반버스 83번</b> 또는{" "}
-            <b>마을버스 12번</b> 이용이 가장 간단합니다.)
+            &nbsp;&nbsp;[인덕원 IT밸리] 하차 도보 <b>3분</b>
           </div>
         </div>
         <div className="location-info">
@@ -56,16 +46,15 @@ export const Location = () => {
           <div className="content">
             네이버 지도, 카카오 네비, 티맵 등 이용
             <br />
-            <b>그라운드333</b> 또는 <b>성고개로 138</b> 검색
-            <br />- 주차 요금은 무료입니다.
+            <b>산빛공원 공영주차장</b> 검색
             <br />
-            (주차장 이용 시 건물과 바로 연결)
+            주차 요금은 무료입니다.
           </div>
           <div />
           <div className="content">
             <b>
-              ※ 안내: 공영주차장에 주차 후 셔틀버스를 이용하시면 더 편하게
-              오실 수 있습니다.
+              ※ 안내: 산빛공원에 주차 후 셔틀버스를 이용하시면 더 편하게
+              오실 수 있습니다. (주차장 입구에서 셔틀버스 상시운행)
             </b>
           </div>
         </div>
