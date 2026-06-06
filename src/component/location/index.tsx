@@ -11,9 +11,9 @@ export const Location = () => {
       </Reveal>
       <Reveal delay={100}>
         <div className="addr">
-          식장: 그라운드333 (바이더그린)
+          예식장: 그라운드333 (바이더그린)
           <br />
-          주차: 산빛공원 공영주차장
+          주차장: 산빛공원 공영주차장
         </div>
       </Reveal>
       <Reveal delay={180}>
